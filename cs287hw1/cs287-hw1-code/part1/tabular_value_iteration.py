@@ -5,7 +5,7 @@ import logger
 import numpy as np
 import moviepy.editor as mpy
 import time
-
+import math
 
 class ValueIteration(object):
     """
@@ -133,10 +133,43 @@ class ValueIteration(object):
         """
 
         """ INSERT YOUR CODE HERE"""
+        old_values = self.value_fun.get_values(states=None)
+        new_values = np.zeros(shape=(self.env.observation_space.n,))
         if self.policy_type == 'deterministic':
-            raise NotImplementedError
+            for state in range(self.env.observation_space.n):
+                maxValue = None
+                for next_action in range(self.env.action_space.n):
+                    tempValue = 0
+                    for next_state in range(self.env.observation_space.n):
+                        tempValue += self.transitions[state, next_action, next_state] * \
+                                (self.rewards[state, next_action, next_state] + self.discount * old_values[next_state])
+                    if maxValue == None:
+                        maxValue = tempValue
+                    else:
+                        if tempValue > maxValue:
+                            maxValue = tempValue
+                new_values[state] = maxValue
+            next_v = new_values
         elif self.policy_type == 'max_ent':
-            raise NotImplementedError
+            # first step is to calculate q_value
+            q_values = np.zeros(shape=(self.env.observation_space.n, self.env.action_space.n))
+            for state in range(self.env.observation_space.n):
+                for action in range(self.env.action_space.n):
+                    tempValue = 0
+                    for next_state in range(self.env.observation_space.n):
+                        tempValue += self.transitions[state, action, next_state] * \
+                                     (self.rewards[state, action, next_state] + self.discount * old_values[next_state])
+                    q_values[state, action] = tempValue
+
+            for state in range(self.env.observation_space.n):
+                sumOverAction = 0
+                for action in range(self.env.action_space.n):
+                    #tempValue = q_values[state, action] # METHOD 1
+                    tempValue = q_values[state, action] - np.max(q_values[state,: ]) # METHOD 2
+                    sumOverAction += np.exp(1/self.temperature * tempValue)
+                #new_values[state] = self.temperature * math.log(sumOverAction, math.e) # METHOD 1
+                new_values[state] = self.temperature * np.log(sumOverAction) + np.max(q_values[state, :]) # METHOD 2
+            next_v = new_values
             """ Your code ends here"""
         else:
             raise NotImplementedError
@@ -154,10 +187,40 @@ class ValueIteration(object):
         """
 
         """INSERT YOUR CODE HERE"""
+        new_policy = np.zeros(shape=(self.env.observation_space.n, self.env.action_space.n))
+        state_values = self.value_fun.get_values(states=None)
         if self.policy_type == 'deterministic':
-            raise NotImplementedError
+            for state in  range(self.env.observation_space.n):
+                actionValue = []
+                for next_action in range(self.env.action_space.n):
+                    tempValue = 0
+                    for next_state in  range(self.env.observation_space.n):
+                        tempValue += self.transitions[state, next_action, next_state] * \
+                                (self.rewards[state, next_action, next_state] + self.discount * state_values[next_state])
+                    actionValue.append(tempValue)
+                new_policy[state, np.argmax(np.array(actionValue))] = 1
+            pi = new_policy
         elif self.policy_type == 'max_ent':
-            raise NotImplementedError
+
+            # first step is to calculate q_value
+            q_values = np.zeros(shape=(self.env.observation_space.n, self.env.action_space.n))
+            for state in range(self.env.observation_space.n):
+                for action in range(self.env.action_space.n):
+                    tempValue = 0
+                    for next_state in range(self.env.observation_space.n):
+                        tempValue += self.transitions[state, action, next_state] * \
+                                     (self.rewards[state, action, next_state] + self.discount * state_values[next_state])
+                    q_values[state, action] = tempValue
+
+            for state in range(self.env.observation_space.n):
+                actionValues = []
+                for action in range(self.env.action_space.n):
+                    #tempValue = np.exp(1 / self.temperature * q_values[state, action]) # METHOD 1
+                    tempValue = np.exp(1/ self.temperature * (q_values[state, action] - np.max(q_values[state,:]))) + self.eps # METHOD 2
+                    actionValues.append(tempValue)
+                for i in range(self.env.action_space.n):
+                    new_policy[state, i] = actionValues[i] / np.sum(actionValues)
+            pi = new_policy
             """ Your code ends here"""
         else:
             raise NotImplementedError

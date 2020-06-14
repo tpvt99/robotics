@@ -64,8 +64,8 @@
     \hspace{0.2in}
     \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/placeholder.png}
-        \caption{Heatmap of the final values on the \texttt{GridWorld(1)} environment.}
+        \includegraphics[width=\textwidth]{figures/part_1_a_grid1.png}
+        \caption{Heatmap of the final values on the \texttt{GridWorld(1)} environment.  \textcolor{red}{My Solutions}}
     \end{subfigure}
 \end{figure}
 
@@ -105,20 +105,49 @@ The $\epsilon$ value prevents the probabilities to be $0$, or close to it, stabi
     \centering
     \begin{subfigure}{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/placeholder.png}
-        \caption{Heatmap of the final values on the \texttt{GridWorld(1)} environment using a maximum entropy policy with temperature equal to 1.}
+        \includegraphics[width=\textwidth]{figures/part_1_b_t1_grid1.png}
+        \caption{Heatmap of the final values on the \texttt{GridWorld(1)} environment using a maximum entropy policy with temperature equal to 1.  \textcolor{red}{My Solutions}}
     \end{subfigure}
     \hspace{0.1 in}
     \begin{subfigure}{0.3\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/placeholder.png}
-        \caption{Heatmap of the final values on the \texttt{GridWorld(1)} environment using a maximum entropy policy with temperature equal to 1e-2.}
+        \includegraphics[width=\textwidth]{figures/part_1_b_t1e-2_grid1.png}
+        \caption{Heatmap of the final values on the \texttt{GridWorld(1)} environment using a maximum entropy policy with temperature equal to 1e-2.  \textcolor{red}{My Solutions}}
+    \end{subfigure}
+    \hspace{0.1 in}
+     \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/part_1_b_t1e-5_grid1.png}
+        \caption{Heatmap of the final values on the \texttt{GridWorld(1)} environment using a maximum entropy policy with temperature equal to 1e-5.  \textcolor{red}{My Solutions}}
+    \end{subfigure}
+\end{figure}
+
+\textcolor{red}{I want to try with naive formula without subtracting $\max_a Q(s,a$) or adding $\epsilon$}
+\textcolor{red}{
+\begin{align*}
+	&\pi_k(a|s) = \frac{1}{Z}  \text{exp}  \left(\frac{1}{\beta}Q(s,a) \right)\\
+	&V_k(s) = \beta \log \left( \sum_a \text{exp} \left( \frac{1}{\beta}Q_k(s,a) \right)\right)
+\end{align*}
+}
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/part_1_b_t1_naive.png}
+        \caption{Heatmap of the final values on the \texttt{GridWorld(1)} environment using a maximum entropy policy with temperature equal to 1.  \textcolor{red}{My Solutions}}
+    \end{subfigure}
+    \hspace{0.1 in}
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/part_1_b_t0-01_naive.png}
+        \caption{Heatmap of the final values on the \texttt{GridWorld(1)} environment using a maximum entropy policy with temperature equal to 1e-2.  \textcolor{red}{My Solutions}}
     \end{subfigure}
     \hspace{0.1 in}
      \begin{subfigure}{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures/placeholder.png}
-        \caption{Heatmap of the final values on the \texttt{GridWorld(1)} environment using a maximum entropy policy with temperature equal to 1e-5.}
+        \caption{Heatmap of the final values on the \texttt{GridWorld(1)} environment using a maximum entropy policy with temperature equal to 1e-5.  \textcolor{red}{Error because nan in solutions, which is due to unstable in exp}}
     \end{subfigure}
 \end{figure}
 

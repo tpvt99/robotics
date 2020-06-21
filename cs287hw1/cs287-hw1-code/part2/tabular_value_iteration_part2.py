@@ -134,24 +134,43 @@ class ValueIteration(object):
 
         """ INSERT YOUR CODE HERE"""
         old_values = self.value_fun.get_values(states=None)
+        new_values = np.zeros(shape=(self.env.observation_space.n,))
         if self.policy_type == 'deterministic':
-            # Q_s_a = sum(transitions[s,a,:] *( rewards[s,a,:] + discount * values[:])
-            q_value = np.sum(np.multiply(self.transitions, self.rewards + self.discount * old_values), axis=2)
-            new_values = np.max(q_value, axis=1)
+            for state in range(self.env.observation_space.n):
+                maxValue = None
+                for action in range(self.env.action_space.n):
+                    tempValue = 0
+                    for next_state in range(self.env.observation_space.n):
+                        n_obs_id = self.transitions._idxs[state, action,0]
+                        if next_state == n_obs_id:
+                            tempValue += self.transitions[state, action, next_state] * \
+                                self.rewards[state, action, next_state] + self.discount * old_values[next_state]
+                    if maxValue == None:
+                        maxValue = tempValue
+                    else:
+                        if tempValue > maxValue:
+                            maxValue = tempValue
+                new_values[state] = maxValue
             next_v = new_values
         elif self.policy_type == 'max_ent':
-            new_values = np.zeros_like(old_values)
             # first step is to calculate q_value
-            q_value = np.sum(np.multiply(self.transitions, self.rewards + self.discount * old_values), axis=2)
+            q_values = np.zeros(shape=(self.env.observation_space.n, self.env.action_space.n))
+            for state in range(self.env.observation_space.n):
+                for action in range(self.env.action_space.n):
+                    tempValue = 0
+                    for next_state in range(self.env.observation_space.n):
+                        tempValue += self.transitions[state, action, next_state] * \
+                                     (self.rewards[state, action, next_state] + self.discount * old_values[next_state])
+                    q_values[state, action] = tempValue
 
             for state in range(self.env.observation_space.n):
                 sumOverAction = 0
                 for action in range(self.env.action_space.n):
                     #tempValue = q_values[state, action] # METHOD 1
-                    tempValue = q_value[state, action] - np.max(q_value[state,: ]) # METHOD 2
+                    tempValue = q_values[state, action] - np.max(q_values[state,: ]) # METHOD 2
                     sumOverAction += np.exp(1/self.temperature * tempValue)
                 #new_values[state] = self.temperature * math.log(sumOverAction, math.e) # METHOD 1
-                new_values[state] = self.temperature * np.log(sumOverAction) + np.max(q_value[state, :]) # METHOD 2
+                new_values[state] = self.temperature * np.log(sumOverAction) + np.max(q_values[state, :]) # METHOD 2
             next_v = new_values
             """ Your code ends here"""
         else:
@@ -173,19 +192,34 @@ class ValueIteration(object):
         new_policy = np.zeros(shape=(self.env.observation_space.n, self.env.action_space.n))
         old_values = self.value_fun.get_values(states=None)
         if self.policy_type == 'deterministic':
-            # Q_s_a = sum(transitions[s,a,:] *( rewards[s,a,:] + discount * values[:])
-            q_value = np.sum(np.multiply(self.transitions, self.rewards + self.discount * old_values), axis=2)
-            new_policy = np.argmax(q_value, axis=1)
+            for state in range(self.env.observation_space.n):
+                actionValue = []
+                for action in range(self.env.action_space.n):
+                    tempValue = 0
+                    for next_state in range(self.env.observation_space.n):
+                        n_obs_id = self.transitions._idxs[state, action, 0]
+                        if next_state == n_obs_id:
+                            tempValue += self.transitions[state, action, next_state] * \
+                                         (self.rewards[state, action, next_state] + self.discount * old_values[next_state])
+                    actionValue.append(tempValue)
+                new_policy[state, np.argmax(np.array(actionValue))] = 1.0
             pi = new_policy
         elif self.policy_type == 'max_ent':
             # first step is to calculate q_value
-            q_value = np.sum(np.multiply(self.transitions, self.rewards + self.discount * old_values), axis=2)
+            q_values = np.zeros(shape=(self.env.observation_space.n, self.env.action_space.n))
+            for state in range(self.env.observation_space.n):
+                for action in range(self.env.action_space.n):
+                    tempValue = 0
+                    for next_state in range(self.env.observation_space.n):
+                        tempValue += self.transitions[state, action, next_state] * \
+                                     (self.rewards[state, action, next_state] + self.discount * old_values[next_state])
+                    q_values[state, action] = tempValue
 
             for state in range(self.env.observation_space.n):
                 actionValues = []
                 for action in range(self.env.action_space.n):
                     #tempValue = np.exp(1 / self.temperature * q_values[state, action]) # METHOD 1
-                    tempValue = np.exp(1/ self.temperature * (q_value[state, action] - np.max(q_value[state,:]))) + self.eps # METHOD 2
+                    tempValue = np.exp(1/ self.temperature * (q_values[state, action] - np.max(q_values[state,:]))) + self.eps # METHOD 2
                     actionValues.append(tempValue)
                 for i in range(self.env.action_space.n):
                     new_policy[state, i] = actionValues[i] / np.sum(actionValues)

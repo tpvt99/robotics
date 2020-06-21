@@ -356,7 +356,7 @@ class DiscretizeWrapper(object):
 
     def get_action_from_id(self, id_a):
         """
-        Get continous action from id
+        Get continuous action from id
         :param id_a:
         :return:
         """

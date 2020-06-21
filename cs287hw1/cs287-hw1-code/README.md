@@ -44,7 +44,7 @@ to run value iteration with a maximum entropy policy and different temperature v
 ### Question (a): Implementation of nearest-neighbor interpolation
 You will need to fill the code in `part2/discretize.py` below the lines `if self.mode == 'nn'`. To run this question 
 type `python part2/run_part2_ab.py -m nn `. You can modify the number of points used per dimension in the state
-anc action space by running
+and action space by running
 `python part2/run_part2_ab.py -m nn -s NUM_STATES`, where `NUM_STATES` is the number of 
 points per state dimension.
 

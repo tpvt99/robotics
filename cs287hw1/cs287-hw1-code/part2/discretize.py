@@ -1,6 +1,7 @@
 import numpy as np
 from utils.utils import DiscretizeWrapper
-
+import math
+import itertools
 
 class Discretize(DiscretizeWrapper):
     """
@@ -41,28 +42,47 @@ class Discretize(DiscretizeWrapper):
         """INSERT YOUR CODE HERE"""
         cont_state = np.expand_dims(cont_state, axis=-1)
         if self.mode == 'nn':
-            obs_dim = self.obs_dims
-            bin_per_dim = (int) (self.obs_n **(1/obs_dim))
-            coordinates = np.zeros_like(cont_state)
-            for i in range(obs_dim):
-                for bin in range(bin_per_dim-1):
-                    if cont_state[i] >= self.state_points[i][bin] and cont_state[i] < self.state_points[i][bin+1]:
-                        if abs(cont_state[i] - self.state_points[i][bin]) <= abs(cont_state[i] - self.state_points[i][bin+1]):
-                            coordinates[i] = bin
-                        else:
-                            coordinates[i] = bin+1
-                        break
-                if cont_state[i] >= self.state_points[i][-1]: # cater for the last point
-                    coordinates[i] = bin_per_dim-1
-                elif cont_state[i] <= self.state_points[i][0]:
-                    coordinates[i] = 0
-            states = self.get_id_from_coordinates(coordinates.flatten())
+            coordinates = np.abs(cont_state - self.state_points).argmin(axis=1)
+            states = self.get_id_from_coordinates(coordinates)
             states = np.array([states])
             probs = np.array([1.0])
 
         elif self.mode == 'linear':
-            raise NotImplementedError
-            """Your code ends here"""
+            obs_dim = self.obs_dims
+            min_val = np.abs(cont_state - self.state_points)
+
+            nearest_coordinates = np.argsort(min_val)[:, 0:2] # first row is the nearest and 2nd-nearest to 1st dims of obs_dims,
+                                                                # second tow is the nearest and 2nd-nearest to 2nd dims of obs_dim, ... continue to obs_dims
+            nearest_probs = np.sort(min_val)[:, 0:2]
+
+            coordinates_combinations = np.array(np.meshgrid(*nearest_coordinates)).T.reshape(-1, self.obs_dims)
+            probs_combinations = np.array(np.meshgrid(*nearest_probs)).T.reshape(-1, self.obs_dims)
+            probs_combinations = np.prod(probs_combinations, axis=1)
+            probs_combinations = 1./(probs_combinations + 1e-9) # the smaller probs mean it is higher probs to get to that state. so we have to reverse
+            probs_combinations = probs_combinations / np.sum(probs_combinations) # do the normalization
+
+            states = self.get_id_from_coordinates(coordinates_combinations)
+            probs = probs_combinations
+
+            # code works
+            # astates = np.zeros(shape=(2**self.obs_dims))
+            # aprobs = np.zeros(shape=(2**self.obs_dims))
+            # for i in range(2**self.obs_dims):
+            #     new_coordinates = np.zeros(shape=(self.obs_dims))
+            #     p = 1
+            #     z=i
+            #     for dim in range(self.obs_dims):
+            #         bit = (int) (z%2)
+            #         new_coordinates[dim] = nearest_coordinates[dim, bit]
+            #         p = p * nearest_probs[dim, bit]
+            #         z = z/2
+            #     astates[i] = self.get_id_from_coordinates(new_coordinates)
+            #     aprobs[i] = 1./(p + 1e-9)
+            # aprobs = aprobs / np.sum(aprobs) # normalized
+            # astates = astates.astype(int)
+            # assert (aprobs >= 0).all()
+
+
         else:
             raise NotImplementedError
         return states, probs
@@ -87,9 +107,14 @@ class Discretize(DiscretizeWrapper):
             self.transitions[id_s, id_a, obs_n] = np.array([1])
             self.rewards[id_s, id_a, obs_n] = reward
         else:
+            if self.mode == 'nn':
+                self.transitions[id_s, id_a, next_dis_state] = probs
+                self.rewards[id_s, id_a, next_dis_state] = reward
+            elif self.mode == 'linear':
+                for i, n_obs in enumerate(next_dis_state):
+                    self.transitions[id_s, id_a, n_obs] = probs[i]
+                    self.rewards[id_s, id_a, n_obs] = reward
 
-            self.transitions[id_s, id_a, next_dis_state] = probs
-            self.rewards[id_s, id_a, next_dis_state] = reward
     def add_done_transitions(self):
         """
         Populates transition and reward matrix for the sink state (self.transition and self.reward). The sink state

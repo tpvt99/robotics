@@ -327,6 +327,7 @@ class DiscretizeWrapper(object):
         else:
             s, probs = self.vec_get_discrete_state_from_cont_state(next_obs)
         probs = np.array(probs).astype(np.float64)
+
         idxs = np.random.multinomial(1, probs/np.sum(probs)).astype(np.bool)
         id_next_s = np.array(s)[idxs][0]
         return id_next_s, reward, done, info

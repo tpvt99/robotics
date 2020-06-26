@@ -1,0 +1,1 @@
+Logging to C:\Users\bptran\Documents\GitHub\robotics\cs287hw1\cs287-hw1-code\part2/data/part2_ab/MountainCarEnv/modelinear_state_discretization21/

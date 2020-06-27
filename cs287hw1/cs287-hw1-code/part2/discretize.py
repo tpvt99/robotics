@@ -82,7 +82,6 @@ class Discretize(DiscretizeWrapper):
             # astates = astates.astype(int)
             # assert (aprobs >= 0).all()
 
-
         else:
             raise NotImplementedError
         return states, probs

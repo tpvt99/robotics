@@ -38,10 +38,17 @@ class LookAheadPolicy(object):
         :param state:
         :return: best_action (int)
            """
+
         assert isinstance(self.env.action_space, spaces.Discrete)
-        act_dim = self.env.action_space.n
+        act_n = self.env.action_space.n
         """ INSERT YOUR CODE HERE"""
-        raise NotImplementedError
+        action_combinations = np.repeat(np.arange(act_n).reshape(-1, act_n), self.horizon, axis=0)
+        action_sequences = np.array(np.meshgrid(*action_combinations)).T.reshape(self.horizon, -1)
+
+        returns = self.get_returns(state, action_sequences) # shape = (action_sequences.shape[1],)
+        best_action = action_sequences[0, np.argmax(returns)]
+
+
         return best_action
 
     def get_returns(self, state, actions):
@@ -53,7 +60,22 @@ class LookAheadPolicy(object):
         """
         assert self.env.vectorized
         """ INSERT YOUR CODE HERE"""
-        raise NotImplementedError
+
+        returns = np.zeros(shape=(actions.shape[1]))
+        next_state_batch = np.repeat(state, actions.shape[1])
+        for i in range(self.horizon):
+            action_batch = actions[i,:]
+            state_batch = next_state_batch
+            self.env.vec_set_state(state_batch)
+            next_state_batch, rewards, done, _ = self.env.vec_step(action_batch)
+            next_state_batch = done * self.env.obs_n + (~done * next_state_batch)
+            returns += self.discount ** i * rewards
+
+        #trans_probs = self.env.transitions[state_batch, action_batch]
+        #trans_idx = self.env.transitions._idxs[state_batch, action_batch]
+        #returns += self.discount ** self.horizon * np.sum(self._value_fun.get_values(trans_idx) * trans_probs, axis=1)
+
+        returns += self.discount ** self.horizon * self._value_fun.get_values(next_state_batch)
         return returns
 
     def update(self, actions):

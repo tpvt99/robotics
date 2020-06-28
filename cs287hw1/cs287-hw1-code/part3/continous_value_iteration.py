@@ -101,13 +101,14 @@ class ContinousStateValueIteration(object):
 
     def objective(self, params):
         """
-        L2 Loss of the bellman error w.r.t to parametres of our value function
+        L2 Loss of the bellman error w.r.t to parameters of our value function
         :param params:
         :return: loss function
         """
         states, next_states, rewards, dones = self.get_states_and_transitions()
         """ INSERT YOUR CODE HERE"""
-        raise NotImplementedError
+        values = rewards + self.discount * self.value_fun.get_values(states, params) - self.value_fun.get_values(next_states, params)
+        loss = np.sum(values**2)
         return loss
 
     def get_states_and_transitions(self):

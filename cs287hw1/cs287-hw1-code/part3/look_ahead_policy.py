@@ -78,9 +78,47 @@ class LookAheadPolicy(BaseLookAheadPolicy):
         num_acts = self.num_acts
         """ INSERT YOUR CODE HERE """
         if isinstance(self.env.action_space, spaces.Discrete):
-            raise NotImplementedError
+            # shape = [self.horizon, num_acts], each action is only 1 dimension whose numbers are integers
+            action_sequences = np.array([self.env.action_space.sample() \
+                                         for i in range(self.horizon * num_acts)]).reshape(self.horizon, num_acts)
         else:
             assert num_acts is not None
-            raise NotImplementedError
+            # shape = [self.horizon, num_acts, acts_dims], numbers are floating points
+            action_sequences = np.array([self.env.action_space.sample() \
+                                         for i in range(self.horizon * num_acts)]).reshape(self.horizon,
+                                         num_acts, self.env.action_space.shape[0])
 
+        if isinstance(self.env.observation_space, spaces.Discrete):
+            # shape = np.array(num_acts,), each state is only 1 dimension whose numbers are integers
+            state_sequences = np.tile(state, num_acts)
+        else:
+            assert num_acts is not None
+            # shape = [num_acts, state_dims]
+            state_sequences = np.tile(state, (num_acts,1))
+
+        returns = self.get_returns(state_sequences, action_sequences)
+
+        best_action = action_sequences[0, np.argmax(returns)]
         return best_action
+
+    def get_returns(self, states, actions):
+        """
+        :param states: current states of the policy of shape [num_acts, states_dims] if continuous; shape [num_acts] if discrete
+        :param actions: array of actions of shape [horizon, num_acts, acts_dims] if continuous; shape [horizon, num_acts] if discrete
+        :return: returns for the specified horizon + self.discount ^ H value_fun
+        HINT: Make sure to take the discounting and done into acount!
+        """
+        assert self.env.vectorized
+
+        returns = np.zeros(shape=(actions.shape[1]))
+        next_state_batch = states
+
+        for i in range(self.horizon):
+            action_batch = actions[i,:]
+            state_batch = next_state_batch
+            self.env.vec_set_state(state_batch)
+            next_state_batch, rewards, done, _ = self.env.vec_step(action_batch)
+            returns += self.discount ** i * rewards
+
+        returns += self.discount ** self.horizon * self._value_fun.get_values(next_state_batch)
+        return returns

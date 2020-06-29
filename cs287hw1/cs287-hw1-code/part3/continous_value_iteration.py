@@ -107,7 +107,8 @@ class ContinousStateValueIteration(object):
         """
         states, next_states, rewards, dones = self.get_states_and_transitions()
         """ INSERT YOUR CODE HERE"""
-        values = rewards + self.discount * self.value_fun.get_values(states, params) - self.value_fun.get_values(next_states, params)
+        v_bellman = rewards + self.discount * self.value_fun.get_values(states, params)
+        values = v_bellman - self.value_fun.get_values(next_states, params)
         loss = np.sum(values**2)
         return loss
 

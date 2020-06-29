@@ -17,7 +17,7 @@ def main(args):
     from utils.value_functions import MLPValueFun
     from part3.continous_value_iteration import ContinousStateValueIteration
     envs = [DoubleIntegratorEnv(), MountainCarEnv(), CartPoleEnv(), SwingUpEnv()]
-
+    #envs = [CartPoleEnv()]
     for env in envs:
         env_name = env.__class__.__name__
         exp_dir = os.getcwd() + '/data/part3_b/%s/horizon%s' % (env_name, args.horizon)

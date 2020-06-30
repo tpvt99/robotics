@@ -16,8 +16,8 @@ def main(args):
     from part3.look_ahead_policy import LookAheadPolicy
     from utils.value_functions import MLPValueFun
     from part3.continous_value_iteration import ContinousStateValueIteration
-    envs = [DoubleIntegratorEnv(), MountainCarEnv(), CartPoleEnv(), SwingUpEnv()]
-    #envs = [CartPoleEnv()]
+    #envs = [DoubleIntegratorEnv(), MountainCarEnv(), CartPoleEnv(), SwingUpEnv()]
+    envs = [DoubleIntegratorEnv()]
     for env in envs:
         env_name = env.__class__.__name__
         exp_dir = os.getcwd() + '/data/part3_b/%s/horizon%s' % (env_name, args.horizon)
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     parser.add_argument("--policy_type", "-p", type=str, default='cem', choices=['cem', 'rs'],
                         help='Type of policy to use. Whether to use look ahead with cross-entropy \
                         method or random shooting')
-    parser.add_argument("--horizon", "-H", type=int, default=1,
+    parser.add_argument("--horizon", "-H", type=int, default=5,
                         help='Planning horizon for the look ahead policy')
     parser.add_argument("--max_iter", "-i", type=int, default=250,
                         help='Maximum number of iterations for the value iteration algorithm')

@@ -71,36 +71,59 @@ class LookAheadPolicy(BaseLookAheadPolicy):
 
         """ INSERT YOUR CODE HERE"""
         if isinstance(self.env.action_space, spaces.Discrete):
-            action_sequences = np.array([self.env.action_space.sample() \
-                                         for i in range(self.horizon * num_acts)]).reshape(self.horizon, num_acts)
+            action_sequences = np.array(np.random.choice(self.env.action_space.n, self.horizon * num_acts)).reshape(self.horizon, num_acts)
 
 
             for _ in range(self.cem_itrs):
                 action_counts = np.zeros(shape=self.env.action_space.n)
                 returns = self.get_returns(state_sequences, action_sequences)
                 elites_idx = np.argsort(returns)[-self.num_elites:]
-                for i in action_sequences[0][elites_idx]:
-                    action_counts[i] += 1
-                action_sequences = np.array([np.random.choice(self.env.action_space.n, num_acts, p = action_counts / np.sum(action_counts))\
-                                             for i in range(self.horizon)]).reshape(self.horizon, num_acts)
-            best_action = np.random.choice(self.env.action_space.n, 1, p = action_counts / np.sum(action_counts))[0]
+                ## METHOD 1: at each horizon, we accumulate elite_idx of actions and save into account_counts. Then we sample probabilities from this action_counts
+                #for hh in range(self.horizon):
+                #    for i in action_sequences[hh][elites_idx]:
+                #        action_counts[i] += 1
+                #action_sequences = np.array([np.random.choice(self.env.action_space.n, num_acts, p = action_counts / np.sum(action_counts))\
+                #                             for i in range(self.horizon)]).reshape(self.horizon, num_acts)
+            #best_action = np.random.choice(self.env.action_space.n, 1, p = action_counts / np.sum(action_counts))[0]
 
+                ## METHOD 2: at each time step (horizon), we random choose actions based on elite idx of returns. This probability depends at elite_idx at each time step,
+                ## which is refined after each cem_itrs (evolutionary)
+                ## While as in method 1, the probabilities are accumulated through time_steps and also cem_itrs
+                stacked = []
+                for hh in range(self.horizon):
+                    stacked.append(np.random.choice(action_sequences[hh, elites_idx], size=(num_acts,)))
+                    for i in action_sequences[hh][elites_idx]:
+                        action_counts[i] += 1
+                action_sequences = np.vstack(stacked)
+
+            #best_action = action_sequences[0, elites_idx[0]]
+            best_action = np.random.choice(self.env.action_space.n, 1, p = action_counts/np.sum(action_counts))[0]
         else:
-            sigma_of_actions = np.ones(shape=self.env.action_space.shape[0])
-            mu_of_actions = np.array([np.random.normal(0, sigma_of_actions)
+            mu_of_actions = np.array([np.random.uniform(low = self.env.action_space.low,
+                                        high = self.env.action_space.high, size=self.env.action_space.shape[0])
                                       for i in range(self.horizon * self.num_acts)]).reshape(self.horizon, num_acts, self.env.action_space.shape[0])
 
             for _ in range(self.cem_itrs):
                 returns = self.get_returns(state_sequences, mu_of_actions)
                 elites_idx = np.argsort(returns)[-self.num_elites:]
-                elites_actions_mean = mu_of_actions[0, elites_idx, :].mean(axis=0)
-                elites_actions_std = mu_of_actions[0, elites_idx, :].std(axis=0)
 
-                mu_of_actions = np.array([np.random.normal(elites_actions_mean, elites_actions_std)
-                                      for i in range(self.horizon * self.num_acts)]).reshape(self.horizon, num_acts, self.env.action_space.shape[0])
+                ## METHOD 1: find mean and std from first horizon and sample actions from this mean, std
+                #elites_actions_mean = mu_of_actions[0, elites_idx, :].mean(axis=0)
+                #elites_actions_std = mu_of_actions[0, elites_idx, :].std(axis=0)
 
+                #mu_of_actions = np.array([np.random.normal(elites_actions_mean, elites_actions_std)
+                #                      for i in range(self.horizon * self.num_acts)]).reshape(self.horizon, num_acts, self.env.action_space.shape[0])
 
-            best_action = elites_actions_mean
+                ## METHOD 2: find mean and std from each horizon. In each horizon, sample actions from these means, stds
+                elites_actions_mean = mu_of_actions[:, elites_idx, :].mean(axis=1)
+                elites_actions_std = mu_of_actions[:, elites_idx, :].std(axis=1)
+                stacked = []
+                for hh in range(self.horizon):
+                    stacked.append(np.random.normal(elites_actions_mean[hh,:], elites_actions_std[hh,:], size=(num_acts, self.env.action_space.shape[0])))
+                stacked = np.stack(stacked)
+                mu_of_actions = stacked
+
+            best_action = mu_of_actions[0].mean(axis=0)
 
 
         return best_action

@@ -71,11 +71,11 @@ class LookAheadPolicy(object):
             next_state_batch = done * self.env.obs_n + (~done * next_state_batch)
             returns += self.discount ** i * rewards
 
-        #trans_probs = self.env.transitions[state_batch, action_batch]
-        #trans_idx = self.env.transitions._idxs[state_batch, action_batch]
-        #returns += self.discount ** self.horizon * np.sum(self._value_fun.get_values(trans_idx) * trans_probs, axis=1)
+        trans_probs = self.env.transitions[state_batch, action_batch]
+        trans_idx = self.env.transitions._idxs[state_batch, action_batch]
+        returns += self.discount ** self.horizon * np.sum(self._value_fun.get_values(trans_idx) * trans_probs, axis=1)
 
-        returns += self.discount ** self.horizon * self._value_fun.get_values(next_state_batch)
+        #returns += self.discount ** self.horizon * self._value_fun.get_values(next_state_batch)
         return returns
 
     def update(self, actions):

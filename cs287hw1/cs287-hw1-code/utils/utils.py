@@ -490,7 +490,7 @@ class DiscretizeWrapper(object):
             max_points = int(5e3)
             n_iters = np.ceil(n_points/max_points).astype(np.int)
             for i in range(n_iters):
-                self.vec_add_transitions(id_obs[i * max_points:(i+1) * max_points],
+                self.vec_add_transition(id_obs[i * max_points:(i+1) * max_points],
                                       id_acts[i * max_points:(i+1) * max_points])
             if isinstance(env, VectorizeMujocoEnv):
                 env.vec_close()

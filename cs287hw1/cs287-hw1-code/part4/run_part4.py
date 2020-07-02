@@ -19,7 +19,7 @@ def main(args):
 
     for env in envs:
         env_name = env.__class__.__name__
-        exp_dir = os.getcwd() + '/data/part5/%s/mode%s_state_discretization%s/' % (env_name,
+        exp_dir = os.getcwd() + '/data/part4/%s/mode%s_state_discretization%s/' % (env_name,
                                                                                       args.mode,
                                                                                       str(args.state_discretization)
                                                                                       )
@@ -51,7 +51,7 @@ if __name__ == "__main__":
                         help="Vizualize the policy and contours when training")
     parser.add_argument("--state_discretization", "-s", type=int, default=21,
                         help="Number of points per state dimension to discretize")
-    parser.add_argument("--mode", "-m", type=str, default='nn', choices=['nn', 'linear'],
+    parser.add_argument("--mode", "-m", type=str, default='linear', choices=['nn', 'linear'],
                         help="Mode of interpolate between discrete points")
     parser.add_argument("--max_iter", "-i", type=int, default=150,
                         help='Maximum number of iterations for the value iteration algorithm')

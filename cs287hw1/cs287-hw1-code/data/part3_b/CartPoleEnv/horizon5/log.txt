@@ -48,7 +48,7 @@ Logging to C:\Users\bptran\Documents\GitHub\robotics\cs287hw1\cs287-hw1-code/dat
 | Iteration       | 110      |
 ------------------------------
 ------------------------------
-| Average Returns | 8        |
+| Average Returns | 6        |
 | Iteration       | 120      |
 ------------------------------
 ------------------------------
@@ -60,46 +60,46 @@ Logging to C:\Users\bptran\Documents\GitHub\robotics\cs287hw1\cs287-hw1-code/dat
 | Iteration       | 140      |
 ------------------------------
 ------------------------------
-| Average Returns | 6        |
+| Average Returns | 20       |
 | Iteration       | 150      |
 ------------------------------
 ------------------------------
-| Average Returns | 6        |
+| Average Returns | 8        |
 | Iteration       | 160      |
 ------------------------------
 ------------------------------
-| Average Returns | 6        |
+| Average Returns | 13       |
 | Iteration       | 170      |
 ------------------------------
 ------------------------------
-| Average Returns | 6        |
+| Average Returns | 27       |
 | Iteration       | 180      |
 ------------------------------
 ------------------------------
-| Average Returns | 10       |
+| Average Returns | 23       |
 | Iteration       | 190      |
 ------------------------------
 ------------------------------
-| Average Returns | 10       |
+| Average Returns | 35       |
 | Iteration       | 200      |
 ------------------------------
 ------------------------------
-| Average Returns | 15       |
+| Average Returns | 151      |
 | Iteration       | 210      |
 ------------------------------
 ------------------------------
-| Average Returns | 26       |
+| Average Returns | 121      |
 | Iteration       | 220      |
 ------------------------------
 ------------------------------
-| Average Returns | 35       |
+| Average Returns | 203      |
 | Iteration       | 230      |
 ------------------------------
 ------------------------------
-| Average Returns | 58       |
+| Average Returns | 137      |
 | Iteration       | 240      |
 ------------------------------
 ------------------------------
-| Average Returns | 60       |
+| Average Returns | 112      |
 | Iteration       | 249      |
 ------------------------------

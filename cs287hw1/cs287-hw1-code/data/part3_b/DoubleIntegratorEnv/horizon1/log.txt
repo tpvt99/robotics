@@ -1,6 +1,6 @@
 Logging to C:\Users\bptran\Documents\GitHub\robotics\cs287hw1\cs287-hw1-code/data/part3_b/DoubleIntegratorEnv/horizon1
 -------------------------------
-| Average Returns | -1.09e+03 |
+| Average Returns | -1.08e+03 |
 | Iteration       | 0         |
 -------------------------------
 -------------------------------
@@ -8,83 +8,83 @@ Logging to C:\Users\bptran\Documents\GitHub\robotics\cs287hw1\cs287-hw1-code/dat
 | Iteration       | 10        |
 -------------------------------
 ------------------------------
-| Average Returns | -69      |
+| Average Returns | -71      |
 | Iteration       | 20       |
 ------------------------------
 ------------------------------
-| Average Returns | -63.9    |
+| Average Returns | -65.9    |
 | Iteration       | 30       |
 ------------------------------
 ------------------------------
-| Average Returns | -67.3    |
+| Average Returns | -70.3    |
 | Iteration       | 40       |
 ------------------------------
 ------------------------------
-| Average Returns | -66      |
+| Average Returns | -72.2    |
 | Iteration       | 50       |
 ------------------------------
 ------------------------------
-| Average Returns | -71.8    |
+| Average Returns | -72.5    |
 | Iteration       | 60       |
 ------------------------------
 ------------------------------
-| Average Returns | -65.2    |
+| Average Returns | -73.6    |
 | Iteration       | 70       |
 ------------------------------
 ------------------------------
-| Average Returns | -68.1    |
+| Average Returns | -77.4    |
 | Iteration       | 80       |
 ------------------------------
 ------------------------------
-| Average Returns | -67      |
+| Average Returns | -77.1    |
 | Iteration       | 90       |
 ------------------------------
 ------------------------------
-| Average Returns | -66      |
+| Average Returns | -79.5    |
 | Iteration       | 100      |
 ------------------------------
 ------------------------------
-| Average Returns | -76.8    |
+| Average Returns | -78.8    |
 | Iteration       | 110      |
 ------------------------------
 ------------------------------
-| Average Returns | -77.4    |
+| Average Returns | -79      |
 | Iteration       | 120      |
 ------------------------------
 ------------------------------
-| Average Returns | -85.8    |
+| Average Returns | -85      |
 | Iteration       | 130      |
 ------------------------------
 ------------------------------
-| Average Returns | -85.6    |
+| Average Returns | -101     |
 | Iteration       | 140      |
 ------------------------------
 ------------------------------
-| Average Returns | -92.8    |
+| Average Returns | -121     |
 | Iteration       | 150      |
 ------------------------------
 ------------------------------
-| Average Returns | -101     |
+| Average Returns | -93.9    |
 | Iteration       | 160      |
 ------------------------------
-------------------------------
-| Average Returns | -98.9    |
-| Iteration       | 170      |
-------------------------------
-------------------------------
-| Average Returns | -106     |
-| Iteration       | 180      |
-------------------------------
-------------------------------
-| Average Returns | -570     |
-| Iteration       | 190      |
-------------------------------
 -------------------------------
-| Average Returns | -1.57e+03 |
+| Average Returns | -1.61e+03 |
+| Iteration       | 170       |
+-------------------------------
+-------------------------------
+| Average Returns | -1.65e+03 |
+| Iteration       | 180       |
+-------------------------------
+-------------------------------
+| Average Returns | -1.67e+03 |
+| Iteration       | 190       |
+-------------------------------
+-------------------------------
+| Average Returns | -1.67e+03 |
 | Iteration       | 200       |
 -------------------------------
 -------------------------------
-| Average Returns | -1.66e+03 |
+| Average Returns | -1.64e+03 |
 | Iteration       | 210       |
 -------------------------------
 -------------------------------
@@ -92,14 +92,14 @@ Logging to C:\Users\bptran\Documents\GitHub\robotics\cs287hw1\cs287-hw1-code/dat
 | Iteration       | 220       |
 -------------------------------
 -------------------------------
-| Average Returns | -1.57e+03 |
+| Average Returns | -1.67e+03 |
 | Iteration       | 230       |
 -------------------------------
 -------------------------------
-| Average Returns | -1.53e+03 |
+| Average Returns | -1.64e+03 |
 | Iteration       | 240       |
 -------------------------------
 -------------------------------
-| Average Returns | -1.61e+03 |
+| Average Returns | -1.73e+03 |
 | Iteration       | 249       |
 -------------------------------

@@ -11,13 +11,13 @@ def main(args):
         import matplotlib
         matplotlib.use('Agg')
         import matplotlib.pyplot as plt
-    from envs import DoubleIntegratorEnv, MountainCarEnv
+    from envs import DoubleIntegratorEnv, MountainCarEnv, CartPoleEnv
     from utils.utils import TabularPolicy, TabularValueFun
     from part1.tabular_value_iteration import ValueIteration
     from part2.look_ahead_policy import LookAheadPolicy
     from part2.discretize import Discretize
-    envs = [DoubleIntegratorEnv(), MountainCarEnv()]
-
+    #envs = [DoubleIntegratorEnv(), MountainCarEnv()]
+    envs = [CartPoleEnv()]
     for env in envs:
         env_name = env.__class__.__name__
         exp_dir = os.getcwd() + '/data/part2_ab/%s/mode%s_state_discretization%s/' % (env_name,
@@ -60,7 +60,7 @@ if __name__ == "__main__":
                         help="Number of points per state dimension to discretize")
     parser.add_argument("--action_discretization", "-a", type=int, default=5,
                         help="Number of points per state dimension to discretize")
-    parser.add_argument("--mode", "-m", type=str, default='nn', choices=['nn', 'linear'],
+    parser.add_argument("--mode", "-m", type=str, default='linear', choices=['nn', 'linear'],
                         help="Mode of interpolate between discrete points")
     parser.add_argument("--policy_type", "-p", type=str, default='tabular', choices=['tabular', 'look_ahead'],
                         help='Type of policy to use. Whether to use look ahead policy or tabular')

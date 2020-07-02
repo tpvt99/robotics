@@ -1,0 +1,7 @@
+{
+  "env": "CartPoleEnv",
+  "max_iter": 150,
+  "mode": "nn",
+  "render": false,
+  "state_discretization": 21
+}

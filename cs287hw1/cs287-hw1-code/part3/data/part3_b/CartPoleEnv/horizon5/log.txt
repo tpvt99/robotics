@@ -1,0 +1,1 @@
+Logging to C:\Users\bptran\Documents\GitHub\robotics\cs287hw1\cs287-hw1-code\part3/data/part3_b/CartPoleEnv/horizon5

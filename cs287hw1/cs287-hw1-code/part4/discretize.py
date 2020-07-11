@@ -119,6 +119,8 @@ class Discretize(DiscretizeWrapper):
             self.transitions[id_s, id_a, next_disc_states] = probs
             self.rewards[id_s, id_a, next_disc_states] = rewards
 
+
+
     def add_done_transitions(self):
         """
         Populates transition and reward matrix for the sink state (self.transition and self.reward). The sink state

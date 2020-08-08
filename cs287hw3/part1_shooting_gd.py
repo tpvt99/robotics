@@ -27,20 +27,24 @@ def eval_shooting(actions, env):
     """YOUR CODE ENDS HERE"""
     return total_cost
 
+# Gradient Descent: u = u - step * (R * u)
 def minimize_shooting(env, init_actions=None):
     if init_actions is None:
         init_actions = np.random.uniform(low=-.1, high=.1, size=(env.H * env.du,))
     """YOUR CODE HERE"""
-    res = minimize(fun= eval_shooting,
-               x0= init_actions,
-               args = (env),
-               method='BFGS',
-               options={'xtol': 1e-6, 'disp': False, 'verbose': 2}
-              )
 
-    act_shooting = res.x
-    print(res.message)
-    print("The optimal cost is %.3f" % res.fun)
+    step_size = 1e-2
+    epoch = 10000
+    actions = init_actions
+    for i in range(epoch):
+        costs = eval_shooting(actions, env)
+        actions = actions.reshape(env.H, env.du)
+        actions = actions - step_size * np.matmul(actions, env.R)
+        actions = actions.reshape(-1)
+        if i % 10 == 0:
+            print("Iter {} with cost {}".format(i, costs))
+
+    act_shooting = actions
     policy_shooting = ActPolicy(env=env,
                                 actions=act_shooting
                                )
@@ -49,5 +53,5 @@ def minimize_shooting(env, init_actions=None):
 
 
 if __name__ == "__main__":
-    env = LinearEnv()
+    env = LinearEnv(multiplier=10.)
     policy_shooting = minimize_shooting(env)

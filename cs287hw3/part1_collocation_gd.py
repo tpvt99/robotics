@@ -55,29 +55,63 @@ def constraints(env, x):
         if i > 0: # from the 2nd iters, we set state to x_0 and find f(x_0, u_1). 1st iter has the x_init as the state
             env.set_state(states[i - 1])
         next_state, cost, done, _ = env.step(action)
-        constraints.append(next_state - state)
+        constraints.append(state - next_state)
 
     """YOUR CODE ENDS HERE"""
     return np.concatenate(constraints)
+
+
+# Cost = 1/2 * sum (xQx + uRu) + mu * sum_t(xt+1 - A * x_t - B * u_t)
+# dCost/du = R*u -B * (x_t+1 - A * x_t - B * u_t)/abs(xt+1 - A * x_t - B * u_t)
+# dCost/dx = Q*x +  (x_t - A * x_t-1 - B * u_t-1)/abs(x_t - A * x_t-1 - B * u_t-1)
+# - A * (x_t+1 - A * x_t - B * u_t)/abs(x_t+1 - A * x_t - B * u_t)
 
 def minimize_collocation(env, init_states_and_actions=None):
     if init_states_and_actions is None:
         init_states_and_actions = np.random.uniform(low=-.1, high=.1, size=(env.H * (env.du + env.dx),))
 
-    """YOUR CODE HERE"""
-    eq_cons = {'type': 'eq',
-               'fun' : lambda x: constraints(env, x)
-              }
+    mu = 1
+    mu_t = 1.5
+    epsilon = 1e-3
+    step_size = 1e-5
+    iter = 0
+    states_and_actions = init_states_and_actions
 
-    res = minimize(fun= lambda x : eval_collocation(env, x),
-                   x0= init_states_and_actions,
-                   method='SLSQP',
-                   constraints=eq_cons,
-                   options={'xtol': 1e-6, 'disp': False, 'verbose': 0, 'maxiter':201}
-                  )
-    print(res.message)
-    print("The optimal cost is %.3f" % res.fun)
-    states_collocation, act_collocation = res.x[:env.H * env.dx], res.x[env.H * env.dx:]
+    while np.sum(np.abs(constraints(env, states_and_actions))) >= epsilon:
+        mu = mu_t * mu
+
+        while True:
+            states, actions = states_and_actions[:env.H * env.dx], states_and_actions[env.H * env.dx:]
+            old = states_and_actions
+            costs = eval_collocation(env, states_and_actions)
+            actions = actions.reshape(env.H, env.du)
+            states = states.reshape(env.H, env.dx)
+
+            v = constraints(env, states_and_actions)
+            v = v/np.abs(v)
+            v_roll = np.roll(v, -1 * env.dx)
+            v_roll[-1 * env.dx:] = 0
+            v = v.reshape(env.H, env.dx)
+            v_roll = v_roll.reshape(env.H, env.dx)
+
+            states_gradients = np.matmul(states, env.Q) + mu * (v + np.matmul(v_roll, -env.A))
+            actions_gradients = np.matmul(actions, env.R) + mu * np.matmul(v, -env.B)
+            actions = actions - step_size * actions_gradients
+            states = states - step_size * states_gradients
+            actions = actions.reshape(-1)
+            states = states.reshape(-1)
+            states_and_actions = np.concatenate([states, actions])
+            print("Iter {} with cost {} and constraints {}".format(iter, costs,
+                np.sum(np.abs(constraints(env, states_and_actions)))))
+            iter+=1
+
+            if np.abs(np.sum(np.abs(constraints(env, states_and_actions))) - \
+                      np.sum(np.abs(constraints(env, old)))) <= 1e-3:
+                print('Small then break')
+                break
+
+
+    states_collocation, act_collocation = states_and_actions[:env.H * env.dx], states_and_actions[env.H * env.dx:]
     states_collocation = states_collocation.reshape(env.H, env.dx)
     policy_collocation = ActPolicy(env,
                                    actions=act_collocation)
@@ -86,25 +120,6 @@ def minimize_collocation(env, init_states_and_actions=None):
 
 if __name__ == "__main__":
 
-    env = LinearEnv(multiplier=10.)
+    env = LinearEnv(multiplier=1)
     policy_collocation, states_collocation = minimize_collocation(env)
-    policy_shooting = minimize_shooting(env)
-
-    cost_shoot, states_shoot = rollout(env, policy_shooting)
-    cost_col, states_col = rollout(env, policy_collocation)
-    states_shoot, states_col = np.array(states_shoot), np.array(states_col)
-    error = np.linalg.norm(states_col - np.array(states_collocation))
-    ts = np.arange(states_shoot.shape[0])
-    print("---- Quantitative Metrics ---")
-    print("Shooting Cost %.3f" % cost_shoot)
-    print("Collocation Cost %.3f" % cost_col)
-    print("Collocation Error %.3f" % error)
-
-    print("\n\n---- Qualitative Metrics ---")
-    print("Evolution of the value of each dimension across 20 timesteps for the shooting methods.")
-    print("Both methods converge to the origin. Shooting: solid line(-);  Collocation: dashed line(--).")
-
-    for i in range(env.dx):
-        plt.plot(ts, states_shoot[:, i], '-', ts, states_col[:, i], '--')
-    plt.show()
 

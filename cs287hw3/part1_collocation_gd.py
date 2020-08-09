@@ -120,6 +120,6 @@ def minimize_collocation(env, init_states_and_actions=None):
 
 if __name__ == "__main__":
 
-    env = LinearEnv(multiplier=1)
+    env = LinearEnv(multiplier=10.)
     policy_collocation, states_collocation = minimize_collocation(env)
 

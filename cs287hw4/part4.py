@@ -243,6 +243,6 @@ def test_part4_c():
     # Plots for the first two datasets are provided as reference.
 
 if __name__ == '__main__':
-    #test_part4_a()
-    #test_part4_b()
-    test_part4_c()
+    test_part4_a()
+    test_part4_b()
+    #test_part4_c()

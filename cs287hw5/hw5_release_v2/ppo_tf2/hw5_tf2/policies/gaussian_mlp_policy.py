@@ -1,14 +1,12 @@
-from hw5.utils.networks.mlp import create_mlp, forward_mlp
-from hw5.policies.distributions.diagonal_gaussian import DiagonalGaussian
-from hw5.policies.base import Policy
-from hw5.utils import Serializable
-from hw5.utils.utils import remove_scope_from_name
-from hw5.logger import logger
+from hw5_tf2.utils.networks.mlp import MLP
+from hw5_tf2.policies.distributions.diagonal_gaussian import DiagonalGaussian
+from hw5_tf2.policies.base import Policy
+from hw5_tf2.utils.serializable import Serializable
+from hw5_tf2.logger import logger
 
 import tensorflow as tf
 import numpy as np
 from collections import OrderedDict
-
 
 class GaussianMLPPolicy(Policy):
     """
@@ -36,6 +34,7 @@ class GaussianMLPPolicy(Policy):
 
         self.min_log_std = np.log(min_std)
         self.init_log_std = np.log(init_std)
+        self.constant_initializer = tf.keras.initializers.Constant(self.init_log_std)
 
         self.init_policy = None
         self.policy_params = None
@@ -51,42 +50,29 @@ class GaussianMLPPolicy(Policy):
         """
         Builds computational graph for policy
         """
-        with tf.variable_scope(self.name, reuse=tf.AUTO_REUSE):
-            # build the actual policy network
-            self.obs_var, self.mean_var = create_mlp(name='mean_network',
-                                                     output_dim=self.action_dim,
-                                                     hidden_sizes=self.hidden_sizes,
-                                                     hidden_nonlinearity=self.hidden_nonlinearity,
-                                                     output_nonlinearity=self.output_nonlinearity,
-                                                     input_dim=(None, self.obs_dim,),
-                                                     )
+        with tf.name_scope(self.name) as scope:
+            self.mean_var = MLP(name = scope + "mean_network",
+                            output_dim = self.action_dim,
+                            hidden_sizes=self.hidden_sizes,
+                            hidden_nonlinearity=self.hidden_nonlinearity,
+                            output_nonlinearity=self.output_nonlinearity,
+                            input_dim = (None, self.obs_dim,))
 
-            # log_std = max(log_std, log_std_epsilon)
-            with tf.variable_scope("log_std_network", reuse=tf.AUTO_REUSE):
-                log_std_var = tf.get_variable(name='log_std_var',
-                                              shape=(1, self.action_dim,),
-                                              dtype=tf.float32,
-                                              initializer=tf.constant_initializer(self.init_log_std),
-                                              trainable=self.learn_std,
-                                              )
+            with tf.name_scope("log_std_network") as inner_scope:
+                self.log_std = tf.Variable(name = "log_std_var",
+                                               shape=(1, self.action_dim,),
+                                               dtype= tf.float32,
+                                               initial_value=self.constant_initializer(shape = (1, self.action_dim)),
+                                               trainable=self.learn_std)
 
-                self.log_std_var = tf.maximum(log_std_var, self.min_log_std, name='log_std')
+        self._dist = DiagonalGaussian(self.action_dim)
 
-            # symbolically define sampled action and distribution
-            self.action_var = self.mean_var + tf.random_normal(shape=tf.shape(self.mean_var)) * tf.exp(log_std_var)
-            ''' Please Read! '''
-            self._dist = DiagonalGaussian(self.action_dim)
+        self.policy_params = None # store trainable policy vars to here
 
-            # save the policy's trainable variables in dicts
-            # current_scope = tf.get_default_graph().get_name_scope()
-            current_scope = self.name
-            trainable_policy_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope=current_scope)
-            self.policy_params = OrderedDict([(remove_scope_from_name(var.name, current_scope), var) for var in trainable_policy_vars])
 
-            self.policy_params_ph = self._create_placeholders_for_vars(scope=self.name + "/mean_network")
-            log_std_network_phs = self._create_placeholders_for_vars(scope=self.name + "/log_std_network")
-            self.policy_params_ph.update(log_std_network_phs)
-            self.policy_params_keys = self.policy_params_ph.keys()
+    @tf.function
+    def log_std_var(self, log_std_var):
+        return tf.math.maximum(log_std_var, self.min_log_std)
 
     def get_action(self, observation):
         """
@@ -116,9 +102,11 @@ class GaussianMLPPolicy(Policy):
         observations = np.array(observations)
         assert observations.ndim == 2 and observations.shape[1] == self.obs_dim
 
-        sess = tf.get_default_session()
-        actions, means, log_stds = sess.run([self.action_var, self.mean_var, self.log_std_var],
-                                             feed_dict={self.obs_var: observations})
+        means = self.mean_var(observations)
+        actions = means + tf.random.normal(shape = tf.shape (means)) * \
+                  tf.math.exp(self.log_std_var(self.log_std).numpy())
+
+        log_stds = self.log_std_var(self.log_std).numpy()
 
         agent_infos = [dict(mean=mean, log_std=log_stds[0]) for mean in means]
         return actions, agent_infos
@@ -161,15 +149,14 @@ class GaussianMLPPolicy(Policy):
             (dict) : a dictionary of tf placeholders for the policy output distribution
         """
         if params is None:
-            with tf.variable_scope(self.name):
-                obs_var, mean_var = create_mlp(name='mean_network',
-                                               output_dim=self.action_dim,
-                                               hidden_sizes=self.hidden_sizes,
-                                               hidden_nonlinearity=self.hidden_nonlinearity,
-                                               output_nonlinearity=self.output_nonlinearity,
-                                               input_var=obs_var,
-                                               reuse=True,
-                                               )
+            with tf.name_scope(self.name) as scope:
+                obs_var, mean_var = MLP(name = scope + "mean_network",
+                                output_dim = self.action_dim,
+                                hidden_sizes=self.hidden_sizes,
+                                hidden_nonlinearity=self.hidden_nonlinearity,
+                                output_nonlinearity=self.output_nonlinearity,
+                                input_dim = (None, self.obs_dim,))
+
                 log_std_var = self.log_std_var
         else:
             mean_network_params = OrderedDict()
@@ -181,6 +168,9 @@ class GaussianMLPPolicy(Policy):
                     mean_network_params[name] = param
 
             assert len(log_std_network_params) == 1
+
+
+
             obs_var, mean_var = forward_mlp(output_dim=self.action_dim,
                                             hidden_sizes=self.hidden_sizes,
                                             hidden_nonlinearity=self.hidden_nonlinearity,

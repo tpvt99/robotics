@@ -13,7 +13,7 @@ from hw5_tf2.algos.ppo import PPO
 from hw5.trainers.mf_trainer import Trainer
 from hw5.samplers.base import Sampler
 from hw5.samplers.base import SampleProcessor
-from hw5.policies.gaussian_mlp_policy import GaussianMLPPolicy
+from hw5_tf2.policies.gaussian_mlp_policy import GaussianMLPPolicy
 from hw5.logger import logger
 from hw5.envs.mb_envs import *
 

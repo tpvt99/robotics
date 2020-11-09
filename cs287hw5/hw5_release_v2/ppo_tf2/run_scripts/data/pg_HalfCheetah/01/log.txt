@@ -1,0 +1,4084 @@
+Logging to /home/tpvt96/ai_course/robotics/cs287hw5/hw5_release_v2/ppo_tf2/run_scripts/data/pg_HalfCheetah/01
+
+ ---------------- Iteration 0 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 0         |
+| ItrTime                 | 42.8      |
+| LossAfter               | -75.28499 |
+| LossBefore              | -74.87748 |
+| Time                    | 42.8      |
+| Time-Optimization       | 9.7       |
+| Time-SampleProc         | 0.016     |
+| Time-Sampling           | 33        |
+| n_timesteps             | 10000     |
+| train-AverageDiscoun... | -22.9     |
+| train-AverageReturn     | -36.3     |
+| train-EnvExecTime       | 3.98      |
+| train-MaxReturn         | 29        |
+| train-MinReturn         | -123      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 18.7      |
+| train-StdReturn         | 33.2      |
+---------------------------------------
+
+ ---------------- Iteration 1 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 1          |
+| ItrTime                 | 42.1       |
+| LossAfter               | -76.616806 |
+| LossBefore              | -76.20394  |
+| Time                    | 84.9       |
+| Time-Optimization       | 9.3        |
+| Time-SampleProc         | 0.0252     |
+| Time-Sampling           | 32.8       |
+| n_timesteps             | 20000      |
+| train-AverageDiscoun... | -23.1      |
+| train-AverageReturn     | -36.6      |
+| train-EnvExecTime       | 3.94       |
+| train-MaxReturn         | 40.7       |
+| train-MinReturn         | -119       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 18.6       |
+| train-StdReturn         | 31.7       |
+----------------------------------------
+
+ ---------------- Iteration 2 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 2          |
+| ItrTime                 | 44.5       |
+| LossAfter               | -93.5615   |
+| LossBefore              | -93.048935 |
+| Time                    | 129        |
+| Time-Optimization       | 12.1       |
+| Time-SampleProc         | 0.0266     |
+| Time-Sampling           | 32.3       |
+| n_timesteps             | 30000      |
+| train-AverageDiscoun... | -25.9      |
+| train-AverageReturn     | -42.4      |
+| train-EnvExecTime       | 3.9        |
+| train-MaxReturn         | 41.6       |
+| train-MinReturn         | -140       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 18.3       |
+| train-StdReturn         | 38.3       |
+----------------------------------------
+
+ ---------------- Iteration 3 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 3          |
+| ItrTime                 | 41.3       |
+| LossAfter               | -62.85394  |
+| LossBefore              | -62.524918 |
+| Time                    | 171        |
+| Time-Optimization       | 9.34       |
+| Time-SampleProc         | 0.024      |
+| Time-Sampling           | 31.9       |
+| n_timesteps             | 40000      |
+| train-AverageDiscoun... | -19.8      |
+| train-AverageReturn     | -30.8      |
+| train-EnvExecTime       | 3.86       |
+| train-MaxReturn         | 57.3       |
+| train-MinReturn         | -126       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 18.2       |
+| train-StdReturn         | 37         |
+----------------------------------------
+
+ ---------------- Iteration 4 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 4         |
+| ItrTime                 | 56.9      |
+| LossAfter               | -74.29574 |
+| LossBefore              | -73.91799 |
+| Time                    | 228       |
+| Time-Optimization       | 13.1      |
+| Time-SampleProc         | 0.0234    |
+| Time-Sampling           | 43.8      |
+| n_timesteps             | 50000     |
+| train-AverageDiscoun... | -22.7     |
+| train-AverageReturn     | -35.6     |
+| train-EnvExecTime       | 5.08      |
+| train-MaxReturn         | 41        |
+| train-MinReturn         | -152      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 25.5      |
+| train-StdReturn         | 38.7      |
+---------------------------------------
+
+ ---------------- Iteration 5 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 5         |
+| ItrTime                 | 60.2      |
+| LossAfter               | -70.93343 |
+| LossBefore              | -70.57626 |
+| Time                    | 288       |
+| Time-Optimization       | 10.5      |
+| Time-SampleProc         | 0.0513    |
+| Time-Sampling           | 49.6      |
+| n_timesteps             | 60000     |
+| train-AverageDiscoun... | -21.1     |
+| train-AverageReturn     | -33.4     |
+| train-EnvExecTime       | 5.72      |
+| train-MaxReturn         | 57        |
+| train-MinReturn         | -137      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 29.1      |
+| train-StdReturn         | 36.3      |
+---------------------------------------
+
+ ---------------- Iteration 6 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 6         |
+| ItrTime                 | 48.5      |
+| LossAfter               | -78.74079 |
+| LossBefore              | -78.34124 |
+| Time                    | 336       |
+| Time-Optimization       | 7.58      |
+| Time-SampleProc         | 0.0434    |
+| Time-Sampling           | 40.9      |
+| n_timesteps             | 70000     |
+| train-AverageDiscoun... | -24.4     |
+| train-AverageReturn     | -38       |
+| train-EnvExecTime       | 4.73      |
+| train-MaxReturn         | 44        |
+| train-MinReturn         | -112      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 23.6      |
+| train-StdReturn         | 34.1      |
+---------------------------------------
+
+ ---------------- Iteration 7 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 7         |
+| ItrTime                 | 46.9      |
+| LossAfter               | -91.68954 |
+| LossBefore              | -91.20453 |
+| Time                    | 383       |
+| Time-Optimization       | 7.38      |
+| Time-SampleProc         | 0.0229    |
+| Time-Sampling           | 39.5      |
+| n_timesteps             | 80000     |
+| train-AverageDiscoun... | -26.4     |
+| train-AverageReturn     | -42.1     |
+| train-EnvExecTime       | 4.64      |
+| train-MaxReturn         | 68.4      |
+| train-MinReturn         | -109      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 22.8      |
+| train-StdReturn         | 35.3      |
+---------------------------------------
+
+ ---------------- Iteration 8 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 8         |
+| ItrTime                 | 46.9      |
+| LossAfter               | -88.76108 |
+| LossBefore              | -88.28004 |
+| Time                    | 430       |
+| Time-Optimization       | 6.05      |
+| Time-SampleProc         | 0.0121    |
+| Time-Sampling           | 40.9      |
+| n_timesteps             | 90000     |
+| train-AverageDiscoun... | -25.9     |
+| train-AverageReturn     | -41       |
+| train-EnvExecTime       | 4.73      |
+| train-MaxReturn         | 39.9      |
+| train-MinReturn         | -126      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 23.9      |
+| train-StdReturn         | 33        |
+---------------------------------------
+
+ ---------------- Iteration 9 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 9          |
+| ItrTime                 | 47.1       |
+| LossAfter               | -74.73092  |
+| LossBefore              | -74.337906 |
+| Time                    | 477        |
+| Time-Optimization       | 6.17       |
+| Time-SampleProc         | 0.0217     |
+| Time-Sampling           | 40.9       |
+| n_timesteps             | 100000     |
+| train-AverageDiscoun... | -21.9      |
+| train-AverageReturn     | -34.5      |
+| train-EnvExecTime       | 4.66       |
+| train-MaxReturn         | 47.1       |
+| train-MinReturn         | -130       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 23.8       |
+| train-StdReturn         | 34.3       |
+----------------------------------------
+
+ ---------------- Iteration 10 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 10        |
+| ItrTime                 | 49.6      |
+| LossAfter               | -86.37323 |
+| LossBefore              | -85.9237  |
+| Time                    | 527       |
+| Time-Optimization       | 6.19      |
+| Time-SampleProc         | 0.0471    |
+| Time-Sampling           | 43.3      |
+| n_timesteps             | 110000    |
+| train-AverageDiscoun... | -24.8     |
+| train-AverageReturn     | -39.3     |
+| train-EnvExecTime       | 5.03      |
+| train-MaxReturn         | 40        |
+| train-MinReturn         | -161      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 25.5      |
+| train-StdReturn         | 35.6      |
+---------------------------------------
+
+ ---------------- Iteration 11 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 11        |
+| ItrTime                 | 57.8      |
+| LossAfter               | -82.34351 |
+| LossBefore              | -81.91696 |
+| Time                    | 585       |
+| Time-Optimization       | 5.79      |
+| Time-SampleProc         | 0.00999   |
+| Time-Sampling           | 52        |
+| n_timesteps             | 120000    |
+| train-AverageDiscoun... | -23.1     |
+| train-AverageReturn     | -36.9     |
+| train-EnvExecTime       | 6.09      |
+| train-MaxReturn         | 32.3      |
+| train-MinReturn         | -126      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 31.7      |
+| train-StdReturn         | 31.1      |
+---------------------------------------
+
+ ---------------- Iteration 12 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 12         |
+| ItrTime                 | 54.2       |
+| LossAfter               | -69.11541  |
+| LossBefore              | -68.773895 |
+| Time                    | 639        |
+| Time-Optimization       | 5.39       |
+| Time-SampleProc         | 0.00943    |
+| Time-Sampling           | 48.8       |
+| n_timesteps             | 130000     |
+| train-AverageDiscoun... | -20.5      |
+| train-AverageReturn     | -32        |
+| train-EnvExecTime       | 5.88       |
+| train-MaxReturn         | 47         |
+| train-MinReturn         | -123       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 30.1       |
+| train-StdReturn         | 32.7       |
+----------------------------------------
+
+ ---------------- Iteration 13 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 13        |
+| ItrTime                 | 58.7      |
+| LossAfter               | -83.68902 |
+| LossBefore              | -83.27958 |
+| Time                    | 697       |
+| Time-Optimization       | 6.7       |
+| Time-SampleProc         | 0.0153    |
+| Time-Sampling           | 52        |
+| n_timesteps             | 140000    |
+| train-AverageDiscoun... | -24.2     |
+| train-AverageReturn     | -38       |
+| train-EnvExecTime       | 5.87      |
+| train-MaxReturn         | 53.4      |
+| train-MinReturn         | -132      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 31        |
+| train-StdReturn         | 36.2      |
+---------------------------------------
+
+ ---------------- Iteration 14 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 14         |
+| ItrTime                 | 51.5       |
+| LossAfter               | -84.697464 |
+| LossBefore              | -84.27644  |
+| Time                    | 749        |
+| Time-Optimization       | 5.46       |
+| Time-SampleProc         | 0.00972    |
+| Time-Sampling           | 46         |
+| n_timesteps             | 150000     |
+| train-AverageDiscoun... | -24.6      |
+| train-AverageReturn     | -38.6      |
+| train-EnvExecTime       | 5.44       |
+| train-MaxReturn         | 28.7       |
+| train-MinReturn         | -120       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 27.6       |
+| train-StdReturn         | 29.4       |
+----------------------------------------
+
+ ---------------- Iteration 15 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 15        |
+| ItrTime                 | 48.4      |
+| LossAfter               | -91.55948 |
+| LossBefore              | -91.093   |
+| Time                    | 797       |
+| Time-Optimization       | 5.97      |
+| Time-SampleProc         | 0.0199    |
+| Time-Sampling           | 42.4      |
+| n_timesteps             | 160000    |
+| train-AverageDiscoun... | -25.7     |
+| train-AverageReturn     | -40.7     |
+| train-EnvExecTime       | 5.01      |
+| train-MaxReturn         | 26.7      |
+| train-MinReturn         | -134      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 25.5      |
+| train-StdReturn         | 32.9      |
+---------------------------------------
+
+ ---------------- Iteration 16 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 16         |
+| ItrTime                 | 72.6       |
+| LossAfter               | -73.092995 |
+| LossBefore              | -72.731834 |
+| Time                    | 870        |
+| Time-Optimization       | 7.64       |
+| Time-SampleProc         | 0.00917    |
+| Time-Sampling           | 64.9       |
+| n_timesteps             | 170000     |
+| train-AverageDiscoun... | -22.1      |
+| train-AverageReturn     | -34        |
+| train-EnvExecTime       | 7.12       |
+| train-MaxReturn         | 28         |
+| train-MinReturn         | -142       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 39.8       |
+| train-StdReturn         | 33.9       |
+----------------------------------------
+
+ ---------------- Iteration 17 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 17        |
+| ItrTime                 | 66.6      |
+| LossAfter               | -83.95245 |
+| LossBefore              | -83.54528 |
+| Time                    | 937       |
+| Time-Optimization       | 6.51      |
+| Time-SampleProc         | 0.0147    |
+| Time-Sampling           | 60.1      |
+| n_timesteps             | 180000    |
+| train-AverageDiscoun... | -22.8     |
+| train-AverageReturn     | -36.4     |
+| train-EnvExecTime       | 6.83      |
+| train-MaxReturn         | 25.8      |
+| train-MinReturn         | -154      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 35.8      |
+| train-StdReturn         | 35.6      |
+---------------------------------------
+
+ ---------------- Iteration 18 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 18         |
+| ItrTime                 | 48.7       |
+| LossAfter               | -83.26052  |
+| LossBefore              | -82.856384 |
+| Time                    | 985        |
+| Time-Optimization       | 5.08       |
+| Time-SampleProc         | 0.0108     |
+| Time-Sampling           | 43.6       |
+| n_timesteps             | 190000     |
+| train-AverageDiscoun... | -25.2      |
+| train-AverageReturn     | -38.6      |
+| train-EnvExecTime       | 5.14       |
+| train-MaxReturn         | 34.9       |
+| train-MinReturn         | -126       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 26.3       |
+| train-StdReturn         | 35.7       |
+----------------------------------------
+
+ ---------------- Iteration 19 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 19         |
+| ItrTime                 | 50.4       |
+| LossAfter               | -80.35864  |
+| LossBefore              | -79.973335 |
+| Time                    | 1.04e+03   |
+| Time-Optimization       | 5.85       |
+| Time-SampleProc         | 0.0177     |
+| Time-Sampling           | 44.5       |
+| n_timesteps             | 200000     |
+| train-AverageDiscoun... | -22.8      |
+| train-AverageReturn     | -35.8      |
+| train-EnvExecTime       | 5.18       |
+| train-MaxReturn         | 36.5       |
+| train-MinReturn         | -127       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 26.5       |
+| train-StdReturn         | 34.7       |
+----------------------------------------
+
+ ---------------- Iteration 20 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 20         |
+| ItrTime                 | 53.5       |
+| LossAfter               | -81.393654 |
+| LossBefore              | -81.00793  |
+| Time                    | 1.09e+03   |
+| Time-Optimization       | 4.69       |
+| Time-SampleProc         | 0.0141     |
+| Time-Sampling           | 48.8       |
+| n_timesteps             | 210000     |
+| train-AverageDiscoun... | -22.2      |
+| train-AverageReturn     | -35.2      |
+| train-EnvExecTime       | 5.64       |
+| train-MaxReturn         | 37.6       |
+| train-MinReturn         | -109       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 29.4       |
+| train-StdReturn         | 33.4       |
+----------------------------------------
+
+ ---------------- Iteration 21 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 21        |
+| ItrTime                 | 64.1      |
+| LossAfter               | -84.01204 |
+| LossBefore              | -83.61431 |
+| Time                    | 1.15e+03  |
+| Time-Optimization       | 6.1       |
+| Time-SampleProc         | 0.0148    |
+| Time-Sampling           | 58        |
+| n_timesteps             | 220000    |
+| train-AverageDiscoun... | -23.9     |
+| train-AverageReturn     | -37.3     |
+| train-EnvExecTime       | 6.75      |
+| train-MaxReturn         | 37.5      |
+| train-MinReturn         | -139      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 35.6      |
+| train-StdReturn         | 34.9      |
+---------------------------------------
+
+ ---------------- Iteration 22 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+--------------------------------------
+| Itr                     | 22       |
+| ItrTime                 | 48.5     |
+| LossAfter               | -97.2249 |
+| LossBefore              | -96.7477 |
+| Time                    | 1.2e+03  |
+| Time-Optimization       | 4.52     |
+| Time-SampleProc         | 0.0091   |
+| Time-Sampling           | 43.9     |
+| n_timesteps             | 230000   |
+| train-AverageDiscoun... | -25.2    |
+| train-AverageReturn     | -40.6    |
+| train-EnvExecTime       | 5.2      |
+| train-MaxReturn         | 32.8     |
+| train-MinReturn         | -149     |
+| train-NumTrajs          | 100      |
+| train-PolicyExecTime    | 26.1     |
+| train-StdReturn         | 35.4     |
+--------------------------------------
+
+ ---------------- Iteration 23 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 23         |
+| ItrTime                 | 41.9       |
+| LossAfter               | -93.512436 |
+| LossBefore              | -93.04209  |
+| Time                    | 1.24e+03   |
+| Time-Optimization       | 4.4        |
+| Time-SampleProc         | 0.00878    |
+| Time-Sampling           | 37.5       |
+| n_timesteps             | 240000     |
+| train-AverageDiscoun... | -25.9      |
+| train-AverageReturn     | -40.7      |
+| train-EnvExecTime       | 4.41       |
+| train-MaxReturn         | 26.9       |
+| train-MinReturn         | -109       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.9       |
+| train-StdReturn         | 31.7       |
+----------------------------------------
+
+ ---------------- Iteration 24 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 24        |
+| ItrTime                 | 41.1      |
+| LossAfter               | -92.03734 |
+| LossBefore              | -91.57464 |
+| Time                    | 1.28e+03  |
+| Time-Optimization       | 4.59      |
+| Time-SampleProc         | 0.00873   |
+| Time-Sampling           | 36.5      |
+| n_timesteps             | 250000    |
+| train-AverageDiscoun... | -25.1     |
+| train-AverageReturn     | -39.5     |
+| train-EnvExecTime       | 4.29      |
+| train-MaxReturn         | 53.2      |
+| train-MinReturn         | -129      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 21.5      |
+| train-StdReturn         | 35        |
+---------------------------------------
+
+ ---------------- Iteration 25 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 25        |
+| ItrTime                 | 57.2      |
+| LossAfter               | -84.44119 |
+| LossBefore              | -84.0279  |
+| Time                    | 1.34e+03  |
+| Time-Optimization       | 4.27      |
+| Time-SampleProc         | 0.00905   |
+| Time-Sampling           | 52.9      |
+| n_timesteps             | 260000    |
+| train-AverageDiscoun... | -24.2     |
+| train-AverageReturn     | -37.3     |
+| train-EnvExecTime       | 6.24      |
+| train-MaxReturn         | 59.3      |
+| train-MinReturn         | -129      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 32        |
+| train-StdReturn         | 32.7      |
+---------------------------------------
+
+ ---------------- Iteration 26 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 26        |
+| ItrTime                 | 40.9      |
+| LossAfter               | -83.07693 |
+| LossBefore              | -82.68421 |
+| Time                    | 1.38e+03  |
+| Time-Optimization       | 4.31      |
+| Time-SampleProc         | 0.00905   |
+| Time-Sampling           | 36.6      |
+| n_timesteps             | 270000    |
+| train-AverageDiscoun... | -22.5     |
+| train-AverageReturn     | -35.4     |
+| train-EnvExecTime       | 4.37      |
+| train-MaxReturn         | 38.1      |
+| train-MinReturn         | -120      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 21.7      |
+| train-StdReturn         | 30.5      |
+---------------------------------------
+
+ ---------------- Iteration 27 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 27        |
+| ItrTime                 | 40.1      |
+| LossAfter               | -98.49449 |
+| LossBefore              | -98.02144 |
+| Time                    | 1.42e+03  |
+| Time-Optimization       | 4.29      |
+| Time-SampleProc         | 0.00867   |
+| Time-Sampling           | 35.8      |
+| n_timesteps             | 280000    |
+| train-AverageDiscoun... | -25       |
+| train-AverageReturn     | -40.3     |
+| train-EnvExecTime       | 4.27      |
+| train-MaxReturn         | 49.2      |
+| train-MinReturn         | -129      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 21.4      |
+| train-StdReturn         | 36.3      |
+---------------------------------------
+
+ ---------------- Iteration 28 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 28         |
+| ItrTime                 | 39.8       |
+| LossAfter               | -85.322754 |
+| LossBefore              | -84.916016 |
+| Time                    | 1.46e+03   |
+| Time-Optimization       | 4.23       |
+| Time-SampleProc         | 0.00835    |
+| Time-Sampling           | 35.6       |
+| n_timesteps             | 290000     |
+| train-AverageDiscoun... | -21.8      |
+| train-AverageReturn     | -34.9      |
+| train-EnvExecTime       | 4.18       |
+| train-MaxReturn         | 32         |
+| train-MinReturn         | -149       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.8       |
+| train-StdReturn         | 33.4       |
+----------------------------------------
+
+ ---------------- Iteration 29 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 29        |
+| ItrTime                 | 39.8      |
+| LossAfter               | -79.28851 |
+| LossBefore              | -78.92695 |
+| Time                    | 1.5e+03   |
+| Time-Optimization       | 4.29      |
+| Time-SampleProc         | 0.00889   |
+| Time-Sampling           | 35.5      |
+| n_timesteps             | 300000    |
+| train-AverageDiscoun... | -22.7     |
+| train-AverageReturn     | -34.8     |
+| train-EnvExecTime       | 4.15      |
+| train-MaxReturn         | 29.3      |
+| train-MinReturn         | -122      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 20.5      |
+| train-StdReturn         | 33.9      |
+---------------------------------------
+
+ ---------------- Iteration 30 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 30         |
+| ItrTime                 | 39.6       |
+| LossAfter               | -81.832924 |
+| LossBefore              | -81.47132  |
+| Time                    | 1.54e+03   |
+| Time-Optimization       | 4.24       |
+| Time-SampleProc         | 0.00953    |
+| Time-Sampling           | 35.4       |
+| n_timesteps             | 310000     |
+| train-AverageDiscoun... | -21.7      |
+| train-AverageReturn     | -34.2      |
+| train-EnvExecTime       | 4.17       |
+| train-MaxReturn         | 21.6       |
+| train-MinReturn         | -173       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.6       |
+| train-StdReturn         | 34.9       |
+----------------------------------------
+
+ ---------------- Iteration 31 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 31        |
+| ItrTime                 | 39.6      |
+| LossAfter               | -85.34972 |
+| LossBefore              | -84.97531 |
+| Time                    | 1.58e+03  |
+| Time-Optimization       | 4.24      |
+| Time-SampleProc         | 0.00864   |
+| Time-Sampling           | 35.4      |
+| n_timesteps             | 320000    |
+| train-AverageDiscoun... | -23.6     |
+| train-AverageReturn     | -36.6     |
+| train-EnvExecTime       | 4.21      |
+| train-MaxReturn         | 29.3      |
+| train-MinReturn         | -130      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 20.8      |
+| train-StdReturn         | 32.9      |
+---------------------------------------
+
+ ---------------- Iteration 32 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 32        |
+| ItrTime                 | 46.5      |
+| LossAfter               | -87.40771 |
+| LossBefore              | -87.02243 |
+| Time                    | 1.63e+03  |
+| Time-Optimization       | 6.82      |
+| Time-SampleProc         | 0.00907   |
+| Time-Sampling           | 39.7      |
+| n_timesteps             | 330000    |
+| train-AverageDiscoun... | -25       |
+| train-AverageReturn     | -38.2     |
+| train-EnvExecTime       | 4.71      |
+| train-MaxReturn         | 45.1      |
+| train-MinReturn         | -147      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 24        |
+| train-StdReturn         | 32.9      |
+---------------------------------------
+
+ ---------------- Iteration 33 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 33        |
+| ItrTime                 | 47.9      |
+| LossAfter               | -94.98176 |
+| LossBefore              | -94.55319 |
+| Time                    | 1.68e+03  |
+| Time-Optimization       | 4.33      |
+| Time-SampleProc         | 0.00861   |
+| Time-Sampling           | 43.5      |
+| n_timesteps             | 340000    |
+| train-AverageDiscoun... | -24.8     |
+| train-AverageReturn     | -39.1     |
+| train-EnvExecTime       | 5.12      |
+| train-MaxReturn         | 33.3      |
+| train-MinReturn         | -107      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 26.3      |
+| train-StdReturn         | 35.9      |
+---------------------------------------
+
+ ---------------- Iteration 34 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 34        |
+| ItrTime                 | 49.5      |
+| LossAfter               | -90.50068 |
+| LossBefore              | -90.08865 |
+| Time                    | 1.73e+03  |
+| Time-Optimization       | 4.61      |
+| Time-SampleProc         | 0.0124    |
+| Time-Sampling           | 44.9      |
+| n_timesteps             | 350000    |
+| train-AverageDiscoun... | -22.7     |
+| train-AverageReturn     | -36.3     |
+| train-EnvExecTime       | 5.28      |
+| train-MaxReturn         | 48.9      |
+| train-MinReturn         | -119      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 26.6      |
+| train-StdReturn         | 32.6      |
+---------------------------------------
+
+ ---------------- Iteration 35 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 35         |
+| ItrTime                 | 42.3       |
+| LossAfter               | -94.42152  |
+| LossBefore              | -93.989395 |
+| Time                    | 1.77e+03   |
+| Time-Optimization       | 4.69       |
+| Time-SampleProc         | 0.00972    |
+| Time-Sampling           | 37.6       |
+| n_timesteps             | 360000     |
+| train-AverageDiscoun... | -22.7      |
+| train-AverageReturn     | -36.8      |
+| train-EnvExecTime       | 4.44       |
+| train-MaxReturn         | 71.2       |
+| train-MinReturn         | -110       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 22         |
+| train-StdReturn         | 34.8       |
+----------------------------------------
+
+ ---------------- Iteration 36 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 36        |
+| ItrTime                 | 47.6      |
+| LossAfter               | -90.54481 |
+| LossBefore              | -90.13255 |
+| Time                    | 1.82e+03  |
+| Time-Optimization       | 4.6       |
+| Time-SampleProc         | 0.00864   |
+| Time-Sampling           | 43        |
+| n_timesteps             | 370000    |
+| train-AverageDiscoun... | -21.2     |
+| train-AverageReturn     | -34.6     |
+| train-EnvExecTime       | 5.08      |
+| train-MaxReturn         | 38.7      |
+| train-MinReturn         | -123      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 25.7      |
+| train-StdReturn         | 34.4      |
+---------------------------------------
+
+ ---------------- Iteration 37 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 37        |
+| ItrTime                 | 50.7      |
+| LossAfter               | -87.29374 |
+| LossBefore              | -86.90478 |
+| Time                    | 1.87e+03  |
+| Time-Optimization       | 4.34      |
+| Time-SampleProc         | 0.00879   |
+| Time-Sampling           | 46.3      |
+| n_timesteps             | 380000    |
+| train-AverageDiscoun... | -21.9     |
+| train-AverageReturn     | -34.8     |
+| train-EnvExecTime       | 5.46      |
+| train-MaxReturn         | 44.9      |
+| train-MinReturn         | -125      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 27.6      |
+| train-StdReturn         | 31.3      |
+---------------------------------------
+
+ ---------------- Iteration 38 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 38         |
+| ItrTime                 | 55         |
+| LossAfter               | -81.483795 |
+| LossBefore              | -81.1337   |
+| Time                    | 1.92e+03   |
+| Time-Optimization       | 4.55       |
+| Time-SampleProc         | 0.00911    |
+| Time-Sampling           | 50.5       |
+| n_timesteps             | 390000     |
+| train-AverageDiscoun... | -21.4      |
+| train-AverageReturn     | -33.4      |
+| train-EnvExecTime       | 5.74       |
+| train-MaxReturn         | 34.9       |
+| train-MinReturn         | -126       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 30.6       |
+| train-StdReturn         | 35.4       |
+----------------------------------------
+
+ ---------------- Iteration 39 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 39        |
+| ItrTime                 | 49.1      |
+| LossAfter               | -96.7633  |
+| LossBefore              | -96.34393 |
+| Time                    | 1.97e+03  |
+| Time-Optimization       | 4.87      |
+| Time-SampleProc         | 0.0122    |
+| Time-Sampling           | 44.2      |
+| n_timesteps             | 400000    |
+| train-AverageDiscoun... | -24.8     |
+| train-AverageReturn     | -39       |
+| train-EnvExecTime       | 5.15      |
+| train-MaxReturn         | 22.1      |
+| train-MinReturn         | -119      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 26.6      |
+| train-StdReturn         | 31.3      |
+---------------------------------------
+
+ ---------------- Iteration 40 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 40         |
+| ItrTime                 | 45.6       |
+| LossAfter               | -115.05502 |
+| LossBefore              | -114.51947 |
+| Time                    | 2.02e+03   |
+| Time-Optimization       | 4.25       |
+| Time-SampleProc         | 0.00874    |
+| Time-Sampling           | 41.4       |
+| n_timesteps             | 410000     |
+| train-AverageDiscoun... | -26.9      |
+| train-AverageReturn     | -43.8      |
+| train-EnvExecTime       | 4.83       |
+| train-MaxReturn         | 36.3       |
+| train-MinReturn         | -174       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 24.5       |
+| train-StdReturn         | 37.5       |
+----------------------------------------
+
+ ---------------- Iteration 41 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 41          |
+| ItrTime                 | 40.5        |
+| LossAfter               | -108.4057   |
+| LossBefore              | -107.879585 |
+| Time                    | 2.06e+03    |
+| Time-Optimization       | 4.28        |
+| Time-SampleProc         | 0.00903     |
+| Time-Sampling           | 36.2        |
+| n_timesteps             | 420000      |
+| train-AverageDiscoun... | -24.9       |
+| train-AverageReturn     | -40.7       |
+| train-EnvExecTime       | 4.31        |
+| train-MaxReturn         | 31.9        |
+| train-MinReturn         | -131        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 21.2        |
+| train-StdReturn         | 38.4        |
+-----------------------------------------
+
+ ---------------- Iteration 42 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 42        |
+| ItrTime                 | 45.2      |
+| LossAfter               | -86.576   |
+| LossBefore              | -86.17326 |
+| Time                    | 2.1e+03   |
+| Time-Optimization       | 6.59      |
+| Time-SampleProc         | 0.0194    |
+| Time-Sampling           | 38.6      |
+| n_timesteps             | 430000    |
+| train-AverageDiscoun... | -23.7     |
+| train-AverageReturn     | -36.2     |
+| train-EnvExecTime       | 4.48      |
+| train-MaxReturn         | 42.5      |
+| train-MinReturn         | -154      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 22.6      |
+| train-StdReturn         | 36        |
+---------------------------------------
+
+ ---------------- Iteration 43 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 43        |
+| ItrTime                 | 59.5      |
+| LossAfter               | -94.44351 |
+| LossBefore              | -94.02153 |
+| Time                    | 2.16e+03  |
+| Time-Optimization       | 6.63      |
+| Time-SampleProc         | 0.0146    |
+| Time-Sampling           | 52.9      |
+| n_timesteps             | 440000    |
+| train-AverageDiscoun... | -23.1     |
+| train-AverageReturn     | -36.7     |
+| train-EnvExecTime       | 5.94      |
+| train-MaxReturn         | 27.1      |
+| train-MinReturn         | -111      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 31.9      |
+| train-StdReturn         | 30.7      |
+---------------------------------------
+
+ ---------------- Iteration 44 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 44         |
+| ItrTime                 | 52.3       |
+| LossAfter               | -79.117424 |
+| LossBefore              | -78.78321  |
+| Time                    | 2.21e+03   |
+| Time-Optimization       | 6.46       |
+| Time-SampleProc         | 0.00973    |
+| Time-Sampling           | 45.9       |
+| n_timesteps             | 450000     |
+| train-AverageDiscoun... | -20.1      |
+| train-AverageReturn     | -31.4      |
+| train-EnvExecTime       | 5.25       |
+| train-MaxReturn         | 51.1       |
+| train-MinReturn         | -141       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 27.2       |
+| train-StdReturn         | 36.2       |
+----------------------------------------
+
+ ---------------- Iteration 45 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 45        |
+| ItrTime                 | 46.2      |
+| LossAfter               | -93.14126 |
+| LossBefore              | -92.75615 |
+| Time                    | 2.26e+03  |
+| Time-Optimization       | 4.3       |
+| Time-SampleProc         | 0.00915   |
+| Time-Sampling           | 41.9      |
+| n_timesteps             | 460000    |
+| train-AverageDiscoun... | -20.7     |
+| train-AverageReturn     | -34       |
+| train-EnvExecTime       | 5.01      |
+| train-MaxReturn         | 46.9      |
+| train-MinReturn         | -110      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 25.4      |
+| train-StdReturn         | 30.1      |
+---------------------------------------
+
+ ---------------- Iteration 46 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 46          |
+| ItrTime                 | 40.8        |
+| LossAfter               | -102.444534 |
+| LossBefore              | -102.007805 |
+| Time                    | 2.3e+03     |
+| Time-Optimization       | 4.3         |
+| Time-SampleProc         | 0.00851     |
+| Time-Sampling           | 36.5        |
+| n_timesteps             | 470000      |
+| train-AverageDiscoun... | -23.4       |
+| train-AverageReturn     | -38         |
+| train-EnvExecTime       | 4.38        |
+| train-MaxReturn         | 43          |
+| train-MinReturn         | -155        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 21.6        |
+| train-StdReturn         | 38.3        |
+-----------------------------------------
+
+ ---------------- Iteration 47 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 47         |
+| ItrTime                 | 40.5       |
+| LossAfter               | -80.37121  |
+| LossBefore              | -80.038925 |
+| Time                    | 2.34e+03   |
+| Time-Optimization       | 4.27       |
+| Time-SampleProc         | 0.00915    |
+| Time-Sampling           | 36.3       |
+| n_timesteps             | 480000     |
+| train-AverageDiscoun... | -19.7      |
+| train-AverageReturn     | -31        |
+| train-EnvExecTime       | 4.34       |
+| train-MaxReturn         | 37.3       |
+| train-MinReturn         | -148       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.4       |
+| train-StdReturn         | 33.5       |
+----------------------------------------
+
+ ---------------- Iteration 48 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 48         |
+| ItrTime                 | 40.5       |
+| LossAfter               | -101.36366 |
+| LossBefore              | -100.94363 |
+| Time                    | 2.38e+03   |
+| Time-Optimization       | 4.37       |
+| Time-SampleProc         | 0.009      |
+| Time-Sampling           | 36.2       |
+| n_timesteps             | 490000     |
+| train-AverageDiscoun... | -26        |
+| train-AverageReturn     | -40.3      |
+| train-EnvExecTime       | 4.25       |
+| train-MaxReturn         | 34         |
+| train-MinReturn         | -138       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21         |
+| train-StdReturn         | 33.9       |
+----------------------------------------
+
+ ---------------- Iteration 49 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 49         |
+| ItrTime                 | 40.8       |
+| LossAfter               | -105.3636  |
+| LossBefore              | -104.90971 |
+| Time                    | 2.42e+03   |
+| Time-Optimization       | 4.44       |
+| Time-SampleProc         | 0.00919    |
+| Time-Sampling           | 36.3       |
+| n_timesteps             | 500000     |
+| train-AverageDiscoun... | -25.8      |
+| train-AverageReturn     | -40.5      |
+| train-EnvExecTime       | 4.26       |
+| train-MaxReturn         | 74.2       |
+| train-MinReturn         | -126       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.9       |
+| train-StdReturn         | 39         |
+----------------------------------------
+
+ ---------------- Iteration 50 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 50         |
+| ItrTime                 | 54.6       |
+| LossAfter               | -89.878624 |
+| LossBefore              | -89.49734  |
+| Time                    | 2.48e+03   |
+| Time-Optimization       | 5.84       |
+| Time-SampleProc         | 0.0118     |
+| Time-Sampling           | 48.8       |
+| n_timesteps             | 510000     |
+| train-AverageDiscoun... | -23.5      |
+| train-AverageReturn     | -36.1      |
+| train-EnvExecTime       | 5.69       |
+| train-MaxReturn         | 33.3       |
+| train-MinReturn         | -125       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 29.3       |
+| train-StdReturn         | 35.4       |
+----------------------------------------
+
+ ---------------- Iteration 51 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 51          |
+| ItrTime                 | 56.1        |
+| LossAfter               | -107.945526 |
+| LossBefore              | -107.48223  |
+| Time                    | 2.53e+03    |
+| Time-Optimization       | 4.28        |
+| Time-SampleProc         | 0.00929     |
+| Time-Sampling           | 51.8        |
+| n_timesteps             | 520000      |
+| train-AverageDiscoun... | -27.1       |
+| train-AverageReturn     | -42.2       |
+| train-EnvExecTime       | 6.05        |
+| train-MaxReturn         | 19.4        |
+| train-MinReturn         | -152        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 31.3        |
+| train-StdReturn         | 34.6        |
+-----------------------------------------
+
+ ---------------- Iteration 52 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 52         |
+| ItrTime                 | 40.4       |
+| LossAfter               | -108.62294 |
+| LossBefore              | -108.14295 |
+| Time                    | 2.57e+03   |
+| Time-Optimization       | 4.26       |
+| Time-SampleProc         | 0.0116     |
+| Time-Sampling           | 36.2       |
+| n_timesteps             | 530000     |
+| train-AverageDiscoun... | -25        |
+| train-AverageReturn     | -40        |
+| train-EnvExecTime       | 4.3        |
+| train-MaxReturn         | 22.1       |
+| train-MinReturn         | -137       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.3       |
+| train-StdReturn         | 32.5       |
+----------------------------------------
+
+ ---------------- Iteration 53 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 53         |
+| ItrTime                 | 40.4       |
+| LossAfter               | -106.89155 |
+| LossBefore              | -106.41487 |
+| Time                    | 2.61e+03   |
+| Time-Optimization       | 4.22       |
+| Time-SampleProc         | 0.00883    |
+| Time-Sampling           | 36.1       |
+| n_timesteps             | 540000     |
+| train-AverageDiscoun... | -26.3      |
+| train-AverageReturn     | -41        |
+| train-EnvExecTime       | 4.22       |
+| train-MaxReturn         | 29         |
+| train-MinReturn         | -141       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.9       |
+| train-StdReturn         | 35.5       |
+----------------------------------------
+
+ ---------------- Iteration 54 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 54         |
+| ItrTime                 | 40.3       |
+| LossAfter               | -108.55147 |
+| LossBefore              | -108.06626 |
+| Time                    | 2.65e+03   |
+| Time-Optimization       | 4.32       |
+| Time-SampleProc         | 0.0138     |
+| Time-Sampling           | 35.9       |
+| n_timesteps             | 550000     |
+| train-AverageDiscoun... | -26.6      |
+| train-AverageReturn     | -41.5      |
+| train-EnvExecTime       | 4.27       |
+| train-MaxReturn         | 22.4       |
+| train-MinReturn         | -136       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.1       |
+| train-StdReturn         | 33.9       |
+----------------------------------------
+
+ ---------------- Iteration 55 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 55         |
+| ItrTime                 | 40.2       |
+| LossAfter               | -115.2264  |
+| LossBefore              | -114.70387 |
+| Time                    | 2.69e+03   |
+| Time-Optimization       | 4.3        |
+| Time-SampleProc         | 0.0088     |
+| Time-Sampling           | 35.9       |
+| n_timesteps             | 560000     |
+| train-AverageDiscoun... | -26.9      |
+| train-AverageReturn     | -42.6      |
+| train-EnvExecTime       | 4.27       |
+| train-MaxReturn         | 27.3       |
+| train-MinReturn         | -138       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.1       |
+| train-StdReturn         | 36.4       |
+----------------------------------------
+
+ ---------------- Iteration 56 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 56        |
+| ItrTime                 | 40.8      |
+| LossAfter               | -97.67465 |
+| LossBefore              | -97.24378 |
+| Time                    | 2.74e+03  |
+| Time-Optimization       | 4.3       |
+| Time-SampleProc         | 0.00853   |
+| Time-Sampling           | 36.5      |
+| n_timesteps             | 570000    |
+| train-AverageDiscoun... | -23.2     |
+| train-AverageReturn     | -36.5     |
+| train-EnvExecTime       | 4.23      |
+| train-MaxReturn         | 30.1      |
+| train-MinReturn         | -124      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 21.2      |
+| train-StdReturn         | 32.8      |
+---------------------------------------
+
+ ---------------- Iteration 57 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 57        |
+| ItrTime                 | 40.1      |
+| LossAfter               | -91.80164 |
+| LossBefore              | -91.41928 |
+| Time                    | 2.78e+03  |
+| Time-Optimization       | 4.25      |
+| Time-SampleProc         | 0.00829   |
+| Time-Sampling           | 35.8      |
+| n_timesteps             | 580000    |
+| train-AverageDiscoun... | -24.5     |
+| train-AverageReturn     | -36.9     |
+| train-EnvExecTime       | 4.27      |
+| train-MaxReturn         | 34.8      |
+| train-MinReturn         | -118      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 20.8      |
+| train-StdReturn         | 31.3      |
+---------------------------------------
+
+ ---------------- Iteration 58 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 58         |
+| ItrTime                 | 40.2       |
+| LossAfter               | -116.16981 |
+| LossBefore              | -115.67931 |
+| Time                    | 2.82e+03   |
+| Time-Optimization       | 4.32       |
+| Time-SampleProc         | 0.00912    |
+| Time-Sampling           | 35.8       |
+| n_timesteps             | 590000     |
+| train-AverageDiscoun... | -26.9      |
+| train-AverageReturn     | -42.6      |
+| train-EnvExecTime       | 4.3        |
+| train-MaxReturn         | 39.5       |
+| train-MinReturn         | -128       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21         |
+| train-StdReturn         | 35.9       |
+----------------------------------------
+
+ ---------------- Iteration 59 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 59         |
+| ItrTime                 | 41.2       |
+| LossAfter               | -80.280685 |
+| LossBefore              | -79.95829  |
+| Time                    | 2.86e+03   |
+| Time-Optimization       | 4.72       |
+| Time-SampleProc         | 0.00925    |
+| Time-Sampling           | 36.4       |
+| n_timesteps             | 600000     |
+| train-AverageDiscoun... | -18.3      |
+| train-AverageReturn     | -29.1      |
+| train-EnvExecTime       | 4.27       |
+| train-MaxReturn         | 51.9       |
+| train-MinReturn         | -120       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.4       |
+| train-StdReturn         | 39.9       |
+----------------------------------------
+
+ ---------------- Iteration 60 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 60         |
+| ItrTime                 | 43.1       |
+| LossAfter               | -95.70298  |
+| LossBefore              | -95.335556 |
+| Time                    | 2.9e+03    |
+| Time-Optimization       | 4.25       |
+| Time-SampleProc         | 0.00863    |
+| Time-Sampling           | 38.8       |
+| n_timesteps             | 610000     |
+| train-AverageDiscoun... | -23.5      |
+| train-AverageReturn     | -36.3      |
+| train-EnvExecTime       | 4.44       |
+| train-MaxReturn         | 22.9       |
+| train-MinReturn         | -125       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 23.7       |
+| train-StdReturn         | 36.8       |
+----------------------------------------
+
+ ---------------- Iteration 61 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 61         |
+| ItrTime                 | 40.7       |
+| LossAfter               | -107.21978 |
+| LossBefore              | -106.79857 |
+| Time                    | 2.94e+03   |
+| Time-Optimization       | 4.29       |
+| Time-SampleProc         | 0.00887    |
+| Time-Sampling           | 36.4       |
+| n_timesteps             | 620000     |
+| train-AverageDiscoun... | -24.1      |
+| train-AverageReturn     | -38.4      |
+| train-EnvExecTime       | 4.33       |
+| train-MaxReturn         | 28.7       |
+| train-MinReturn         | -140       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.5       |
+| train-StdReturn         | 35.8       |
+----------------------------------------
+
+ ---------------- Iteration 62 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 62         |
+| ItrTime                 | 40.2       |
+| LossAfter               | -88.865105 |
+| LossBefore              | -88.52302  |
+| Time                    | 2.98e+03   |
+| Time-Optimization       | 4.27       |
+| Time-SampleProc         | 0.00867    |
+| Time-Sampling           | 35.9       |
+| n_timesteps             | 630000     |
+| train-AverageDiscoun... | -21.3      |
+| train-AverageReturn     | -33.1      |
+| train-EnvExecTime       | 4.23       |
+| train-MaxReturn         | 22.4       |
+| train-MinReturn         | -99.2      |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.1       |
+| train-StdReturn         | 29.1       |
+----------------------------------------
+
+ ---------------- Iteration 63 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 63          |
+| ItrTime                 | 40.4        |
+| LossAfter               | -101.63983  |
+| LossBefore              | -101.251724 |
+| Time                    | 3.02e+03    |
+| Time-Optimization       | 4.33        |
+| Time-SampleProc         | 0.00844     |
+| Time-Sampling           | 36          |
+| n_timesteps             | 640000      |
+| train-AverageDiscoun... | -24.9       |
+| train-AverageReturn     | -38.3       |
+| train-EnvExecTime       | 4.18        |
+| train-MaxReturn         | 39.5        |
+| train-MinReturn         | -129        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 20.8        |
+| train-StdReturn         | 36.7        |
+-----------------------------------------
+
+ ---------------- Iteration 64 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 64        |
+| ItrTime                 | 45.9      |
+| LossAfter               | -91.46925 |
+| LossBefore              | -91.12525 |
+| Time                    | 3.07e+03  |
+| Time-Optimization       | 7.37      |
+| Time-SampleProc         | 0.00924   |
+| Time-Sampling           | 38.6      |
+| n_timesteps             | 650000    |
+| train-AverageDiscoun... | -21.9     |
+| train-AverageReturn     | -34       |
+| train-EnvExecTime       | 4.56      |
+| train-MaxReturn         | 41        |
+| train-MinReturn         | -129      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 22.7      |
+| train-StdReturn         | 35.4      |
+---------------------------------------
+
+ ---------------- Iteration 65 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 65         |
+| ItrTime                 | 43.9       |
+| LossAfter               | -92.799774 |
+| LossBefore              | -92.45862  |
+| Time                    | 3.11e+03   |
+| Time-Optimization       | 4.34       |
+| Time-SampleProc         | 0.00855    |
+| Time-Sampling           | 39.5       |
+| n_timesteps             | 660000     |
+| train-AverageDiscoun... | -20.5      |
+| train-AverageReturn     | -32.7      |
+| train-EnvExecTime       | 4.78       |
+| train-MaxReturn         | 36         |
+| train-MinReturn         | -134       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 23.5       |
+| train-StdReturn         | 35.6       |
+----------------------------------------
+
+ ---------------- Iteration 66 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 66          |
+| ItrTime                 | 43.6        |
+| LossAfter               | -103.192696 |
+| LossBefore              | -102.8083   |
+| Time                    | 3.15e+03    |
+| Time-Optimization       | 4.55        |
+| Time-SampleProc         | 0.00907     |
+| Time-Sampling           | 39.1        |
+| n_timesteps             | 670000      |
+| train-AverageDiscoun... | -22.1       |
+| train-AverageReturn     | -35.6       |
+| train-EnvExecTime       | 4.58        |
+| train-MaxReturn         | 28.8        |
+| train-MinReturn         | -111        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 23.3        |
+| train-StdReturn         | 33.7        |
+-----------------------------------------
+
+ ---------------- Iteration 67 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 67        |
+| ItrTime                 | 42.9      |
+| LossAfter               | -93.93088 |
+| LossBefore              | -93.5823  |
+| Time                    | 3.2e+03   |
+| Time-Optimization       | 4.34      |
+| Time-SampleProc         | 0.00861   |
+| Time-Sampling           | 38.5      |
+| n_timesteps             | 680000    |
+| train-AverageDiscoun... | -21.1     |
+| train-AverageReturn     | -33.3     |
+| train-EnvExecTime       | 4.6       |
+| train-MaxReturn         | 29.1      |
+| train-MinReturn         | -124      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 22.6      |
+| train-StdReturn         | 32.1      |
+---------------------------------------
+
+ ---------------- Iteration 68 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 68          |
+| ItrTime                 | 44.7        |
+| LossAfter               | -105.312096 |
+| LossBefore              | -104.91684  |
+| Time                    | 3.24e+03    |
+| Time-Optimization       | 5.97        |
+| Time-SampleProc         | 0.00962     |
+| Time-Sampling           | 38.7        |
+| n_timesteps             | 690000      |
+| train-AverageDiscoun... | -24.5       |
+| train-AverageReturn     | -38.2       |
+| train-EnvExecTime       | 4.61        |
+| train-MaxReturn         | 46.1        |
+| train-MinReturn         | -126        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 22.6        |
+| train-StdReturn         | 37.9        |
+-----------------------------------------
+
+ ---------------- Iteration 69 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 69        |
+| ItrTime                 | 41.2      |
+| LossAfter               | -91.3706  |
+| LossBefore              | -91.03305 |
+| Time                    | 3.28e+03  |
+| Time-Optimization       | 4.25      |
+| Time-SampleProc         | 0.00829   |
+| Time-Sampling           | 37        |
+| n_timesteps             | 700000    |
+| train-AverageDiscoun... | -20.6     |
+| train-AverageReturn     | -32.4     |
+| train-EnvExecTime       | 4.42      |
+| train-MaxReturn         | 66.5      |
+| train-MinReturn         | -143      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 22        |
+| train-StdReturn         | 35        |
+---------------------------------------
+
+ ---------------- Iteration 70 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 70         |
+| ItrTime                 | 40.7       |
+| LossAfter               | -109.15672 |
+| LossBefore              | -108.74784 |
+| Time                    | 3.32e+03   |
+| Time-Optimization       | 4.3        |
+| Time-SampleProc         | 0.00872    |
+| Time-Sampling           | 36.4       |
+| n_timesteps             | 710000     |
+| train-AverageDiscoun... | -24.2      |
+| train-AverageReturn     | -38.3      |
+| train-EnvExecTime       | 4.29       |
+| train-MaxReturn         | 39         |
+| train-MinReturn         | -150       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.3       |
+| train-StdReturn         | 33.8       |
+----------------------------------------
+
+ ---------------- Iteration 71 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 71         |
+| ItrTime                 | 40.5       |
+| LossAfter               | -105.13836 |
+| LossBefore              | -104.73678 |
+| Time                    | 3.36e+03   |
+| Time-Optimization       | 4.33       |
+| Time-SampleProc         | 0.00884    |
+| Time-Sampling           | 36.2       |
+| n_timesteps             | 720000     |
+| train-AverageDiscoun... | -24.3      |
+| train-AverageReturn     | -37.8      |
+| train-EnvExecTime       | 4.27       |
+| train-MaxReturn         | 49.9       |
+| train-MinReturn         | -110       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.3       |
+| train-StdReturn         | 34.3       |
+----------------------------------------
+
+ ---------------- Iteration 72 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+---------------------------------------
+| Itr                     | 72        |
+| ItrTime                 | 41.7      |
+| LossAfter               | -92.31553 |
+| LossBefore              | -91.97303 |
+| Time                    | 3.41e+03  |
+| Time-Optimization       | 4.94      |
+| Time-SampleProc         | 0.00874   |
+| Time-Sampling           | 36.8      |
+| n_timesteps             | 730000    |
+| train-AverageDiscoun... | -19.7     |
+| train-AverageReturn     | -31.5     |
+| train-EnvExecTime       | 4.25      |
+| train-MaxReturn         | 35.3      |
+| train-MinReturn         | -119      |
+| train-NumTrajs          | 100       |
+| train-PolicyExecTime    | 21.3      |
+| train-StdReturn         | 31.5      |
+---------------------------------------
+
+ ---------------- Iteration 73 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 73         |
+| ItrTime                 | 41.4       |
+| LossAfter               | -89.693565 |
+| LossBefore              | -89.37531  |
+| Time                    | 3.45e+03   |
+| Time-Optimization       | 5.06       |
+| Time-SampleProc         | 0.00959    |
+| Time-Sampling           | 36.3       |
+| n_timesteps             | 740000     |
+| train-AverageDiscoun... | -20.5      |
+| train-AverageReturn     | -32        |
+| train-EnvExecTime       | 4.29       |
+| train-MaxReturn         | 42.2       |
+| train-MinReturn         | -152       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.5       |
+| train-StdReturn         | 35.6       |
+----------------------------------------
+
+ ---------------- Iteration 74 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 74         |
+| ItrTime                 | 44.9       |
+| LossAfter               | -106.4691  |
+| LossBefore              | -106.08726 |
+| Time                    | 3.49e+03   |
+| Time-Optimization       | 4.4        |
+| Time-SampleProc         | 0.00925    |
+| Time-Sampling           | 40.4       |
+| n_timesteps             | 750000     |
+| train-AverageDiscoun... | -22.5      |
+| train-AverageReturn     | -36        |
+| train-EnvExecTime       | 4.84       |
+| train-MaxReturn         | 37.2       |
+| train-MinReturn         | -134       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 24.6       |
+| train-StdReturn         | 39.5       |
+----------------------------------------
+
+ ---------------- Iteration 75 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 75         |
+| ItrTime                 | 42.9       |
+| LossAfter               | -123.62736 |
+| LossBefore              | -123.15238 |
+| Time                    | 3.54e+03   |
+| Time-Optimization       | 4.47       |
+| Time-SampleProc         | 0.00891    |
+| Time-Sampling           | 38.4       |
+| n_timesteps             | 760000     |
+| train-AverageDiscoun... | -26        |
+| train-AverageReturn     | -41.6      |
+| train-EnvExecTime       | 4.49       |
+| train-MaxReturn         | 37         |
+| train-MinReturn         | -132       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 22.4       |
+| train-StdReturn         | 35.1       |
+----------------------------------------
+
+ ---------------- Iteration 76 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 76         |
+| ItrTime                 | 42         |
+| LossAfter               | -103.03576 |
+| LossBefore              | -102.63641 |
+| Time                    | 3.58e+03   |
+| Time-Optimization       | 4.46       |
+| Time-SampleProc         | 0.00938    |
+| Time-Sampling           | 37.6       |
+| n_timesteps             | 770000     |
+| train-AverageDiscoun... | -22.2      |
+| train-AverageReturn     | -35.2      |
+| train-EnvExecTime       | 4.42       |
+| train-MaxReturn         | 66         |
+| train-MinReturn         | -108       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 22         |
+| train-StdReturn         | 36.7       |
+----------------------------------------
+
+ ---------------- Iteration 77 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 77         |
+| ItrTime                 | 42.8       |
+| LossAfter               | -98.29195  |
+| LossBefore              | -97.924484 |
+| Time                    | 3.62e+03   |
+| Time-Optimization       | 5.17       |
+| Time-SampleProc         | 0.0101     |
+| Time-Sampling           | 37.6       |
+| n_timesteps             | 780000     |
+| train-AverageDiscoun... | -20.2      |
+| train-AverageReturn     | -32.5      |
+| train-EnvExecTime       | 4.46       |
+| train-MaxReturn         | 34.5       |
+| train-MinReturn         | -128       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 22.3       |
+| train-StdReturn         | 31.8       |
+----------------------------------------
+
+ ---------------- Iteration 78 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 78         |
+| ItrTime                 | 39.7       |
+| LossAfter               | -98.443665 |
+| LossBefore              | -98.08676  |
+| Time                    | 3.66e+03   |
+| Time-Optimization       | 4.25       |
+| Time-SampleProc         | 0.0138     |
+| Time-Sampling           | 35.5       |
+| n_timesteps             | 790000     |
+| train-AverageDiscoun... | -21.2      |
+| train-AverageReturn     | -33.6      |
+| train-EnvExecTime       | 4.23       |
+| train-MaxReturn         | 47.9       |
+| train-MinReturn         | -124       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21         |
+| train-StdReturn         | 34.3       |
+----------------------------------------
+
+ ---------------- Iteration 79 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 79          |
+| ItrTime                 | 46.8        |
+| LossAfter               | -108.417984 |
+| LossBefore              | -108.02325  |
+| Time                    | 3.71e+03    |
+| Time-Optimization       | 6.35        |
+| Time-SampleProc         | 0.0129      |
+| Time-Sampling           | 40.4        |
+| n_timesteps             | 800000      |
+| train-AverageDiscoun... | -24         |
+| train-AverageReturn     | -37.5       |
+| train-EnvExecTime       | 4.72        |
+| train-MaxReturn         | 64.7        |
+| train-MinReturn         | -139        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 23.9        |
+| train-StdReturn         | 35          |
+-----------------------------------------
+
+ ---------------- Iteration 80 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 80          |
+| ItrTime                 | 54.9        |
+| LossAfter               | -105.409676 |
+| LossBefore              | -105.02363  |
+| Time                    | 3.76e+03    |
+| Time-Optimization       | 7.54        |
+| Time-SampleProc         | 0.0111      |
+| Time-Sampling           | 47.4        |
+| n_timesteps             | 810000      |
+| train-AverageDiscoun... | -22.9       |
+| train-AverageReturn     | -36         |
+| train-EnvExecTime       | 5.54        |
+| train-MaxReturn         | 41.8        |
+| train-MinReturn         | -155        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 28          |
+| train-StdReturn         | 37.8        |
+-----------------------------------------
+
+ ---------------- Iteration 81 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 81         |
+| ItrTime                 | 63.1       |
+| LossAfter               | -100.88127 |
+| LossBefore              | -100.51712 |
+| Time                    | 3.82e+03   |
+| Time-Optimization       | 8.38       |
+| Time-SampleProc         | 0.0148     |
+| Time-Sampling           | 54.7       |
+| n_timesteps             | 820000     |
+| train-AverageDiscoun... | -21.9      |
+| train-AverageReturn     | -34.4      |
+| train-EnvExecTime       | 5.96       |
+| train-MaxReturn         | 45.8       |
+| train-MinReturn         | -140       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 31.9       |
+| train-StdReturn         | 34.8       |
+----------------------------------------
+
+ ---------------- Iteration 82 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 82         |
+| ItrTime                 | 64.5       |
+| LossAfter               | -110.89517 |
+| LossBefore              | -110.49197 |
+| Time                    | 3.89e+03   |
+| Time-Optimization       | 5.49       |
+| Time-SampleProc         | 0.00976    |
+| Time-Sampling           | 59         |
+| n_timesteps             | 830000     |
+| train-AverageDiscoun... | -23        |
+| train-AverageReturn     | -36.7      |
+| train-EnvExecTime       | 13.4       |
+| train-MaxReturn         | 50.7       |
+| train-MinReturn         | -133       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 30.8       |
+| train-StdReturn         | 33.8       |
+----------------------------------------
+
+ ---------------- Iteration 83 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 83         |
+| ItrTime                 | 39.8       |
+| LossAfter               | -109.53433 |
+| LossBefore              | -109.13162 |
+| Time                    | 3.93e+03   |
+| Time-Optimization       | 4.22       |
+| Time-SampleProc         | 0.00916    |
+| Time-Sampling           | 35.6       |
+| n_timesteps             | 840000     |
+| train-AverageDiscoun... | -22.6      |
+| train-AverageReturn     | -36        |
+| train-EnvExecTime       | 4.23       |
+| train-MaxReturn         | 16.9       |
+| train-MinReturn         | -129       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.1       |
+| train-StdReturn         | 34.4       |
+----------------------------------------
+
+ ---------------- Iteration 84 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 84         |
+| ItrTime                 | 39.5       |
+| LossAfter               | -111.38448 |
+| LossBefore              | -110.97254 |
+| Time                    | 3.97e+03   |
+| Time-Optimization       | 4.26       |
+| Time-SampleProc         | 0.00963    |
+| Time-Sampling           | 35.2       |
+| n_timesteps             | 850000     |
+| train-AverageDiscoun... | -23.2      |
+| train-AverageReturn     | -36.8      |
+| train-EnvExecTime       | 4.21       |
+| train-MaxReturn         | 33.3       |
+| train-MinReturn         | -117       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.7       |
+| train-StdReturn         | 32.1       |
+----------------------------------------
+
+ ---------------- Iteration 85 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 85         |
+| ItrTime                 | 41.4       |
+| LossAfter               | -105.53925 |
+| LossBefore              | -105.15302 |
+| Time                    | 4.01e+03   |
+| Time-Optimization       | 5.65       |
+| Time-SampleProc         | 0.00962    |
+| Time-Sampling           | 35.7       |
+| n_timesteps             | 860000     |
+| train-AverageDiscoun... | -22.1      |
+| train-AverageReturn     | -35        |
+| train-EnvExecTime       | 4.26       |
+| train-MaxReturn         | 45.7       |
+| train-MinReturn         | -133       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.2       |
+| train-StdReturn         | 30.1       |
+----------------------------------------
+
+ ---------------- Iteration 86 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 86          |
+| ItrTime                 | 41.6        |
+| LossAfter               | -110.018036 |
+| LossBefore              | -109.61792  |
+| Time                    | 4.05e+03    |
+| Time-Optimization       | 4.86        |
+| Time-SampleProc         | 0.00958     |
+| Time-Sampling           | 36.7        |
+| n_timesteps             | 870000      |
+| train-AverageDiscoun... | -23.4       |
+| train-AverageReturn     | -36.7       |
+| train-EnvExecTime       | 4.36        |
+| train-MaxReturn         | 88.6        |
+| train-MinReturn         | -146        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 21.5        |
+| train-StdReturn         | 40.9        |
+-----------------------------------------
+
+ ---------------- Iteration 87 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 87          |
+| ItrTime                 | 40.6        |
+| LossAfter               | -121.208824 |
+| LossBefore              | -120.75691  |
+| Time                    | 4.09e+03    |
+| Time-Optimization       | 4.29        |
+| Time-SampleProc         | 0.00867     |
+| Time-Sampling           | 36.3        |
+| n_timesteps             | 880000      |
+| train-AverageDiscoun... | -23.8       |
+| train-AverageReturn     | -38.5       |
+| train-EnvExecTime       | 4.38        |
+| train-MaxReturn         | 33.5        |
+| train-MinReturn         | -153        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 21.1        |
+| train-StdReturn         | 40.4        |
+-----------------------------------------
+
+ ---------------- Iteration 88 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 88         |
+| ItrTime                 | 40.4       |
+| LossAfter               | -132.30118 |
+| LossBefore              | -131.78355 |
+| Time                    | 4.13e+03   |
+| Time-Optimization       | 4.51       |
+| Time-SampleProc         | 0.00902    |
+| Time-Sampling           | 35.8       |
+| n_timesteps             | 890000     |
+| train-AverageDiscoun... | -26        |
+| train-AverageReturn     | -42        |
+| train-EnvExecTime       | 4.22       |
+| train-MaxReturn         | 40.1       |
+| train-MinReturn         | -118       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.1       |
+| train-StdReturn         | 35         |
+----------------------------------------
+
+ ---------------- Iteration 89 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 89         |
+| ItrTime                 | 58.2       |
+| LossAfter               | -105.76045 |
+| LossBefore              | -105.35472 |
+| Time                    | 4.19e+03   |
+| Time-Optimization       | 4.3        |
+| Time-SampleProc         | 0.0107     |
+| Time-Sampling           | 53.9       |
+| n_timesteps             | 900000     |
+| train-AverageDiscoun... | -22.9      |
+| train-AverageReturn     | -35.6      |
+| train-EnvExecTime       | 22.5       |
+| train-MaxReturn         | 67.3       |
+| train-MinReturn         | -114       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.9       |
+| train-StdReturn         | 38.5       |
+----------------------------------------
+
+ ---------------- Iteration 90 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 90         |
+| ItrTime                 | 40.4       |
+| LossAfter               | -98.37267  |
+| LossBefore              | -98.018715 |
+| Time                    | 4.23e+03   |
+| Time-Optimization       | 4.44       |
+| Time-SampleProc         | 0.00875    |
+| Time-Sampling           | 36         |
+| n_timesteps             | 910000     |
+| train-AverageDiscoun... | -20.3      |
+| train-AverageReturn     | -32.1      |
+| train-EnvExecTime       | 4.19       |
+| train-MaxReturn         | 47         |
+| train-MinReturn         | -115       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.4       |
+| train-StdReturn         | 32.8       |
+----------------------------------------
+
+ ---------------- Iteration 91 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 91         |
+| ItrTime                 | 43.9       |
+| LossAfter               | -125.0613  |
+| LossBefore              | -124.60673 |
+| Time                    | 4.28e+03   |
+| Time-Optimization       | 5.81       |
+| Time-SampleProc         | 0.0109     |
+| Time-Sampling           | 38         |
+| n_timesteps             | 920000     |
+| train-AverageDiscoun... | -24.6      |
+| train-AverageReturn     | -39.5      |
+| train-EnvExecTime       | 4.5        |
+| train-MaxReturn         | 23.9       |
+| train-MinReturn         | -148       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 22.2       |
+| train-StdReturn         | 34.5       |
+----------------------------------------
+
+ ---------------- Iteration 92 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 92         |
+| ItrTime                 | 60.9       |
+| LossAfter               | -129.07909 |
+| LossBefore              | -128.58916 |
+| Time                    | 4.34e+03   |
+| Time-Optimization       | 5.08       |
+| Time-SampleProc         | 0.011      |
+| Time-Sampling           | 55.8       |
+| n_timesteps             | 930000     |
+| train-AverageDiscoun... | -22.9      |
+| train-AverageReturn     | -38.2      |
+| train-EnvExecTime       | 7.4        |
+| train-MaxReturn         | 24         |
+| train-MinReturn         | -96.7      |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 33.5       |
+| train-StdReturn         | 28         |
+----------------------------------------
+
+ ---------------- Iteration 93 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 93         |
+| ItrTime                 | 44.5       |
+| LossAfter               | -121.44381 |
+| LossBefore              | -120.9783  |
+| Time                    | 4.38e+03   |
+| Time-Optimization       | 5.52       |
+| Time-SampleProc         | 0.0101     |
+| Time-Sampling           | 38.9       |
+| n_timesteps             | 940000     |
+| train-AverageDiscoun... | -26        |
+| train-AverageReturn     | -40.4      |
+| train-EnvExecTime       | 4.6        |
+| train-MaxReturn         | 26.7       |
+| train-MinReturn         | -136       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 23.1       |
+| train-StdReturn         | 36.8       |
+----------------------------------------
+
+ ---------------- Iteration 94 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 94         |
+| ItrTime                 | 42.8       |
+| LossAfter               | -108.26708 |
+| LossBefore              | -107.86614 |
+| Time                    | 4.42e+03   |
+| Time-Optimization       | 4.32       |
+| Time-SampleProc         | 0.00878    |
+| Time-Sampling           | 38.5       |
+| n_timesteps             | 950000     |
+| train-AverageDiscoun... | -23.1      |
+| train-AverageReturn     | -35.9      |
+| train-EnvExecTime       | 4.51       |
+| train-MaxReturn         | 67.6       |
+| train-MinReturn         | -131       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 22.6       |
+| train-StdReturn         | 34.9       |
+----------------------------------------
+
+ ---------------- Iteration 95 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 95         |
+| ItrTime                 | 55.2       |
+| LossAfter               | -126.99574 |
+| LossBefore              | -126.52499 |
+| Time                    | 4.48e+03   |
+| Time-Optimization       | 5.95       |
+| Time-SampleProc         | 0.0104     |
+| Time-Sampling           | 49.3       |
+| n_timesteps             | 960000     |
+| train-AverageDiscoun... | -25.6      |
+| train-AverageReturn     | -40.5      |
+| train-EnvExecTime       | 6.55       |
+| train-MaxReturn         | 40.4       |
+| train-MinReturn         | -134       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 28.7       |
+| train-StdReturn         | 34.3       |
+----------------------------------------
+
+ ---------------- Iteration 96 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 96          |
+| ItrTime                 | 49.1        |
+| LossAfter               | -114.56589  |
+| LossBefore              | -114.144104 |
+| Time                    | 4.53e+03    |
+| Time-Optimization       | 5.52        |
+| Time-SampleProc         | 0.0114      |
+| Time-Sampling           | 43.6        |
+| n_timesteps             | 970000      |
+| train-AverageDiscoun... | -23.1       |
+| train-AverageReturn     | -36.6       |
+| train-EnvExecTime       | 5.25        |
+| train-MaxReturn         | 61.8        |
+| train-MinReturn         | -116        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 26.2        |
+| train-StdReturn         | 38.9        |
+-----------------------------------------
+
+ ---------------- Iteration 97 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 97         |
+| ItrTime                 | 51.5       |
+| LossAfter               | -114.44255 |
+| LossBefore              | -114.03041 |
+| Time                    | 4.58e+03   |
+| Time-Optimization       | 5.19       |
+| Time-SampleProc         | 0.0128     |
+| Time-Sampling           | 46.3       |
+| n_timesteps             | 980000     |
+| train-AverageDiscoun... | -23.9      |
+| train-AverageReturn     | -37.3      |
+| train-EnvExecTime       | 5.41       |
+| train-MaxReturn         | 54.4       |
+| train-MinReturn         | -148       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 27         |
+| train-StdReturn         | 34.3       |
+----------------------------------------
+
+ ---------------- Iteration 98 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 98          |
+| ItrTime                 | 45.1        |
+| LossAfter               | -112.5366   |
+| LossBefore              | -112.139496 |
+| Time                    | 4.62e+03    |
+| Time-Optimization       | 4.36        |
+| Time-SampleProc         | 0.00942     |
+| Time-Sampling           | 40.7        |
+| n_timesteps             | 990000      |
+| train-AverageDiscoun... | -24         |
+| train-AverageReturn     | -37.1       |
+| train-EnvExecTime       | 4.74        |
+| train-MaxReturn         | 44.6        |
+| train-MinReturn         | -115        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 24          |
+| train-StdReturn         | 32.8        |
+-----------------------------------------
+
+ ---------------- Iteration 99 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 99         |
+| ItrTime                 | 43.4       |
+| LossAfter               | -95.566734 |
+| LossBefore              | -95.24772  |
+| Time                    | 4.67e+03   |
+| Time-Optimization       | 5.11       |
+| Time-SampleProc         | 0.0101     |
+| Time-Sampling           | 38.3       |
+| n_timesteps             | 1000000    |
+| train-AverageDiscoun... | -21.4      |
+| train-AverageReturn     | -32.5      |
+| train-EnvExecTime       | 4.5        |
+| train-MaxReturn         | 61.5       |
+| train-MinReturn         | -110       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 22.2       |
+| train-StdReturn         | 32.8       |
+----------------------------------------
+
+ ---------------- Iteration 100 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 100        |
+| ItrTime                 | 44.3       |
+| LossAfter               | -121.17078 |
+| LossBefore              | -120.76571 |
+| Time                    | 4.71e+03   |
+| Time-Optimization       | 4.78       |
+| Time-SampleProc         | 0.0104     |
+| Time-Sampling           | 39.5       |
+| n_timesteps             | 1010000    |
+| train-AverageDiscoun... | -23.7      |
+| train-AverageReturn     | -37.7      |
+| train-EnvExecTime       | 4.68       |
+| train-MaxReturn         | 57.4       |
+| train-MinReturn         | -117       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 23.3       |
+| train-StdReturn         | 35.9       |
+----------------------------------------
+
+ ---------------- Iteration 101 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 101        |
+| ItrTime                 | 46.3       |
+| LossAfter               | -129.11996 |
+| LossBefore              | -128.66714 |
+| Time                    | 4.76e+03   |
+| Time-Optimization       | 6.69       |
+| Time-SampleProc         | 0.0104     |
+| Time-Sampling           | 39.6       |
+| n_timesteps             | 1020000    |
+| train-AverageDiscoun... | -25.2      |
+| train-AverageReturn     | -40        |
+| train-EnvExecTime       | 4.64       |
+| train-MaxReturn         | 30.4       |
+| train-MinReturn         | -152       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 23.4       |
+| train-StdReturn         | 34.7       |
+----------------------------------------
+
+ ---------------- Iteration 102 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 102        |
+| ItrTime                 | 45.7       |
+| LossAfter               | -134.40768 |
+| LossBefore              | -133.91534 |
+| Time                    | 4.8e+03    |
+| Time-Optimization       | 5.89       |
+| Time-SampleProc         | 0.00972    |
+| Time-Sampling           | 39.8       |
+| n_timesteps             | 1030000    |
+| train-AverageDiscoun... | -27.8      |
+| train-AverageReturn     | -43.2      |
+| train-EnvExecTime       | 4.68       |
+| train-MaxReturn         | 40         |
+| train-MinReturn         | -103       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 23.7       |
+| train-StdReturn         | 30.4       |
+----------------------------------------
+
+ ---------------- Iteration 103 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 103        |
+| ItrTime                 | 53.7       |
+| LossAfter               | -135.97153 |
+| LossBefore              | -135.45842 |
+| Time                    | 4.86e+03   |
+| Time-Optimization       | 6.67       |
+| Time-SampleProc         | 0.0295     |
+| Time-Sampling           | 47         |
+| n_timesteps             | 1040000    |
+| train-AverageDiscoun... | -26        |
+| train-AverageReturn     | -41.5      |
+| train-EnvExecTime       | 8.11       |
+| train-MaxReturn         | 53         |
+| train-MinReturn         | -132       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 27.1       |
+| train-StdReturn         | 40.2       |
+----------------------------------------
+
+ ---------------- Iteration 104 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 104        |
+| ItrTime                 | 44.1       |
+| LossAfter               | -108.80717 |
+| LossBefore              | -108.41213 |
+| Time                    | 4.9e+03    |
+| Time-Optimization       | 4.23       |
+| Time-SampleProc         | 0.00886    |
+| Time-Sampling           | 39.9       |
+| n_timesteps             | 1050000    |
+| train-AverageDiscoun... | -22.2      |
+| train-AverageReturn     | -34.5      |
+| train-EnvExecTime       | 4.63       |
+| train-MaxReturn         | 57.5       |
+| train-MinReturn         | -119       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 24         |
+| train-StdReturn         | 31.3       |
+----------------------------------------
+
+ ---------------- Iteration 105 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 105        |
+| ItrTime                 | 39.5       |
+| LossAfter               | -120.34957 |
+| LossBefore              | -119.92713 |
+| Time                    | 4.94e+03   |
+| Time-Optimization       | 4.2        |
+| Time-SampleProc         | 0.00913    |
+| Time-Sampling           | 35.3       |
+| n_timesteps             | 1060000    |
+| train-AverageDiscoun... | -22.3      |
+| train-AverageReturn     | -36        |
+| train-EnvExecTime       | 4.17       |
+| train-MaxReturn         | 36.9       |
+| train-MinReturn         | -147       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.9       |
+| train-StdReturn         | 37         |
+----------------------------------------
+
+ ---------------- Iteration 106 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 106         |
+| ItrTime                 | 39.2        |
+| LossAfter               | -110.57332  |
+| LossBefore              | -110.196625 |
+| Time                    | 4.98e+03    |
+| Time-Optimization       | 4.23        |
+| Time-SampleProc         | 0.009       |
+| Time-Sampling           | 35          |
+| n_timesteps             | 1070000     |
+| train-AverageDiscoun... | -22.3       |
+| train-AverageReturn     | -34.8       |
+| train-EnvExecTime       | 4.13        |
+| train-MaxReturn         | 33.3        |
+| train-MinReturn         | -142        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 20.7        |
+| train-StdReturn         | 31.9        |
+-----------------------------------------
+
+ ---------------- Iteration 107 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 107         |
+| ItrTime                 | 40.7        |
+| LossAfter               | -109.955475 |
+| LossBefore              | -109.59332  |
+| Time                    | 5.02e+03    |
+| Time-Optimization       | 5.42        |
+| Time-SampleProc         | 0.0105      |
+| Time-Sampling           | 35.3        |
+| n_timesteps             | 1080000     |
+| train-AverageDiscoun... | -21.7       |
+| train-AverageReturn     | -34.1       |
+| train-EnvExecTime       | 4.17        |
+| train-MaxReturn         | 47.1        |
+| train-MinReturn         | -107        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 20.8        |
+| train-StdReturn         | 31.5        |
+-----------------------------------------
+
+ ---------------- Iteration 108 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 108        |
+| ItrTime                 | 43.6       |
+| LossAfter               | -135.79    |
+| LossBefore              | -135.32787 |
+| Time                    | 5.06e+03   |
+| Time-Optimization       | 5.5        |
+| Time-SampleProc         | 0.01       |
+| Time-Sampling           | 38.1       |
+| n_timesteps             | 1090000    |
+| train-AverageDiscoun... | -24.6      |
+| train-AverageReturn     | -39.9      |
+| train-EnvExecTime       | 4.4        |
+| train-MaxReturn         | 28.7       |
+| train-MinReturn         | -133       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 22.7       |
+| train-StdReturn         | 36.4       |
+----------------------------------------
+
+ ---------------- Iteration 109 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 109        |
+| ItrTime                 | 40.1       |
+| LossAfter               | -123.87665 |
+| LossBefore              | -123.44614 |
+| Time                    | 5.11e+03   |
+| Time-Optimization       | 4.35       |
+| Time-SampleProc         | 0.0108     |
+| Time-Sampling           | 35.8       |
+| n_timesteps             | 1100000    |
+| train-AverageDiscoun... | -23.3      |
+| train-AverageReturn     | -37.1      |
+| train-EnvExecTime       | 4.29       |
+| train-MaxReturn         | 51         |
+| train-MinReturn         | -143       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.2       |
+| train-StdReturn         | 35.6       |
+----------------------------------------
+
+ ---------------- Iteration 110 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 110        |
+| ItrTime                 | 41.4       |
+| LossAfter               | -125.83964 |
+| LossBefore              | -125.40248 |
+| Time                    | 5.15e+03   |
+| Time-Optimization       | 5.16       |
+| Time-SampleProc         | 0.00904    |
+| Time-Sampling           | 36.3       |
+| n_timesteps             | 1110000    |
+| train-AverageDiscoun... | -25.7      |
+| train-AverageReturn     | -39.7      |
+| train-EnvExecTime       | 5.01       |
+| train-MaxReturn         | 31.3       |
+| train-MinReturn         | -125       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.8       |
+| train-StdReturn         | 34.2       |
+----------------------------------------
+
+ ---------------- Iteration 111 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 111        |
+| ItrTime                 | 39.6       |
+| LossAfter               | -143.31088 |
+| LossBefore              | -142.79599 |
+| Time                    | 5.19e+03   |
+| Time-Optimization       | 4.23       |
+| Time-SampleProc         | 0.0101     |
+| Time-Sampling           | 35.4       |
+| n_timesteps             | 1120000    |
+| train-AverageDiscoun... | -26.8      |
+| train-AverageReturn     | -42.7      |
+| train-EnvExecTime       | 4.15       |
+| train-MaxReturn         | 39.7       |
+| train-MinReturn         | -138       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.9       |
+| train-StdReturn         | 36.5       |
+----------------------------------------
+
+ ---------------- Iteration 112 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 112        |
+| ItrTime                 | 41.1       |
+| LossAfter               | -144.11554 |
+| LossBefore              | -143.5791  |
+| Time                    | 5.23e+03   |
+| Time-Optimization       | 4.91       |
+| Time-SampleProc         | 0.00973    |
+| Time-Sampling           | 36.2       |
+| n_timesteps             | 1130000    |
+| train-AverageDiscoun... | -26.9      |
+| train-AverageReturn     | -42.8      |
+| train-EnvExecTime       | 4.18       |
+| train-MaxReturn         | 57.6       |
+| train-MinReturn         | -135       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.7       |
+| train-StdReturn         | 37.8       |
+----------------------------------------
+
+ ---------------- Iteration 113 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 113        |
+| ItrTime                 | 39.9       |
+| LossAfter               | -132.29887 |
+| LossBefore              | -131.80873 |
+| Time                    | 5.27e+03   |
+| Time-Optimization       | 4.68       |
+| Time-SampleProc         | 0.01       |
+| Time-Sampling           | 35.2       |
+| n_timesteps             | 1140000    |
+| train-AverageDiscoun... | -24.9      |
+| train-AverageReturn     | -39.5      |
+| train-EnvExecTime       | 4.23       |
+| train-MaxReturn         | 49.3       |
+| train-MinReturn         | -137       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.8       |
+| train-StdReturn         | 34.4       |
+----------------------------------------
+
+ ---------------- Iteration 114 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 114        |
+| ItrTime                 | 42.4       |
+| LossAfter               | -144.34239 |
+| LossBefore              | -143.8055  |
+| Time                    | 5.31e+03   |
+| Time-Optimization       | 5.77       |
+| Time-SampleProc         | 0.00981    |
+| Time-Sampling           | 36.6       |
+| n_timesteps             | 1150000    |
+| train-AverageDiscoun... | -26.7      |
+| train-AverageReturn     | -42.6      |
+| train-EnvExecTime       | 4.3        |
+| train-MaxReturn         | 33.4       |
+| train-MinReturn         | -109       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.7       |
+| train-StdReturn         | 29.9       |
+----------------------------------------
+
+ ---------------- Iteration 115 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 115        |
+| ItrTime                 | 41.3       |
+| LossAfter               | -151.5581  |
+| LossBefore              | -150.98102 |
+| Time                    | 5.35e+03   |
+| Time-Optimization       | 4.33       |
+| Time-SampleProc         | 0.00852    |
+| Time-Sampling           | 37         |
+| n_timesteps             | 1160000    |
+| train-AverageDiscoun... | -27.3      |
+| train-AverageReturn     | -43.9      |
+| train-EnvExecTime       | 5.94       |
+| train-MaxReturn         | 96.2       |
+| train-MinReturn         | -160       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.4       |
+| train-StdReturn         | 42.2       |
+----------------------------------------
+
+ ---------------- Iteration 116 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 116        |
+| ItrTime                 | 41.7       |
+| LossAfter               | -133.86656 |
+| LossBefore              | -133.36417 |
+| Time                    | 5.39e+03   |
+| Time-Optimization       | 5.51       |
+| Time-SampleProc         | 0.00952    |
+| Time-Sampling           | 36.2       |
+| n_timesteps             | 1170000    |
+| train-AverageDiscoun... | -25.9      |
+| train-AverageReturn     | -40.5      |
+| train-EnvExecTime       | 4.35       |
+| train-MaxReturn         | 32.6       |
+| train-MinReturn         | -143       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 21.5       |
+| train-StdReturn         | 35.7       |
+----------------------------------------
+
+ ---------------- Iteration 117 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 117        |
+| ItrTime                 | 45.4       |
+| LossAfter               | -152.84172 |
+| LossBefore              | -152.26588 |
+| Time                    | 5.44e+03   |
+| Time-Optimization       | 9.93       |
+| Time-SampleProc         | 0.0103     |
+| Time-Sampling           | 35.4       |
+| n_timesteps             | 1180000    |
+| train-AverageDiscoun... | -28.2      |
+| train-AverageReturn     | -44.8      |
+| train-EnvExecTime       | 4.17       |
+| train-MaxReturn         | 56.9       |
+| train-MinReturn         | -137       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 20.6       |
+| train-StdReturn         | 35.2       |
+----------------------------------------
+
+ ---------------- Iteration 118 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 118        |
+| ItrTime                 | 35.1       |
+| LossAfter               | -129.54445 |
+| LossBefore              | -129.06789 |
+| Time                    | 5.47e+03   |
+| Time-Optimization       | 4.13       |
+| Time-SampleProc         | 0.00855    |
+| Time-Sampling           | 30.9       |
+| n_timesteps             | 1190000    |
+| train-AverageDiscoun... | -23.7      |
+| train-AverageReturn     | -37.7      |
+| train-EnvExecTime       | 3.64       |
+| train-MaxReturn         | 42.3       |
+| train-MinReturn         | -125       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.8       |
+| train-StdReturn         | 31.4       |
+----------------------------------------
+
+ ---------------- Iteration 119 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 119        |
+| ItrTime                 | 34.3       |
+| LossAfter               | -131.37534 |
+| LossBefore              | -130.90997 |
+| Time                    | 5.51e+03   |
+| Time-Optimization       | 4.1        |
+| Time-SampleProc         | 0.00839    |
+| Time-Sampling           | 30.2       |
+| n_timesteps             | 1200000    |
+| train-AverageDiscoun... | -25.2      |
+| train-AverageReturn     | -39.4      |
+| train-EnvExecTime       | 3.54       |
+| train-MaxReturn         | 33.1       |
+| train-MinReturn         | -158       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.3       |
+| train-StdReturn         | 36.7       |
+----------------------------------------
+
+ ---------------- Iteration 120 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 120        |
+| ItrTime                 | 34.3       |
+| LossAfter               | -122.10133 |
+| LossBefore              | -121.68653 |
+| Time                    | 5.54e+03   |
+| Time-Optimization       | 4.1        |
+| Time-SampleProc         | 0.00868    |
+| Time-Sampling           | 30.2       |
+| n_timesteps             | 1210000    |
+| train-AverageDiscoun... | -24.5      |
+| train-AverageReturn     | -37.6      |
+| train-EnvExecTime       | 3.51       |
+| train-MaxReturn         | 39.4       |
+| train-MinReturn         | -135       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.4       |
+| train-StdReturn         | 32.2       |
+----------------------------------------
+
+ ---------------- Iteration 121 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 121        |
+| ItrTime                 | 34.1       |
+| LossAfter               | -128.06226 |
+| LossBefore              | -127.63846 |
+| Time                    | 5.58e+03   |
+| Time-Optimization       | 4.11       |
+| Time-SampleProc         | 0.00885    |
+| Time-Sampling           | 30         |
+| n_timesteps             | 1220000    |
+| train-AverageDiscoun... | -25.2      |
+| train-AverageReturn     | -38.9      |
+| train-EnvExecTime       | 3.48       |
+| train-MaxReturn         | 28.9       |
+| train-MinReturn         | -142       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.1       |
+| train-StdReturn         | 37.4       |
+----------------------------------------
+
+ ---------------- Iteration 122 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 122         |
+| ItrTime                 | 34.1        |
+| LossAfter               | -126.91781  |
+| LossBefore              | -126.503426 |
+| Time                    | 5.61e+03    |
+| Time-Optimization       | 4.1         |
+| Time-SampleProc         | 0.0087      |
+| Time-Sampling           | 30          |
+| n_timesteps             | 1230000     |
+| train-AverageDiscoun... | -23.5       |
+| train-AverageReturn     | -37.1       |
+| train-EnvExecTime       | 3.51        |
+| train-MaxReturn         | 71.5        |
+| train-MinReturn         | -126        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 17.1        |
+| train-StdReturn         | 35.1        |
+-----------------------------------------
+
+ ---------------- Iteration 123 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 123        |
+| ItrTime                 | 34         |
+| LossAfter               | -119.13068 |
+| LossBefore              | -118.75226 |
+| Time                    | 5.64e+03   |
+| Time-Optimization       | 4.09       |
+| Time-SampleProc         | 0.00831    |
+| Time-Sampling           | 29.9       |
+| n_timesteps             | 1240000    |
+| train-AverageDiscoun... | -21.9      |
+| train-AverageReturn     | -34.6      |
+| train-EnvExecTime       | 3.49       |
+| train-MaxReturn         | 34.5       |
+| train-MinReturn         | -123       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17         |
+| train-StdReturn         | 31.4       |
+----------------------------------------
+
+ ---------------- Iteration 124 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 124        |
+| ItrTime                 | 34.1       |
+| LossAfter               | -153.51573 |
+| LossBefore              | -153.00797 |
+| Time                    | 5.68e+03   |
+| Time-Optimization       | 4.11       |
+| Time-SampleProc         | 0.00821    |
+| Time-Sampling           | 30         |
+| n_timesteps             | 1250000    |
+| train-AverageDiscoun... | -24.9      |
+| train-AverageReturn     | -41.2      |
+| train-EnvExecTime       | 3.48       |
+| train-MaxReturn         | 38.3       |
+| train-MinReturn         | -120       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.3       |
+| train-StdReturn         | 32.9       |
+----------------------------------------
+
+ ---------------- Iteration 125 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 125        |
+| ItrTime                 | 34.1       |
+| LossAfter               | -148.39671 |
+| LossBefore              | -147.8829  |
+| Time                    | 5.71e+03   |
+| Time-Optimization       | 4.07       |
+| Time-SampleProc         | 0.00871    |
+| Time-Sampling           | 30.1       |
+| n_timesteps             | 1260000    |
+| train-AverageDiscoun... | -26.1      |
+| train-AverageReturn     | -41.8      |
+| train-EnvExecTime       | 3.51       |
+| train-MaxReturn         | 23.1       |
+| train-MinReturn         | -129       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.3       |
+| train-StdReturn         | 32.8       |
+----------------------------------------
+
+ ---------------- Iteration 126 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 126        |
+| ItrTime                 | 34         |
+| LossAfter               | -158.099   |
+| LossBefore              | -157.53264 |
+| Time                    | 5.75e+03   |
+| Time-Optimization       | 4.07       |
+| Time-SampleProc         | 0.00907    |
+| Time-Sampling           | 30         |
+| n_timesteps             | 1270000    |
+| train-AverageDiscoun... | -26.7      |
+| train-AverageReturn     | -43.4      |
+| train-EnvExecTime       | 3.52       |
+| train-MaxReturn         | 24.4       |
+| train-MinReturn         | -136       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.1       |
+| train-StdReturn         | 35.4       |
+----------------------------------------
+
+ ---------------- Iteration 127 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 127        |
+| ItrTime                 | 34.1       |
+| LossAfter               | -136.57004 |
+| LossBefore              | -136.08673 |
+| Time                    | 5.78e+03   |
+| Time-Optimization       | 4.09       |
+| Time-SampleProc         | 0.00881    |
+| Time-Sampling           | 30         |
+| n_timesteps             | 1280000    |
+| train-AverageDiscoun... | -24.4      |
+| train-AverageReturn     | -38.7      |
+| train-EnvExecTime       | 3.51       |
+| train-MaxReturn         | 35.1       |
+| train-MinReturn         | -152       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.1       |
+| train-StdReturn         | 37.7       |
+----------------------------------------
+
+ ---------------- Iteration 128 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 128        |
+| ItrTime                 | 34.2       |
+| LossAfter               | -133.89973 |
+| LossBefore              | -133.44283 |
+| Time                    | 5.81e+03   |
+| Time-Optimization       | 4.08       |
+| Time-SampleProc         | 0.0102     |
+| Time-Sampling           | 30.1       |
+| n_timesteps             | 1290000    |
+| train-AverageDiscoun... | -24.8      |
+| train-AverageReturn     | -38.8      |
+| train-EnvExecTime       | 3.51       |
+| train-MaxReturn         | 34.7       |
+| train-MinReturn         | -150       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.2       |
+| train-StdReturn         | 35.8       |
+----------------------------------------
+
+ ---------------- Iteration 129 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 129        |
+| ItrTime                 | 34.1       |
+| LossAfter               | -142.75635 |
+| LossBefore              | -142.27457 |
+| Time                    | 5.85e+03   |
+| Time-Optimization       | 4.07       |
+| Time-SampleProc         | 0.00894    |
+| Time-Sampling           | 30         |
+| n_timesteps             | 1300000    |
+| train-AverageDiscoun... | -24.8      |
+| train-AverageReturn     | -39.7      |
+| train-EnvExecTime       | 3.48       |
+| train-MaxReturn         | 40.6       |
+| train-MinReturn         | -200       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.2       |
+| train-StdReturn         | 35.8       |
+----------------------------------------
+
+ ---------------- Iteration 130 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 130        |
+| ItrTime                 | 34         |
+| LossAfter               | -137.34201 |
+| LossBefore              | -136.88329 |
+| Time                    | 5.88e+03   |
+| Time-Optimization       | 4.06       |
+| Time-SampleProc         | 0.00885    |
+| Time-Sampling           | 29.9       |
+| n_timesteps             | 1310000    |
+| train-AverageDiscoun... | -24        |
+| train-AverageReturn     | -38.3      |
+| train-EnvExecTime       | 3.49       |
+| train-MaxReturn         | 31.5       |
+| train-MinReturn         | -129       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.1       |
+| train-StdReturn         | 33.7       |
+----------------------------------------
+
+ ---------------- Iteration 131 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 131        |
+| ItrTime                 | 33.9       |
+| LossAfter               | -138.8868  |
+| LossBefore              | -138.42827 |
+| Time                    | 5.92e+03   |
+| Time-Optimization       | 4.08       |
+| Time-SampleProc         | 0.00998    |
+| Time-Sampling           | 29.8       |
+| n_timesteps             | 1320000    |
+| train-AverageDiscoun... | -23.4      |
+| train-AverageReturn     | -37.8      |
+| train-EnvExecTime       | 3.48       |
+| train-MaxReturn         | 44.8       |
+| train-MinReturn         | -193       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17         |
+| train-StdReturn         | 33.2       |
+----------------------------------------
+
+ ---------------- Iteration 132 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 132        |
+| ItrTime                 | 34.1       |
+| LossAfter               | -134.45076 |
+| LossBefore              | -134.01413 |
+| Time                    | 5.95e+03   |
+| Time-Optimization       | 4.06       |
+| Time-SampleProc         | 0.00874    |
+| Time-Sampling           | 30         |
+| n_timesteps             | 1330000    |
+| train-AverageDiscoun... | -23.1      |
+| train-AverageReturn     | -37        |
+| train-EnvExecTime       | 3.49       |
+| train-MaxReturn         | 69.1       |
+| train-MinReturn         | -149       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.3       |
+| train-StdReturn         | 39.5       |
+----------------------------------------
+
+ ---------------- Iteration 133 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 133        |
+| ItrTime                 | 34.2       |
+| LossAfter               | -152.15652 |
+| LossBefore              | -151.65463 |
+| Time                    | 5.98e+03   |
+| Time-Optimization       | 4.07       |
+| Time-SampleProc         | 0.00859    |
+| Time-Sampling           | 30.1       |
+| n_timesteps             | 1340000    |
+| train-AverageDiscoun... | -26.2      |
+| train-AverageReturn     | -41.9      |
+| train-EnvExecTime       | 3.52       |
+| train-MaxReturn         | 47.1       |
+| train-MinReturn         | -160       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.3       |
+| train-StdReturn         | 38.6       |
+----------------------------------------
+
+ ---------------- Iteration 134 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 134        |
+| ItrTime                 | 34.1       |
+| LossAfter               | -158.7396  |
+| LossBefore              | -158.19757 |
+| Time                    | 6.02e+03   |
+| Time-Optimization       | 4.05       |
+| Time-SampleProc         | 0.00924    |
+| Time-Sampling           | 30         |
+| n_timesteps             | 1350000    |
+| train-AverageDiscoun... | -24.9      |
+| train-AverageReturn     | -41.2      |
+| train-EnvExecTime       | 3.5        |
+| train-MaxReturn         | 49.9       |
+| train-MinReturn         | -120       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.2       |
+| train-StdReturn         | 37.5       |
+----------------------------------------
+
+ ---------------- Iteration 135 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 135        |
+| ItrTime                 | 34.1       |
+| LossAfter               | -151.00352 |
+| LossBefore              | -150.483   |
+| Time                    | 6.05e+03   |
+| Time-Optimization       | 4.05       |
+| Time-SampleProc         | 0.0093     |
+| Time-Sampling           | 30.1       |
+| n_timesteps             | 1360000    |
+| train-AverageDiscoun... | -26.8      |
+| train-AverageReturn     | -42.2      |
+| train-EnvExecTime       | 3.54       |
+| train-MaxReturn         | 31.8       |
+| train-MinReturn         | -163       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.2       |
+| train-StdReturn         | 35.2       |
+----------------------------------------
+
+ ---------------- Iteration 136 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 136        |
+| ItrTime                 | 34.1       |
+| LossAfter               | -141.9857  |
+| LossBefore              | -141.50626 |
+| Time                    | 6.09e+03   |
+| Time-Optimization       | 4.05       |
+| Time-SampleProc         | 0.0089     |
+| Time-Sampling           | 30         |
+| n_timesteps             | 1370000    |
+| train-AverageDiscoun... | -23.6      |
+| train-AverageReturn     | -38.1      |
+| train-EnvExecTime       | 3.5        |
+| train-MaxReturn         | 37.7       |
+| train-MinReturn         | -161       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.2       |
+| train-StdReturn         | 34.4       |
+----------------------------------------
+
+ ---------------- Iteration 137 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 137        |
+| ItrTime                 | 34         |
+| LossAfter               | -116.4001  |
+| LossBefore              | -116.03337 |
+| Time                    | 6.12e+03   |
+| Time-Optimization       | 4.04       |
+| Time-SampleProc         | 0.00932    |
+| Time-Sampling           | 29.9       |
+| n_timesteps             | 1380000    |
+| train-AverageDiscoun... | -22.9      |
+| train-AverageReturn     | -34.6      |
+| train-EnvExecTime       | 3.5        |
+| train-MaxReturn         | 29         |
+| train-MinReturn         | -131       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17         |
+| train-StdReturn         | 30.9       |
+----------------------------------------
+
+ ---------------- Iteration 138 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 138        |
+| ItrTime                 | 34         |
+| LossAfter               | -170.84586 |
+| LossBefore              | -170.29233 |
+| Time                    | 6.16e+03   |
+| Time-Optimization       | 4.03       |
+| Time-SampleProc         | 0.00978    |
+| Time-Sampling           | 30         |
+| n_timesteps             | 1390000    |
+| train-AverageDiscoun... | -28.9      |
+| train-AverageReturn     | -46.1      |
+| train-EnvExecTime       | 3.5        |
+| train-MaxReturn         | 19.4       |
+| train-MinReturn         | -163       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.1       |
+| train-StdReturn         | 37.9       |
+----------------------------------------
+
+ ---------------- Iteration 139 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 139        |
+| ItrTime                 | 33.9       |
+| LossAfter               | -145.98053 |
+| LossBefore              | -145.49684 |
+| Time                    | 6.19e+03   |
+| Time-Optimization       | 4.03       |
+| Time-SampleProc         | 0.00873    |
+| Time-Sampling           | 29.9       |
+| n_timesteps             | 1400000    |
+| train-AverageDiscoun... | -24.4      |
+| train-AverageReturn     | -39.1      |
+| train-EnvExecTime       | 3.51       |
+| train-MaxReturn         | 48.4       |
+| train-MinReturn         | -144       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17         |
+| train-StdReturn         | 33.9       |
+----------------------------------------
+
+ ---------------- Iteration 140 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 140        |
+| ItrTime                 | 34.2       |
+| LossAfter               | -158.50438 |
+| LossBefore              | -157.97523 |
+| Time                    | 6.22e+03   |
+| Time-Optimization       | 4.05       |
+| Time-SampleProc         | 0.00943    |
+| Time-Sampling           | 30.1       |
+| n_timesteps             | 1410000    |
+| train-AverageDiscoun... | -27.9      |
+| train-AverageReturn     | -43.9      |
+| train-EnvExecTime       | 3.52       |
+| train-MaxReturn         | 27.5       |
+| train-MinReturn         | -160       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.4       |
+| train-StdReturn         | 34.1       |
+----------------------------------------
+
+ ---------------- Iteration 141 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 141        |
+| ItrTime                 | 34.1       |
+| LossAfter               | -159.38028 |
+| LossBefore              | -158.84062 |
+| Time                    | 6.26e+03   |
+| Time-Optimization       | 4          |
+| Time-SampleProc         | 0.00813    |
+| Time-Sampling           | 30.1       |
+| n_timesteps             | 1420000    |
+| train-AverageDiscoun... | -26.5      |
+| train-AverageReturn     | -42.4      |
+| train-EnvExecTime       | 3.51       |
+| train-MaxReturn         | 45.8       |
+| train-MinReturn         | -156       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.3       |
+| train-StdReturn         | 35.5       |
+----------------------------------------
+
+ ---------------- Iteration 142 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 142        |
+| ItrTime                 | 33.8       |
+| LossAfter               | -162.42418 |
+| LossBefore              | -161.8683  |
+| Time                    | 6.29e+03   |
+| Time-Optimization       | 4          |
+| Time-SampleProc         | 0.00888    |
+| Time-Sampling           | 29.8       |
+| n_timesteps             | 1430000    |
+| train-AverageDiscoun... | -26        |
+| train-AverageReturn     | -42.2      |
+| train-EnvExecTime       | 3.49       |
+| train-MaxReturn         | 27         |
+| train-MinReturn         | -141       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 16.9       |
+| train-StdReturn         | 34.9       |
+----------------------------------------
+
+ ---------------- Iteration 143 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 143        |
+| ItrTime                 | 34.1       |
+| LossAfter               | -158.54599 |
+| LossBefore              | -158.00381 |
+| Time                    | 6.33e+03   |
+| Time-Optimization       | 4.03       |
+| Time-SampleProc         | 0.00864    |
+| Time-Sampling           | 30         |
+| n_timesteps             | 1440000    |
+| train-AverageDiscoun... | -28.4      |
+| train-AverageReturn     | -44.2      |
+| train-EnvExecTime       | 3.49       |
+| train-MaxReturn         | 51.7       |
+| train-MinReturn         | -127       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17         |
+| train-StdReturn         | 36.7       |
+----------------------------------------
+
+ ---------------- Iteration 144 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+-----------------------------------------
+| Itr                     | 144         |
+| ItrTime                 | 33.8        |
+| LossAfter               | -127.67323  |
+| LossBefore              | -127.261154 |
+| Time                    | 6.36e+03    |
+| Time-Optimization       | 3.99        |
+| Time-SampleProc         | 0.00869     |
+| Time-Sampling           | 29.8        |
+| n_timesteps             | 1450000     |
+| train-AverageDiscoun... | -21.8       |
+| train-AverageReturn     | -34.5       |
+| train-EnvExecTime       | 3.48        |
+| train-MaxReturn         | 44.8        |
+| train-MinReturn         | -136        |
+| train-NumTrajs          | 100         |
+| train-PolicyExecTime    | 16.9        |
+| train-StdReturn         | 36.6        |
+-----------------------------------------
+
+ ---------------- Iteration 145 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 145        |
+| ItrTime                 | 33.8       |
+| LossAfter               | -140.12846 |
+| LossBefore              | -139.69681 |
+| Time                    | 6.39e+03   |
+| Time-Optimization       | 4.06       |
+| Time-SampleProc         | 0.00877    |
+| Time-Sampling           | 29.7       |
+| n_timesteps             | 1460000    |
+| train-AverageDiscoun... | -25.3      |
+| train-AverageReturn     | -39.2      |
+| train-EnvExecTime       | 3.47       |
+| train-MaxReturn         | 29         |
+| train-MinReturn         | -125       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 16.9       |
+| train-StdReturn         | 33.6       |
+----------------------------------------
+
+ ---------------- Iteration 146 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 146        |
+| ItrTime                 | 34         |
+| LossAfter               | -156.71901 |
+| LossBefore              | -156.2309  |
+| Time                    | 6.43e+03   |
+| Time-Optimization       | 4          |
+| Time-SampleProc         | 0.00888    |
+| Time-Sampling           | 30         |
+| n_timesteps             | 1470000    |
+| train-AverageDiscoun... | -26.3      |
+| train-AverageReturn     | -41.7      |
+| train-EnvExecTime       | 3.47       |
+| train-MaxReturn         | 39.8       |
+| train-MinReturn         | -137       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.1       |
+| train-StdReturn         | 32.6       |
+----------------------------------------
+
+ ---------------- Iteration 147 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 147        |
+| ItrTime                 | 33.9       |
+| LossAfter               | -142.30354 |
+| LossBefore              | -141.8625  |
+| Time                    | 6.46e+03   |
+| Time-Optimization       | 3.99       |
+| Time-SampleProc         | 0.00881    |
+| Time-Sampling           | 29.9       |
+| n_timesteps             | 1480000    |
+| train-AverageDiscoun... | -23.8      |
+| train-AverageReturn     | -37.8      |
+| train-EnvExecTime       | 3.5        |
+| train-MaxReturn         | 45.2       |
+| train-MinReturn         | -140       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 16.9       |
+| train-StdReturn         | 37.5       |
+----------------------------------------
+
+ ---------------- Iteration 148 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 148        |
+| ItrTime                 | 34.3       |
+| LossAfter               | -161.31921 |
+| LossBefore              | -160.81262 |
+| Time                    | 6.49e+03   |
+| Time-Optimization       | 4.32       |
+| Time-SampleProc         | 0.00817    |
+| Time-Sampling           | 29.9       |
+| n_timesteps             | 1490000    |
+| train-AverageDiscoun... | -27.6      |
+| train-AverageReturn     | -43.4      |
+| train-EnvExecTime       | 3.5        |
+| train-MaxReturn         | 71.4       |
+| train-MinReturn         | -140       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 17.1       |
+| train-StdReturn         | 36.6       |
+----------------------------------------
+
+ ---------------- Iteration 149 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 149        |
+| ItrTime                 | 34.5       |
+| LossAfter               | -177.35806 |
+| LossBefore              | -176.77365 |
+| Time                    | 6.53e+03   |
+| Time-Optimization       | 4.82       |
+| Time-SampleProc         | 0.00876    |
+| Time-Sampling           | 29.7       |
+| n_timesteps             | 1500000    |
+| train-AverageDiscoun... | -28.5      |
+| train-AverageReturn     | -45.9      |
+| train-EnvExecTime       | 3.45       |
+| train-MaxReturn         | 46.3       |
+| train-MinReturn         | -156       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 16.8       |
+| train-StdReturn         | 40.7       |
+----------------------------------------
+
+ ---------------- Iteration 150 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+----------------------------------------
+| Itr                     | 150        |
+| ItrTime                 | 34.6       |
+| LossAfter               | -161.06618 |
+| LossBefore              | -160.52893 |
+| Time                    | 6.56e+03   |
+| Time-Optimization       | 5.36       |
+| Time-SampleProc         | 0.00912    |
+| Time-Sampling           | 29.2       |
+| n_timesteps             | 1510000    |
+| train-AverageDiscoun... | -28.2      |
+| train-AverageReturn     | -43.8      |
+| train-EnvExecTime       | 3.45       |
+| train-MaxReturn         | 42.6       |
+| train-MinReturn         | -178       |
+| train-NumTrajs          | 100        |
+| train-PolicyExecTime    | 16.6       |
+| train-StdReturn         | 38.3       |
+----------------------------------------
+
+ ---------------- Iteration 151 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...
+Optimizing policy...

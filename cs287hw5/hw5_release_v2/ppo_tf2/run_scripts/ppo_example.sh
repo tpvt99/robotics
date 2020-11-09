@@ -7,7 +7,6 @@ do
     python ppo_run_sweep.py --env_name HalfCheetah \
                             --exp_name pg \
                             --exp_num $i \
-                            --discount 1 \
                             --use_baseline 0 \
                             --use_ppo_obj 0 \
                             --use_clipper 0 \

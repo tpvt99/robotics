@@ -19,9 +19,9 @@ class Linear(tf.keras.layers.Layer):
 
     def call(self, input):
         z = tf.matmul(input, self.w) + self.b
+        if self.activation is None:
+            return z
         return self.activation(z)
-
-
 
 class MLP(tf.keras.models.Model):
     """
@@ -45,8 +45,7 @@ class MLP(tf.keras.models.Model):
                hidden_nonlinearity,
                output_nonlinearity,
                input_dim=None,
-               input_var=None,
-               w_init=tf.keras.initializers.GlorotUniform(),
+                w_init=tf.keras.initializers.GlorotUniform(),
                b_init=tf.keras.initializers.Zeros(),
                ):
         super(MLP, self).__init__(name = name)
@@ -75,24 +74,6 @@ class MLP(tf.keras.models.Model):
         for layer in self._layers:
             x = layer(x)
         return x
-
-class LogSTDNetwork(tf.Module):
-    def __init__(self, name, action_dim, init_log_std, learn_std):
-        super(LogSTDNetwork, self).__init__(name = name)
-        self.action_dim = action_dim
-        self.learn_std = learn_std
-        self.init_log_std = init_log_std
-        self.log_std = tf.Variable(name = "log_std_var",
-                                       shape=(1, action_dim,),
-                                       dtype= tf.float32,
-                                       initial_value=tf.keras.initializers.Constant(self.init_log_std),
-                                       trainable=self.learn_std)
-
-    @tf.function
-    def __call__(self, x):
-        return tf.math.maximum(self.log_std, self.min_log_std)
-
-
 
 def forward_mlp(output_dim,
                 hidden_sizes,
@@ -150,7 +131,7 @@ def forward_mlp(output_dim,
     output_var = x
     return input_var, output_var # Todo why return input_var?
 
-
+'''
 def create_rnn(name,
                cell_type,
                output_dim,
@@ -240,5 +221,5 @@ def create_rnn(name,
                                      bias_initializer=b_init,
                                      )
 
-    return input_var, state_var,  output_var, next_state_var, cell
-
+    #return input_var, state_var,  output_var, next_state_var, cell
+'''

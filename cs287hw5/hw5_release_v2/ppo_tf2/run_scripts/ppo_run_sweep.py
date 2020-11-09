@@ -4,18 +4,18 @@ import tensorflow as tf
 import numpy as np
 
 from hw5_tf2.utils.utils import set_seed, ClassEncoder
-
-from hw5_tf2.baselines.linear_baseline import LinearFeatureBaseline
+#
+#from hw5_tf2.baselines.linear_baseline import LinearFeatureBaseline
 from hw5_tf2.baselines.zero_baseline import ZeroBaseline
-
+#
 from hw5_tf2.envs.normalized_env import normalize
 from hw5_tf2.algos.ppo import PPO
-from hw5.trainers.mf_trainer import Trainer
-from hw5.samplers.base import Sampler
-from hw5.samplers.base import SampleProcessor
+from hw5_tf2.trainers.mf_trainer import Trainer
+from hw5_tf2.samplers.base import Sampler
+from hw5_tf2.samplers.base import SampleProcessor
 from hw5_tf2.policies.gaussian_mlp_policy import GaussianMLPPolicy
-from hw5.logger import logger
-from hw5.envs.mb_envs import *
+from hw5_tf2.logger import logger
+from hw5_tf2.envs.mb_envs import *
 
 import argparse
 
@@ -76,8 +76,7 @@ def run_experiment(**kwargs):
         env=env,
         sampler=sampler,
         sample_processor=sample_processor,
-        n_itr=kwargs['n_itr'],
-        sess=sess,
+        n_itr=kwargs['n_itr']
     )
 
     trainer.train()
@@ -99,17 +98,18 @@ if __name__ == '__main__':
     # discount factor: 0.99
     env_dict = {'HalfCheetah': HalfCheetahEnv, 'Swimmer': SwimmerEnv, 'Hopper': HopperEnv}
 
-    if args.use_baseline:
-        bsl = LinearFeatureBaseline
-    else:
-        bsl = ZeroBaseline
+    #if args.use_baseline:
+    #    bsl = LinearFeatureBaseline
+    #else:
+    #    bsl = ZeroBaseline
+    bsl = ZeroBaseline
 
     name = args.exp_name + '_' + args.env_name
     env = env_dict[args.env_name]
     params = {
         'name': name,
         'exp_num': args.exp_num,
-        'algo': 'ppo',
+        'algo': 'ppo_legacy',
         'seed': args.exp_num,
 
         'baseline': bsl,

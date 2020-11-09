@@ -3,6 +3,7 @@ from hw5_tf2.policies.distributions.diagonal_gaussian import DiagonalGaussian
 from hw5_tf2.policies.base import Policy
 from hw5_tf2.utils.serializable import Serializable
 from hw5_tf2.logger import logger
+from hw5_tf2.utils.utils import remove_scope_from_name
 
 import tensorflow as tf
 import numpy as np
@@ -67,11 +68,13 @@ class GaussianMLPPolicy(Policy):
 
         self._dist = DiagonalGaussian(self.action_dim)
 
-        self.policy_params = None # store trainable policy vars to here
+        # Create an OrderedDict to include mean_var and log_std
+        self.policy_params = OrderedDict([(remove_scope_from_name(var.name, self.name), var) for var in self.mean_var.trainable_variables])
+        self.policy_params[remove_scope_from_name(self.log_std.name, self.name)] = self.log_std # store trainable policy vars to here
 
 
     @tf.function
-    def log_std_var(self, log_std_var):
+    def max_log_std(self, log_std_var):
         return tf.math.maximum(log_std_var, self.min_log_std)
 
     def get_action(self, observation):
@@ -103,10 +106,10 @@ class GaussianMLPPolicy(Policy):
         assert observations.ndim == 2 and observations.shape[1] == self.obs_dim
 
         means = self.mean_var(observations)
-        actions = means + tf.random.normal(shape = tf.shape (means)) * \
-                  tf.math.exp(self.log_std_var(self.log_std).numpy())
+        actions = means + tf.random.normal(shape = tf.shape(means)) * \
+                  tf.math.exp(self.max_log_std(self.log_std).numpy())
 
-        log_stds = self.log_std_var(self.log_std).numpy()
+        log_stds = self.max_log_std(self.log_std).numpy()
 
         agent_infos = [dict(mean=mean, log_std=log_stds[0]) for mean in means]
         return actions, agent_infos
@@ -120,12 +123,14 @@ class GaussianMLPPolicy(Policy):
         logger.logkv(prefix+'AveragePolicyStd', np.mean(np.exp(log_stds)))
         logger.logkv(prefix + 'AverageAbsPolicyMean', np.mean(np.abs(means)))
 
-    def load_params(self, policy_params):
-        """
-        Args:
-            policy_params (ndarray): array of policy parameters for each task
-        """
-        raise NotImplementedError
+    # def load_params(self, policy_params):
+    #     """
+    #     Args:
+    #         policy_params (ndarray): array of policy parameters for each task
+    #     """
+    #     raise NotImplementedError
+    #
+
 
     @property
     def distribution(self):
@@ -149,57 +154,51 @@ class GaussianMLPPolicy(Policy):
             (dict) : a dictionary of tf placeholders for the policy output distribution
         """
         if params is None:
-            with tf.name_scope(self.name) as scope:
-                obs_var, mean_var = MLP(name = scope + "mean_network",
-                                output_dim = self.action_dim,
-                                hidden_sizes=self.hidden_sizes,
-                                hidden_nonlinearity=self.hidden_nonlinearity,
-                                output_nonlinearity=self.output_nonlinearity,
-                                input_dim = (None, self.obs_dim,))
+            mean_var = self.mean_var(obs_var)
+            log_std_var = self.max_log_std(self.log_std)
 
-                log_std_var = self.log_std_var
         else:
-            mean_network_params = OrderedDict()
-            log_std_network_params = []
-            for name, param in params.items():
-                if 'log_std_network' in name:
-                    log_std_network_params.append(param)
-                else:# if 'mean_network' in name:
-                    mean_network_params[name] = param
-
-            assert len(log_std_network_params) == 1
-
-
-
-            obs_var, mean_var = forward_mlp(output_dim=self.action_dim,
-                                            hidden_sizes=self.hidden_sizes,
-                                            hidden_nonlinearity=self.hidden_nonlinearity,
-                                            output_nonlinearity=self.output_nonlinearity,
-                                            input_var=obs_var,
-                                            mlp_params=mean_network_params,
-                                            )
-
-            log_std_var = log_std_network_params[0]
+            # mean_network_params = OrderedDict()
+            # log_std_network_params = []
+            # for name, param in params.items():
+            #     if 'log_std_network' in name:
+            #         log_std_network_params.append(param)
+            #     else:# if 'mean_network' in name:
+            #         mean_network_params[name] = param
+            #
+            # assert len(log_std_network_params) == 1
+            #
+            #
+            # obs_var, mean_var = forward_mlp(output_dim=self.action_dim,
+            #                                 hidden_sizes=self.hidden_sizes,
+            #                                 hidden_nonlinearity=self.hidden_nonlinearity,
+            #                                 output_nonlinearity=self.output_nonlinearity,
+            #                                 input_var=obs_var,
+            #                                 mlp_params=mean_network_params,
+            #                                 )
+            #
+            # log_std_var = log_std_network_params[0]
+            pass
 
         return dict(mean=mean_var, log_std=log_std_var)
 
-    def distribution_info_keys(self, obs, state_infos):
-        """
-        Args:
-            obs (placeholder) : symbolic variable for observations
-            state_infos (dict) : a dictionary of placeholders that contains information about the
-            state of the policy at the time it received the observation
-
-        Returns:
-            (dict) : a dictionary of tf placeholders for the policy output distribution
-        """
-        raise ["mean", "log_std"]
-
-    def get_shared_param_values(self):
-        state = dict()
-        state['network_params'] = self.get_param_values()
-        return state
-
-    def set_shared_params(self, state):
-        self.set_params(state['network_params'])
+    # def distribution_info_keys(self, obs, state_infos):
+    #     """
+    #     Args:
+    #         obs (placeholder) : symbolic variable for observations
+    #         state_infos (dict) : a dictionary of placeholders that contains information about the
+    #         state of the policy at the time it received the observation
+    #
+    #     Returns:
+    #         (dict) : a dictionary of tf placeholders for the policy output distribution
+    #     """
+    #     raise ["mean", "log_std"]
+    #
+    # def get_shared_param_values(self):
+    #     state = dict()
+    #     state['network_params'] = self.get_param_values()
+    #     return state
+    #
+    # def set_shared_params(self, state):
+    #     self.set_params(state['network_params'])
 

@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
-from hw5.policies.distributions.base import Distribution
+from hw5_tf2.policies.distributions.base import Distribution
+import math
 
 class DiagonalGaussian(Distribution):
     """
@@ -82,12 +83,12 @@ class DiagonalGaussian(Distribution):
         """ YOUR CODE HERE FOR PROBLEM 1C"""
         with tf.variable_scope("log_li_new"):
             # hint: consider using the function you just inplemented in PROBLEM 1A!
-            logli_new =
+            logli_new = None
         with tf.variable_scope("log_li_old"):
             # hint: consider using the function you just inplemented in PROBLEM 1A!
-            logli_old =
+            logli_old = None
         # hint: note this is pi over pi_old, not log_pi over log_pi_old
-        pi_over_pi_old =
+        pi_over_pi_old = None
         """ YOUR CODE ENDS"""
         return pi_over_pi_old
 
@@ -104,7 +105,12 @@ class DiagonalGaussian(Distribution):
         log_stds = dist_info_vars["log_std"]
         "YOUR CODE HERE FOR PROBLEM 1A"
         # hint: compute loglikelihood of gaussian
-
+        component1 = -1 / 2 * self.dim * tf.math.log(2 * 3.14)
+        log_stds = tf.exp(log_stds)
+        sigma = tf.square(tf.linalg.diag(tf.squeeze(log_stds)))
+        component2 = -1 / 2 * tf.math.log(tf.linalg.det(sigma))
+        component3 = -1 / 2 * tf.matmul(tf.matmul(x_var - means, tf.linalg.inv(sigma)), tf.transpose(x_var - means))
+        logli = component1 + component2 + component3
         "YOUR CODE END"
         return logli
 
@@ -133,7 +139,7 @@ class DiagonalGaussian(Distribution):
         log_stds = dist_info_vars["log_std"]
         """ YOUR CODE HERE FOR PROBLEM 1E """
         # hint: compute entropy, look it up online if you don't know. Remember, it is diagonal gaussian.
-        result =
+        result = None
         """ YOUR CODE ENDS """
         return result
 

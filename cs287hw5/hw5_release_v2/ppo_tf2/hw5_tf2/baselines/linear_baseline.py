@@ -32,7 +32,7 @@ class LinearBaseline(Baseline):
             return np.zeros(len(path["observations"]))
         '''  YOUR CODE HERE FOR PROBLEM 1B'''
         # hint baselines should be features dot coeffs
-        prediction =
+        prediction = None
         '''  YOUR CODE ENDS'''
         return prediction
 
@@ -73,8 +73,8 @@ class LinearBaseline(Baseline):
         # 4. Use np.linalg.lstsq to find the best coeff for featmat.T.dot(featmat), featmat.T.dot(target), (provided)
         # 5. don't forget your reg_coeff with an identity matrix sould be add to featmat.T.dot(featmat) as well (provided)
         # 6. You can do this your own way!!
-        featmat =
-        target =
+        featmat = None
+        target = None
         reg_coeff = self._reg_coeff
         for _ in range(5):
             self._coeffs = np.linalg.lstsq(

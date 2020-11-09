@@ -1,4 +1,4 @@
-from hw5.utils.utils import remove_scope_from_name
+from hw5_tf2.utils.utils import remove_scope_from_name
 from hw5_tf2.utils.serializable import Serializable
 import tensorflow as tf
 from collections import OrderedDict
@@ -179,8 +179,7 @@ class Policy(Serializable):
         Returns:
             (list) : list of values for parameters
         """
-        param_values = tf.get_default_session().run(self.policy_params)
-        return param_values
+        return self.policy_params
 
     def set_params(self, policy_params):
         """
@@ -203,14 +202,6 @@ class Policy(Serializable):
             self._assign_phs = assign_phs
         feed_dict = dict(zip(self._assign_phs, policy_params.values()))
         tf.get_default_session().run(self._assign_ops, feed_dict=feed_dict)
-
-    def _create_placeholders_for_vars(self, scope, graph_keys=tf.GraphKeys.TRAINABLE_VARIABLES):
-        var_list = tf.get_collection(graph_keys, scope=scope)
-        placeholders = []
-        for var in var_list:
-            var_name = remove_scope_from_name(var.name, scope.split('/')[0])
-            placeholders.append((var_name, tf.placeholder(tf.float32, shape=var.shape, name="%s_ph" % var_name)))
-        return OrderedDict(placeholders)
 
     @property
     def policy_params_feed_dict(self):

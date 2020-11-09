@@ -1,3 +1,5 @@
+
+
 class Distribution(object):
     """ 
     General methods for a generic distribution

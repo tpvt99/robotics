@@ -244,5 +244,5 @@ def test_part4_c():
 
 if __name__ == '__main__':
     test_part4_a()
-    test_part4_b()
+    #test_part4_b()
     #test_part4_c()

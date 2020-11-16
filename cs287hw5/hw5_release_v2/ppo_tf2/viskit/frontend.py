@@ -216,7 +216,7 @@ def make_plot_eps(plot_list, use_median=False, counter=0):
         # leg = ax.legend(loc=loc, prop={'size': 14}, ncol=1, labels=['0', 'baseline', 'bass', 'SimHash'])
         # for legobj in leg.legendHandles:
         #     legobj.set_linewidth(5.0)
-    _plt.savefig('/Users/rein/Desktop/plots/' + str(counter) + '.pdf', bbox_inches='tight')
+    _plt.savefig('/home/tpvt96/Desktop/' + str(counter) + '.pdf', bbox_inches='tight')
 
 
 def summary_name(exp, selector=None):

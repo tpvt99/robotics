@@ -1,7 +1,7 @@
 {
   "algo": "ppo_legacy",
   "baseline": {
-    "$class": "hw5_tf2.baselines.zero_baseline.ZeroBaseline"
+    "$class": "hw5_tf2.baselines.linear_baseline.LinearFeatureBaseline"
   },
   "clip_eps": 0.2,
   "discount": 0.99,

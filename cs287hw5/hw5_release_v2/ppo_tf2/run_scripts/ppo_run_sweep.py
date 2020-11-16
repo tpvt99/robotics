@@ -4,10 +4,10 @@ import tensorflow as tf
 import numpy as np
 
 from hw5_tf2.utils.utils import set_seed, ClassEncoder
-#
-#from hw5_tf2.baselines.linear_baseline import LinearFeatureBaseline
+
+from hw5_tf2.baselines.linear_baseline import LinearFeatureBaseline
 from hw5_tf2.baselines.zero_baseline import ZeroBaseline
-#
+
 from hw5_tf2.envs.normalized_env import normalize
 from hw5_tf2.algos.ppo import PPO
 from hw5_tf2.trainers.mf_trainer import Trainer
@@ -98,11 +98,10 @@ if __name__ == '__main__':
     # discount factor: 0.99
     env_dict = {'HalfCheetah': HalfCheetahEnv, 'Swimmer': SwimmerEnv, 'Hopper': HopperEnv}
 
-    #if args.use_baseline:
-    #    bsl = LinearFeatureBaseline
-    #else:
-    #    bsl = ZeroBaseline
-    bsl = ZeroBaseline
+    if args.use_baseline:
+        bsl = LinearFeatureBaseline
+    else:
+        bsl = ZeroBaseline
 
     name = args.exp_name + '_' + args.env_name
     env = env_dict[args.env_name]

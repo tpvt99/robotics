@@ -59,22 +59,48 @@ class PPO(Algo, Serializable):
 
         #1. Find the action_mean and action_log_std by running policy (it is prediction step)
         # distribution_info is dict has 2 keys {'mean': mean, 'log_std': log_std}
-        distribution_info = self.policy.distribution_info_sym(observations)
+        distribution_info = self.policy.distribution_info_sym(observations) # new
 
         #2. Find the loss between true_y (action) and predicted_y (distribution_info)
         if self.use_ppo_obj:
-            pass
+            """ YOUR CODE HERE FOR PROBLEM 1C --- PROVIDED """
+            # hint: you need to implement pi over pi_old in this function. This function is located at hw5.policies.distributions.diagonal_gaussian
+            # you don't need to write code here
+            likelihood_ratio = self.policy.distribution.likelihood_ratio_sym(actions, dist_info_old_ph,
+                                                                             distribution_info)
+            """ YOUR CODE ENDS """
         else:
+            """YOUR CODE HERE FOR PROBLEM 1A --- PROVIDED"""
+            # hint: you need to implement log pi in this function. This function is located at hw5.policies.distributions.diagnal_gaussian
+            # you don't need to write anything here.
             loglikelihood = self.policy.distribution.log_likelihood_sym(actions, distribution_info)
             likelihood_ratio = loglikelihood
+            """YOUR CODE END"""
 
         if self.use_clipper:
-            pass
+            """ YOUR CODE HERE FOR PROBLEM 1D """
+            # hint: as described, you need to first clip the likelihood_ratio between 1 + eps and 1 - eps
+            # in the code, eps is self._clip_eps
+            # finally you need to find the minimum of the non clipped objective and the clipped one, and we just call it clipped_obj in the code.
+            obj_1 = None
+            obj_2 = None
+            clipped_obj = None
+            """ YOUR CODE END """
         else:
-            clipped_obj = likelihood_ratio
+            """YOUR CODE HERE FOR PROBLEM 1A"""
+            clipped_obj = likelihood_ratio  # hint: here we also abuse the var name a bit. The obj is not clipped here!!!!
+            """YOUR CODE ENDS"""
 
         if self.use_entropy:
-            pass
+            """YOUR CODE HERE FOR PROBLEM 1E --- PROVIDED"""
+            # hint: entropy_bonus * entropy is the entropy obj
+            # need to implement in hw5.policies.distributions.diagonal_gaussian
+            # we are minimizing the objective, so it should all be negative
+            # no code here
+            entropy_obj = self.entropy_bonus * tf.reduce_mean(
+                self.policy.distribution.entropy_sym(distribution_info))
+            surr_obj = - tf.reduce_mean(clipped_obj) - entropy_obj
+            """ YOUR CODE END """
         else:
             surr_obj = - tf.math.reduce_mean(clipped_obj * returns)
 

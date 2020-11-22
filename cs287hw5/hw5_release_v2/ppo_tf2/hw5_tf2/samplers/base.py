@@ -259,7 +259,11 @@ class SampleProcessor(object):
         if use_gae:
             """ YOUR CODE HERE FOR PROBLEM 1F (EXTRA CREDITS) """
             # hint: use self.gae_lambda, utils.discount_cumsum you just implemented
-
+            for idx, path in enumerate(paths):
+                path_baselines = np.append(all_path_baselines[idx], 0)
+                path_rewards = np.append(path['rewards'], 0)
+                path_delta = path_rewards[:-1] - path_baselines[:-1] + self.discount * path_baselines[1:]
+                path["advantages"] = utils.discount_cumsum(path_delta, self.gae_lambda * self.discount)
             """ YOUR CODE ENDS """
         else:
             for idx, path in enumerate(paths):

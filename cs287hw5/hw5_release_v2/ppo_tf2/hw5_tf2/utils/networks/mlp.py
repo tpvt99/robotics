@@ -40,13 +40,13 @@ class MLP(tf.keras.models.Model):
 
     """
     def __init__(self, name,
-               output_dim,
-               hidden_sizes,
-               hidden_nonlinearity,
-               output_nonlinearity,
-               input_dim=None,
+                output_dim,
+                hidden_sizes,
+                hidden_nonlinearity,
+                output_nonlinearity,
+                input_dim=None,
                 w_init=tf.keras.initializers.GlorotUniform(),
-               b_init=tf.keras.initializers.Zeros(),
+                b_init=tf.keras.initializers.Zeros(),
                ):
         super(MLP, self).__init__(name = name)
 

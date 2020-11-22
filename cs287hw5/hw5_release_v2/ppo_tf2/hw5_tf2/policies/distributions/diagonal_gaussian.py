@@ -81,12 +81,12 @@ class DiagonalGaussian(Distribution):
             (tf.Tensor): likelihood ratio
         """
         """ YOUR CODE HERE FOR PROBLEM 1C"""
-        with tf.variable_scope("log_li_new"):
+        with tf.name_scope("log_li_new") as scope:
             # hint: consider using the function you just inplemented in PROBLEM 1A!
-            logli_new = self.log_likelihood(x_var, new_dist_info_vars)
-        with tf.variable_scope("log_li_old"):
+            logli_new = self.log_likelihood_sym(x_var, new_dist_info_vars)
+        with tf.name_scope("log_li_old") as scope:
             # hint: consider using the function you just inplemented in PROBLEM 1A!
-            logli_old = self.log_likelihood(x_var, old_dist_info_vars)
+            logli_old = self.log_likelihood_sym(x_var, old_dist_info_vars)
         # hint: note this is pi over pi_old, not log_pi over log_pi_old
         pi_over_pi_old = logli_new / logli_old
         """ YOUR CODE ENDS"""
@@ -137,7 +137,7 @@ class DiagonalGaussian(Distribution):
         log_stds = dist_info_vars["log_std"]
         """ YOUR CODE HERE FOR PROBLEM 1E """
         # hint: compute entropy, look it up online if you don't know. Remember, it is diagonal gaussian.
-        result = None
+        result = 1/2 * tf.math.log(2 * math.pi) + 1/2 + tf.reduce_sum(log_stds, axis=-1)
         """ YOUR CODE ENDS """
         return result
 

@@ -55,10 +55,13 @@ class PPO(Algo, Serializable):
         :return:
         '''
 
-        observations, actions, rewards, returns = data['observations'], data['actions'], data['rewards'], data['returns']
+        observations, actions, rewards, returns, advantages = data['observations'], data['actions'], \
+                                                              data['rewards'], data['returns'], data['advantages']
+
 
         #1. Find the action_mean and action_log_std by running policy (it is prediction step)
         # distribution_info is dict has 2 keys {'mean': mean, 'log_std': log_std}
+        distribution_info_old = data['agent_infos']
         distribution_info = self.policy.distribution_info_sym(observations) # new
 
         #2. Find the loss between true_y (action) and predicted_y (distribution_info)
@@ -66,7 +69,7 @@ class PPO(Algo, Serializable):
             """ YOUR CODE HERE FOR PROBLEM 1C --- PROVIDED """
             # hint: you need to implement pi over pi_old in this function. This function is located at hw5.policies.distributions.diagonal_gaussian
             # you don't need to write code here
-            likelihood_ratio = self.policy.distribution.likelihood_ratio_sym(actions, dist_info_old_ph,
+            likelihood_ratio = self.policy.distribution.likelihood_ratio_sym(actions, distribution_info_old,
                                                                              distribution_info)
             """ YOUR CODE ENDS """
         else:
@@ -82,13 +85,13 @@ class PPO(Algo, Serializable):
             # hint: as described, you need to first clip the likelihood_ratio between 1 + eps and 1 - eps
             # in the code, eps is self._clip_eps
             # finally you need to find the minimum of the non clipped objective and the clipped one, and we just call it clipped_obj in the code.
-            obj_1 = None
-            obj_2 = None
-            clipped_obj = None
+            obj_1 = tf.clip_by_value(likelihood_ratio, 1 - self._clip_eps, 1 + self._clip_eps) * advantages
+            obj_2 = likelihood_ratio * advantages
+            clipped_obj = tf.math.minimum(obj_1, obj_2)
             """ YOUR CODE END """
         else:
             """YOUR CODE HERE FOR PROBLEM 1A"""
-            clipped_obj = likelihood_ratio  # hint: here we also abuse the var name a bit. The obj is not clipped here!!!!
+            clipped_obj = likelihood_ratio * advantages  # hint: here we also abuse the var name a bit. The obj is not clipped here!!!!
             """YOUR CODE ENDS"""
 
         if self.use_entropy:
@@ -102,7 +105,7 @@ class PPO(Algo, Serializable):
             surr_obj = - tf.reduce_mean(clipped_obj) - entropy_obj
             """ YOUR CODE END """
         else:
-            surr_obj = - tf.math.reduce_mean(clipped_obj * returns)
+            surr_obj = - tf.math.reduce_mean(clipped_obj)
 
         return surr_obj
 

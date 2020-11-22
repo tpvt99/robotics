@@ -7,26 +7,54 @@ Processing samples...
 Optimizing policy...
 Saving snapshot...
 Saved
-----------------------------------------
-| Itr                     | 0          |
-| ItrTime                 | 79.2       |
-| LossAfter               | -103.99934 |
-| LossBefore              | -103.99182 |
-| Time                    | 79.2       |
-| Time-Optimization       | 0.426      |
-| Time-SampleProc         | 3.79       |
-| Time-Sampling           | 75         |
-| n_timesteps             | 10000      |
-| train-AverageDiscoun... | -25.4      |
-| train-AverageReturn     | -41.3      |
-| train-EnvExecTime       | 6.41       |
-| train-MaxReturn         | 29.1       |
-| train-MinReturn         | -125       |
-| train-NumTrajs          | 100        |
-| train-PolicyExecTime    | 37.4       |
-| train-StdReturn         | 29.9       |
-----------------------------------------
+--------------------------------------------
+| Itr                     | 0              |
+| ItrTime                 | 85.7           |
+| LossAfter               | -7.992565e-05  |
+| LossBefore              | -1.4189385e-05 |
+| Time                    | 85.7           |
+| Time-Optimization       | 0.447          |
+| Time-SampleProc         | 0.0627         |
+| Time-Sampling           | 85.2           |
+| n_timesteps             | 10000          |
+| train-AverageDiscoun... | -24            |
+| train-AverageReturn     | -38.7          |
+| train-EnvExecTime       | 7.12           |
+| train-MaxReturn         | 26.4           |
+| train-MinReturn         | -136           |
+| train-NumTrajs          | 100            |
+| train-PolicyExecTime    | 42.6           |
+| train-StdReturn         | 31.6           |
+--------------------------------------------
 
  ---------------- Iteration 1 ----------------
 Sampling set of tasks/goals for this meta-batch...
 Obtaining samples...
+Processing samples...
+Optimizing policy...
+Saving snapshot...
+Saved
+--------------------------------------------
+| Itr                     | 1              |
+| ItrTime                 | 74.8           |
+| LossAfter               | -1.2740412e-05 |
+| LossBefore              | -1.4392967e-05 |
+| Time                    | 161            |
+| Time-Optimization       | 0.348          |
+| Time-SampleProc         | 0.0587         |
+| Time-Sampling           | 74.4           |
+| n_timesteps             | 20000          |
+| train-AverageDiscoun... | -23.1          |
+| train-AverageReturn     | -36.7          |
+| train-EnvExecTime       | 6.29           |
+| train-MaxReturn         | 21.9           |
+| train-MinReturn         | -131           |
+| train-NumTrajs          | 100            |
+| train-PolicyExecTime    | 36.8           |
+| train-StdReturn         | 35.2           |
+--------------------------------------------
+
+ ---------------- Iteration 2 ----------------
+Sampling set of tasks/goals for this meta-batch...
+Obtaining samples...
+Processing samples...

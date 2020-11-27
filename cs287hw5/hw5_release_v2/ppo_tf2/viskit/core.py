@@ -1,13 +1,16 @@
 import csv
+import math
 import os
 import numpy as np
 import json
 import itertools
 
+
 class AttrDict(dict):
     def __init__(self, *args, **kwargs):
         super(AttrDict, self).__init__(*args, **kwargs)
         self.__dict__ = self
+
 
 
 def unique(l):
@@ -21,8 +24,12 @@ def flatten(l):
 def load_progress(progress_csv_path):
     print("Reading %s" % progress_csv_path)
     entries = dict()
+    if progress_csv_path.split('.')[-1] == "csv":
+        delimiter = ','
+    else:
+        delimiter = '\t'
     with open(progress_csv_path, 'r') as csvfile:
-        reader = csv.DictReader(csvfile)
+        reader = csv.DictReader(csvfile, delimiter=delimiter)
         for row in reader:
             for k, v in row.items():
                 if k not in entries:
@@ -35,23 +42,23 @@ def load_progress(progress_csv_path):
     return entries
 
 
-# def to_json(stub_object):
-#     from rllab.misc.instrument import StubObject
-#     from rllab.misc.instrument import StubAttr
-#     if isinstance(stub_object, StubObject):
-#         assert len(stub_object.args) == 0
-#         data = dict()
-#         for k, v in stub_object.kwargs.items():
-#             data[k] = to_json(v)
-#         data["_name"] = stub_object.proxy_class.__module__ + \
-#                         "." + stub_object.proxy_class.__name__
-#         return data
-#     elif isinstance(stub_object, StubAttr):
-#         return dict(
-#             obj=to_json(stub_object.obj),
-#             attr=to_json(stub_object.attr_name)
-#         )
-#     return stub_object
+def to_json(stub_object):
+    from rllab.misc.instrument import StubObject
+    from rllab.misc.instrument import StubAttr
+    if isinstance(stub_object, StubObject):
+        assert len(stub_object.args) == 0
+        data = dict()
+        for k, v in stub_object.kwargs.items():
+            data[k] = to_json(v)
+        data["_name"] = stub_object.proxy_class.__module__ + \
+                        "." + stub_object.proxy_class.__name__
+        return data
+    elif isinstance(stub_object, StubAttr):
+        return dict(
+            obj=to_json(stub_object.obj),
+            attr=to_json(stub_object.attr_name)
+        )
+    return stub_object
 
 
 def flatten_dict(d):
@@ -72,7 +79,7 @@ def load_params(params_json_path):
         if "args_data" in data:
             del data["args_data"]
         if "exp_name" not in data:
-            data["exp_name"] = params_json_path.split("/")[-2]
+            data["exp_name"] = params_json_path.split("\\")[-2]
     return data
 
 
@@ -90,7 +97,12 @@ def lookup(d, keys):
     return d
 
 
-def load_exps_data(exp_folder_paths, disable_variant=False):
+def load_exps_data(
+        exp_folder_paths,
+        data_filename='progress.csv',
+        params_filename='params.json',
+        disable_variant=False,
+):
     exps = []
     for exp_folder_path in exp_folder_paths:
         exps += [x[0] for x in os.walk(exp_folder_path)]
@@ -98,9 +110,11 @@ def load_exps_data(exp_folder_paths, disable_variant=False):
     for exp in exps:
         try:
             exp_path = exp
-            params_json_path = os.path.join(exp_path, "params.json")
+            params_json_path = os.path.join(exp_path, params_filename)
             variant_json_path = os.path.join(exp_path, "variant.json")
-            progress_csv_path = os.path.join(exp_path, "progress.csv")
+            progress_csv_path = os.path.join(exp_path, data_filename)
+            if os.stat(progress_csv_path).st_size == 0:
+                progress_csv_path = os.path.join(exp_path, "log.txt")
             progress = load_progress(progress_csv_path)
             if disable_variant:
                 params = load_params(params_json_path)
@@ -110,7 +124,9 @@ def load_exps_data(exp_folder_paths, disable_variant=False):
                 except IOError:
                     params = load_params(params_json_path)
             exps_data.append(AttrDict(
-                progress=progress, params=params, flat_params=flatten_dict(params)))
+                progress=progress,
+                params=params,
+                flat_params=flatten_dict(params)))
         except IOError as e:
             print(e)
     return exps_data
@@ -124,44 +140,87 @@ def smart_repr(x):
             return "(%s,)" % smart_repr(x[0])
         else:
             return "(" + ",".join(map(smart_repr, x)) + ")"
+    elif isinstance(x, list):
+        if len(x) == 0:
+            return "[]"
+        elif len(x) == 1:
+            return "[%s,]" % smart_repr(x[0])
+        else:
+            return "[" + ",".join(map(smart_repr, x)) + "]"
     else:
         if hasattr(x, "__call__"):
             return "__import__('pydoc').locate('%s')" % (x.__module__ + "." + x.__name__)
+        elif isinstance(x, float) and math.isnan(x):
+            return 'float("nan")'
         else:
             return repr(x)
 
 
-def extract_distinct_params(exps_data, excluded_params=('exp_name', 'seed', 'log_dir'), l=1):
+def smart_eval(string):
+    string = string.replace(',inf)', ',"inf")')
+    return eval(string)
+
+
+
+def extract_distinct_params(exps_data, excluded_params=('seed', 'log_dir'), l=1):
+    # all_pairs = unique(flatten([d.flat_params.items() for d in exps_data]))
+    # if logger:
+    #     logger("(Excluding {excluded})".format(excluded=', '.join(excluded_params)))
+    # def cmp(x,y):
+    #     if x < y:
+    #         return -1
+    #     elif x > y:
+    #         return 1
+    #     else:
+    #         return 0
+
     try:
+        params_as_evalable_strings = [
+            list(
+                map(
+                    smart_repr,
+                    list(d.flat_params.items())
+                )
+            )
+            for d in exps_data
+        ]
+        unique_params = unique(
+            flatten(
+                params_as_evalable_strings
+            )
+        )
         stringified_pairs = sorted(
             map(
-                eval,
-                unique(
-                    flatten(
-                        [
-                            list(
-                                map(
-                                    smart_repr,
-                                    list(d.flat_params.items())
-                                )
-                            )
-                            for d in exps_data
-                        ]
-                    )
-                )
+                smart_eval,
+                unique_params
             ),
             key=lambda x: (
-                tuple(0. if it is None else it for it in x),
+                tuple(smart_repr(i) for i in x)
+                # tuple(0. if it is None else it for it in x),
             )
         )
     except Exception as e:
         print(e)
-        import pdb; pdb.set_trace()
+        import ipdb; ipdb.set_trace()
     proposals = [(k, [x[1] for x in v])
                  for k, v in itertools.groupby(stringified_pairs, lambda x: x[0])]
-    filtered = [(k, v) for (k, v) in proposals if len(v) > l and all(
-        [k.find(excluded_param) != 0 for excluded_param in excluded_params])]
+    filtered = [
+        (k, v) for (k, v) in proposals
+        if k == 'version' or (
+            len(v) > l and all(
+                [k.find(excluded_param) != 0
+                 for excluded_param in excluded_params]
+            )
+        )
+    ]
     return filtered
+
+def exp_has_key_value(exp, k, v):
+    return (
+        str(exp.flat_params.get(k, None)) == str(v)
+        # TODO: include this?
+        or (k not in exp.flat_params)
+    )
 
 
 class Selector(object):
@@ -177,7 +236,20 @@ class Selector(object):
             self._custom_filters = custom_filters
 
     def where(self, k, v):
-        return Selector(self._exps_data, self._filters + ((k, v),), self._custom_filters)
+        return Selector(
+            self._exps_data,
+            self._filters + ((k, v),),
+            self._custom_filters,
+        )
+
+    def where_not(self, k, v):
+        return Selector(
+            self._exps_data,
+            self._filters,
+            self._custom_filters + [
+                lambda exp: not exp_has_key_value(exp, k, v)
+            ],
+        )
 
     def custom_filter(self, filter):
         return Selector(self._exps_data, self._filters, self._custom_filters + [filter])
@@ -185,7 +257,10 @@ class Selector(object):
     def _check_exp(self, exp):
         # or exp.flat_params.get(k, None) is None
         return all(
-            ((str(exp.flat_params.get(k, None)) == str(v) or (k not in exp.flat_params)) for k, v in self._filters)
+            (
+                exp_has_key_value(exp, k, v)
+                for k, v in self._filters
+            )
         ) and all(custom_filter(exp) for custom_filter in self._custom_filters)
 
     def extract(self):

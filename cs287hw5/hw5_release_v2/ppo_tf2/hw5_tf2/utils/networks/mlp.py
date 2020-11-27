@@ -12,9 +12,9 @@ class Linear(tf.keras.layers.Layer):
         self.bias_initializer = bias_initializer
 
     def build(self, input_shape):
-        self.w = self.add_weight(shape=[input_shape[-1], self.units],
+        self.w = self.add_weight(name= 'w', shape=[input_shape[-1], self.units],
                                  initializer= self.kernel_initializer, trainable=True)
-        self.b = self.add_weight(shape = (self.units,),
+        self.b = self.add_weight(name ='b', shape = (self.units,),
                                  initializer= self.bias_initializer, trainable = True)
 
     def call(self, input):
@@ -61,11 +61,11 @@ class MLP(tf.keras.models.Model):
         self._layers = []
 
         for idx, hidden_size in enumerate(hidden_sizes):
-            layer = Linear(units = hidden_size, name = f"hidden_{0}".format(idx),
+            layer = Linear(units = hidden_size, name = name + f"hidden_{idx}",
                            activation = self.hidden_nonlinearity, kernel_initializer=self.w_init,
                            bias_initializer=self.b_init)
             self._layers.append(layer)
-        output = Linear(units = output_dim, name="output", activation = output_nonlinearity,
+        output = Linear(units = output_dim, name=name + "output", activation = output_nonlinearity,
                         kernel_initializer=self.w_init, bias_initializer=self.b_init)
         self._layers.append(output)
 

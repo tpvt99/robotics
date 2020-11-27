@@ -2,6 +2,7 @@ import tensorflow as tf
 import numpy as np
 from hw5_tf2.policies.distributions.base import Distribution
 import math
+import tensorflow_probability as tfp
 
 class DiagonalGaussian(Distribution):
     """
@@ -105,9 +106,12 @@ class DiagonalGaussian(Distribution):
         log_stds = dist_info_vars["log_std"]
         "YOUR CODE HERE FOR PROBLEM 1A"
         # hint: compute loglikelihood of gaussian
-        component1 = self.dim * tf.math.log(math.pi)
-        component2 = tf.reduce_sum(tf.math.square(x_var - means) / (tf.math.square(tf.math.exp(log_stds)) )+ 2 * log_stds, axis=1)
+        component1 = self.dim * tf.math.log(2*math.pi)
+        component2 = tf.reduce_sum(tf.math.square(x_var - means) / tf.math.square(tf.math.exp(log_stds)) + 2 * log_stds, axis=1)
         logli = -1/2 * (component1 + component2)
+
+        #pi = tfp.distributions.Normal(means, tf.math.exp(log_stds))
+        #logli_pi = tf.reduce_sum(pi.log_prob(x_var), axis=-1)
 
         "YOUR CODE END"
         return logli

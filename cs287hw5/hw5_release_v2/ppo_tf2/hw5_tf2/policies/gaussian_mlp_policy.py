@@ -52,12 +52,14 @@ class GaussianMLPPolicy(Policy):
         Builds computational graph for policy
         """
         with tf.name_scope(self.name) as scope:
-            self.mean_var = MLP(name = scope + "mean_network",
+            self.mean_var = MLP(name = scope + "mean_network/",
                             output_dim = self.action_dim,
                             hidden_sizes=self.hidden_sizes,
                             hidden_nonlinearity=self.hidden_nonlinearity,
                             output_nonlinearity=self.output_nonlinearity,
-                            input_dim = (None, self.obs_dim,))
+                            input_dim = None)
+
+            self.mean_var.build(input_shape = (None, self.obs_dim)) # Need to build to have trainable weights
 
             with tf.name_scope("log_std_network") as inner_scope:
                 self.log_std = tf.Variable(name = "log_std_var",

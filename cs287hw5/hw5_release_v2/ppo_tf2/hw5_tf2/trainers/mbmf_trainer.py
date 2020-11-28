@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import time
-from hw5.logger import logger
+from hw5_tf2.logger import logger
 
 
 class Trainer(object):
@@ -57,9 +57,6 @@ class Trainer(object):
         self.log_real_performance = log_real_performance
         self.sample_from_buffer = sample_from_buffer
 
-        if sess is None:
-            sess = tf.Session()
-        self.sess = sess
 
     def train(self):
         """
@@ -73,128 +70,122 @@ class Trainer(object):
                 algo.optimize_policy()
                 sampler.update_goals()
         """
-        with self.sess.as_default() as sess:
 
-            # initialize uninitialized vars  (only initialize vars that were not loaded)
-            sess.run(tf.global_variables_initializer())
 
-            if type(self.steps_per_iter) is tuple:
-                steps_per_iter = np.linspace(self.steps_per_iter[0],
-                                             self.steps_per_iter[1], self.n_itr).astype(np.int)
+        if type(self.steps_per_iter) is tuple:
+            steps_per_iter = np.linspace(self.steps_per_iter[0],
+                                         self.steps_per_iter[1], self.n_itr).astype(np.int)
+        else:
+            steps_per_iter = [self.steps_per_iter] * self.n_itr
+
+        start_time = time.time()
+        for itr in range(self.start_itr, self.n_itr):
+            itr_start_time = time.time()
+            logger.log("\n ---------------- Iteration %d ----------------" % itr)
+
+            time_env_sampling_start = time.time()
+
+            if self.initial_random_samples and itr == 0:
+                logger.log("Obtaining random samples from the environment...")
+                env_paths = self.env_sampler.obtain_samples(log=True, random=True, log_prefix='Data-EnvSampler-')
+
             else:
-                steps_per_iter = [self.steps_per_iter] * self.n_itr
+                logger.log("Obtaining samples from the environment using the policy...")
+                env_paths = self.env_sampler.obtain_samples(log=True, log_prefix='Data-EnvSampler-')
 
-            start_time = time.time()
-            for itr in range(self.start_itr, self.n_itr):
-                itr_start_time = time.time()
-                logger.log("\n ---------------- Iteration %d ----------------" % itr)
+            # Add sleeping time to match parallel experiment
+            # time.sleep(10)
 
+            logger.record_tabular('Data-TimeEnvSampling', time.time() - time_env_sampling_start)
+            logger.log("Processing environment samples...")
+
+            # first processing just for logging purposes
+            time_env_samp_proc = time.time()
+
+            samples_data = self.dynamics_sample_processor.process_samples(env_paths, log=True,
+                                                                          log_prefix='Data-EnvTrajs-')
+
+            logger.record_tabular('Data-TimeEnvSampleProc', time.time() - time_env_samp_proc)
+
+            ''' --------------- fit dynamics model --------------- '''
+
+            time_fit_start = time.time()
+
+            logger.log("Training dynamics model for %i epochs ..." % (self.dynamics_model_max_epochs))
+            self.dynamics_model.fit(samples_data['observations'],
+                                    samples_data['actions'],
+                                    samples_data['next_observations'],
+                                    epochs=self.dynamics_model_max_epochs, verbose=False,
+                                    log_tabular=True, prefix='Model-')
+
+            buffer = None if not self.sample_from_buffer else samples_data
+
+            logger.record_tabular('Model-TimeModelFit', time.time() - time_fit_start)
+
+            ''' --------------- MAML steps --------------- '''
+            times_dyn_sampling = []
+            times_dyn_sample_processing = []
+            times_optimization = []
+            times_step = []
+
+            for step in range(steps_per_iter[itr]):
+
+                logger.log("\n ---------------- Grad-Step %d ----------------" % int(sum(steps_per_iter[:itr])
+                                                                                     + step))
+                step_start_time = time.time()
+
+                """ -------------------- Sampling --------------------------"""
+
+                logger.log("Obtaining samples from the model...")
                 time_env_sampling_start = time.time()
+                paths = self.model_sampler.obtain_samples(log=True, log_prefix='Policy-', buffer=buffer)
+                sampling_time = time.time() - time_env_sampling_start
 
-                if self.initial_random_samples and itr == 0:
-                    logger.log("Obtaining random samples from the environment...")
-                    env_paths = self.env_sampler.obtain_samples(log=True, random=True, log_prefix='Data-EnvSampler-')
+                """ ----------------- Processing Samples ---------------------"""
 
+                logger.log("Processing samples from the model...")
+                time_proc_samples_start = time.time()
+                samples_data = self.model_sample_processor.process_samples(paths, log='all', log_prefix='Policy-')
+                proc_samples_time = time.time() - time_proc_samples_start
+
+                if type(paths) is list:
+                    self.log_diagnostics(paths, prefix='Policy-')
                 else:
-                    logger.log("Obtaining samples from the environment using the policy...")
-                    env_paths = self.env_sampler.obtain_samples(log=True, log_prefix='Data-EnvSampler-')
+                    self.log_diagnostics(sum(paths.values(), []), prefix='Policy-')
 
-                # Add sleeping time to match parallel experiment
-                # time.sleep(10)
+                """ ------------------ Policy Update ---------------------"""
 
-                logger.record_tabular('Data-TimeEnvSampling', time.time() - time_env_sampling_start)
-                logger.log("Processing environment samples...")
+                logger.log("Optimizing policy...")
+                time_optimization_step_start = time.time()
+                self.algo.optimize_policy(samples_data)
+                optimization_time = time.time() - time_optimization_step_start
 
-                # first processing just for logging purposes
-                time_env_samp_proc = time.time()
+                times_dyn_sampling.append(sampling_time)
+                times_dyn_sample_processing.append(proc_samples_time)
+                times_optimization.append(optimization_time)
+                times_step.append(time.time() - step_start_time)
 
-                samples_data = self.dynamics_sample_processor.process_samples(env_paths, log=True,
-                                                                              log_prefix='Data-EnvTrajs-')
+            """ ------------------- Logging Stuff --------------------------"""
+            logger.logkv('Iteration', itr)
+            logger.logkv('n_timesteps', self.env_sampler.total_timesteps_sampled)
+            logger.logkv('Policy-TimeSampleProc', np.sum(times_dyn_sample_processing))
+            logger.logkv('Policy-TimeSampling', np.sum(times_dyn_sampling))
+            logger.logkv('Policy-TimeAlgoOpt', np.sum(times_optimization))
+            logger.logkv('Policy-TimeStep', np.sum(times_step))
 
-                logger.record_tabular('Data-TimeEnvSampleProc', time.time() - time_env_samp_proc)
+            logger.logkv('Time', time.time() - start_time)
+            logger.logkv('ItrTime', time.time() - itr_start_time)
 
-                ''' --------------- fit dynamics model --------------- '''
+            logger.log("Saving snapshot...")
+            params = self.get_itr_snapshot(itr)
+            logger.save_itr_params(itr, params)
+            logger.log("Saved")
 
-                time_fit_start = time.time()
+            logger.dumpkvs()
 
-                logger.log("Training dynamics model for %i epochs ..." % (self.dynamics_model_max_epochs))
-                self.dynamics_model.fit(samples_data['observations'],
-                                        samples_data['actions'],
-                                        samples_data['next_observations'],
-                                        epochs=self.dynamics_model_max_epochs, verbose=False,
-                                        log_tabular=True, prefix='Model-')
-
-                buffer = None if not self.sample_from_buffer else samples_data
-
-                logger.record_tabular('Model-TimeModelFit', time.time() - time_fit_start)
-
-                ''' --------------- MAML steps --------------- '''
-                times_dyn_sampling = []
-                times_dyn_sample_processing = []
-                times_optimization = []
-                times_step = []
-
-                for step in range(steps_per_iter[itr]):
-
-                    logger.log("\n ---------------- Grad-Step %d ----------------" % int(sum(steps_per_iter[:itr])
-                                                                                         + step))
-                    step_start_time = time.time()
-
-                    """ -------------------- Sampling --------------------------"""
-
-                    logger.log("Obtaining samples from the model...")
-                    time_env_sampling_start = time.time()
-                    paths = self.model_sampler.obtain_samples(log=True, log_prefix='Policy-', buffer=buffer)
-                    sampling_time = time.time() - time_env_sampling_start
-
-                    """ ----------------- Processing Samples ---------------------"""
-
-                    logger.log("Processing samples from the model...")
-                    time_proc_samples_start = time.time()
-                    samples_data = self.model_sample_processor.process_samples(paths, log='all', log_prefix='Policy-')
-                    proc_samples_time = time.time() - time_proc_samples_start
-
-                    if type(paths) is list:
-                        self.log_diagnostics(paths, prefix='Policy-')
-                    else:
-                        self.log_diagnostics(sum(paths.values(), []), prefix='Policy-')
-
-                    """ ------------------ Policy Update ---------------------"""
-
-                    logger.log("Optimizing policy...")
-                    time_optimization_step_start = time.time()
-                    self.algo.optimize_policy(samples_data)
-                    optimization_time = time.time() - time_optimization_step_start
-
-                    times_dyn_sampling.append(sampling_time)
-                    times_dyn_sample_processing.append(proc_samples_time)
-                    times_optimization.append(optimization_time)
-                    times_step.append(time.time() - step_start_time)
-
-                """ ------------------- Logging Stuff --------------------------"""
-                logger.logkv('Iteration', itr)
-                logger.logkv('n_timesteps', self.env_sampler.total_timesteps_sampled)
-                logger.logkv('Policy-TimeSampleProc', np.sum(times_dyn_sample_processing))
-                logger.logkv('Policy-TimeSampling', np.sum(times_dyn_sampling))
-                logger.logkv('Policy-TimeAlgoOpt', np.sum(times_optimization))
-                logger.logkv('Policy-TimeStep', np.sum(times_step))
-
-                logger.logkv('Time', time.time() - start_time)
-                logger.logkv('ItrTime', time.time() - itr_start_time)
-
-                logger.log("Saving snapshot...")
-                params = self.get_itr_snapshot(itr)
-                logger.save_itr_params(itr, params)
-                logger.log("Saved")
-
-                logger.dumpkvs()
-                if itr == 0:
-                    sess.graph.finalize()
-
-            logger.logkv('Trainer-TimeTotal', time.time() - start_time)
+        logger.logkv('Trainer-TimeTotal', time.time() - start_time)
 
         logger.log("Training finished")
-        self.sess.close()
 
     def get_itr_snapshot(self, itr):
         """

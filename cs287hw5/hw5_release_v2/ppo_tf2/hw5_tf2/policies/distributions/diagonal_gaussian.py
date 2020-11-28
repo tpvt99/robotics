@@ -89,7 +89,7 @@ class DiagonalGaussian(Distribution):
             # hint: consider using the function you just inplemented in PROBLEM 1A!
             logli_old = self.log_likelihood_sym(x_var, old_dist_info_vars)
         # hint: note this is pi over pi_old, not log_pi over log_pi_old
-        pi_over_pi_old = logli_new / logli_old
+        pi_over_pi_old = tf.math.exp(logli_new) / tf.math.exp(logli_old)
         """ YOUR CODE ENDS"""
         return pi_over_pi_old
 

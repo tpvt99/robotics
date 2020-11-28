@@ -4,7 +4,6 @@ from hw5_tf2.dynamics.utils import normalize, denormalize, train_test_split
 import tensorflow as tf
 import numpy as np
 from hw5_tf2.utils.serializable import Serializable
-from hw5_tf2.utils import compile_function
 from hw5_tf2.logger import logger
 from collections import OrderedDict
 
@@ -56,7 +55,7 @@ class MLPDynamicsModel(Serializable):
         self.hidden_nonlinearity = hidden_nonlinearity = self._activations[hidden_nonlinearity]
         self.output_nonlinearity = output_nonlinearity =self._activations[output_nonlinearity]
 
-        with tf.name_scope(name):
+        with tf.name_scope(name) as scope:
             self.batch_size = batch_size
             self.learning_rate = learning_rate
 
@@ -75,7 +74,7 @@ class MLPDynamicsModel(Serializable):
             self.nn_input = tf.concat([self.obs_ph, self.act_ph], axis=1)
 
             # create MLP
-            mlp = MLP(name,
+            mlp = MLP(name=scope,
                       output_dim=self.obs_space_dims,
                       hidden_sizes=hidden_sizes,
                       hidden_nonlinearity=hidden_nonlinearity,
@@ -92,8 +91,6 @@ class MLPDynamicsModel(Serializable):
             self.loss = self.loss_obj
             """ YOUR CODE ENDS """
             self.optimizer = optimizer(self.learning_rate)
-            #self.train_op = self.optimizer.minimize(self.loss)
-
 
             # tensor_utils
             self.f_delta_pred = self.delta_pred

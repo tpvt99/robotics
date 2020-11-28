@@ -157,10 +157,6 @@ class MLP(Layer):
 
             # save the policy's trainable variables in dicts
             # current_scope = tf.get_default_graph().get_name_scope()
-        current_scope = self.name
-        trainable_policy_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope=current_scope)
-        self._params = OrderedDict([(remove_scope_from_name(var.name, current_scope), var)
-                                    for var in trainable_policy_vars])
 
         # Create an OrderedDict to include mean_var and log_std
         self._params = OrderedDict([(remove_scope_from_name(var.name, self.name), var) for var in self.output_var.trainable_variables])

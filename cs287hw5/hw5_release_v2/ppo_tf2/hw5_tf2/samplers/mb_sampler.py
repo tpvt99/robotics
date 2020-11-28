@@ -1,6 +1,6 @@
-from hw5.samplers.base import Sampler
-from hw5.utils import utils
-from hw5.logger import logger
+from hw5_tf2.samplers.base import Sampler
+from hw5_tf2.utils import utils
+from hw5_tf2.logger import logger
 import numpy as np
 import tensorflow as tf
 from collections import OrderedDict
@@ -34,17 +34,14 @@ class MBSampler(Sampler):
         self.optimize_actions = optimize_actions
         self.num_models = getattr(dynamics_model, 'num_models', 1)
 
-        self.build_graph()
 
-    def build_graph(self):
-        self._initial_obs_ph = tf.placeholder(dtype=tf.float32, shape=(self.num_rollouts,
-                                                                       self.policy.obs_dim), name='init_obs')
+    def samples(self, initial_obs):
         obses = []
         acts = []
         rewards = []
         means = []
         log_stds = []
-        obs = self._initial_obs_ph
+        obs = initial_obs
         for t in range(self.max_path_length):
             dist_policy = self.policy.distribution_info_sym(obs)
             act, dist_policy = self.policy.distribution.sample_sym(dist_policy)
@@ -60,12 +57,14 @@ class MBSampler(Sampler):
 
             obs = next_obs
 
-        self._returns_var = tf.reduce_sum(rewards, axis=0)
-        self._rewards_var = rewards
-        self._actions_var = acts
-        self._observations_var = obses
-        self._means_var = means
-        self._log_stds_var = log_stds
+        returns_var = tf.reduce_sum(rewards, axis=0)
+        rewards_var = rewards
+        actions_var = acts
+        observations_var = obses
+        means_var = means
+        log_stds_var = log_stds
+
+        return observations_var, actions_var, means_var, log_stds_var, rewards_var
 
     def obtain_samples(self, log=False, log_prefix='', buffer=None, random=False):
         """
@@ -85,15 +84,7 @@ class MBSampler(Sampler):
         # initial reset of meta_envs
         init_obses = np.array([self.env.reset() for _ in range(self.num_rollouts)])
 
-        sess = tf.get_default_session()
-        observations, actions, means, log_stds, rewards = sess.run([self._observations_var,
-                                                                    self._actions_var,
-                                                                    self._means_var,
-                                                                    self._log_stds_var,
-                                                                    self._rewards_var
-                                                                    ],
-                                                                    feed_dict={self._initial_obs_ph: init_obses}
-                                                                    )
+        observations, actions, means, log_stds, rewards = self.samples(init_obses)
 
         means = np.array(means).transpose((1, 0, 2))
         log_stds = np.array(log_stds).transpose((1, 0, 2))

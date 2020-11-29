@@ -73,7 +73,7 @@ def train_SAC(env_name, exp_name, seed, logdir, extra_params=None):
 
     env = gym.envs.make(env_name)
     # Set random seeds
-    tf.set_random_seed(seed)
+    tf.random.set_seed(seed)
     np.random.seed(seed)
     env.seed(seed)
 
@@ -84,43 +84,54 @@ def train_SAC(env_name, exp_name, seed, logdir, extra_params=None):
         **replay_pool_params)
 
     q_function = nn.QFunction(name='q_function', **q_function_params)
+    q_function.build(input_shape = [env.observation_space.shape, env.action_space.shape])
+
     if algorithm_params.get('two_qf', False):
         q_function2 = nn.QFunction(name='q_function2', **q_function_params)
+        q_function2.build(input_shape = [env.observation_space.shape, env.action_space.shape])
     else:
         q_function2 = None
+
     value_function = nn.ValueFunction(
         name='value_function', **value_function_params)
+    # We initialize build() so the function has variables to be watch() in tape at first gradient.
+    # (We want to control which variables to have gradients so in tape we set it watch_accessed_variables = False,
+    # hence we need to have the trainable_variables in the first loop)
+    value_function.build(input_shape = env.observation_space.shape)
+
     target_value_function = nn.ValueFunction(
         name='target_value_function', **value_function_params)
+    target_value_function.build(input_shape = env.observation_space.shape)
+
     policy = nn.GaussianPolicy(
         action_dim=env.action_space.shape[0],
         reparameterize=algorithm_params['reparameterize'],
         **policy_params)
+    policy.build(input_shape = env.observation_space.shape)
 
     sampler.initialize(env, policy, replay_pool)
 
     algorithm = SAC(**algorithm_params)
 
-    tf_config = tf.ConfigProto(inter_op_parallelism_threads=1, intra_op_parallelism_threads=1)
-    tf_config.gpu_options.allow_growth = True  # may need if using GPU
-    with tf.Session(config=tf_config):
-        algorithm.build(
-            env=env,
-            policy=policy,
-            q_function=q_function,
-            q_function2=q_function2,
-            value_function=value_function,
-            target_value_function=target_value_function)
+    #tf_config = tf.ConfigProto(inter_op_parallelism_threads=1, intra_op_parallelism_threads=1)
+    #tf_config.gpu_options.allow_growth = True  # may need if using GPU
+    algorithm.build(
+        env=env,
+        policy=policy,
+        q_function=q_function,
+        q_function2=q_function2,
+        value_function=value_function,
+        target_value_function=target_value_function)
 
-        for epoch in algorithm.train(sampler, n_epochs=algorithm_params.get('n_epochs', 1000)):
-            logz.log_tabular('Iteration', epoch)
-            for k, v in algorithm.get_statistics().items():
-                logz.log_tabular(k, v)
-            for k, v in replay_pool.get_statistics().items():
-                logz.log_tabular(k, v)
-            for k, v in sampler.get_statistics().items():
-                logz.log_tabular(k, v)
-            logz.dump_tabular()
+    for epoch in algorithm.train(sampler, n_epochs=algorithm_params.get('n_epochs', 1000)):
+        logz.log_tabular('Iteration', epoch)
+        for k, v in algorithm.get_statistics().items():
+            logz.log_tabular(k, v)
+        for k, v in replay_pool.get_statistics().items():
+            logz.log_tabular(k, v)
+        for k, v in sampler.get_statistics().items():
+            logz.log_tabular(k, v)
+        logz.dump_tabular()
 
 def main():
     parser = argparse.ArgumentParser()

@@ -1,7 +1,7 @@
 {
   "algo": "ppo_legacy",
   "baseline": {
-    "$class": "hw5_tf2.baselines.zero_baseline.ZeroBaseline"
+    "$class": "hw5_tf2.baselines.linear_baseline.LinearFeatureBaseline"
   },
   "clip_eps": 0.2,
   "discount": 0.99,
@@ -24,7 +24,7 @@
   "learning_rate": 0.001,
   "max_path_length": 100,
   "n_itr": 300,
-  "name": "pg_HalfCheetah",
+  "name": "ppo(unclipped)_HalfCheetah",
   "normalize_adv": true,
   "num_minibatches": 1,
   "num_ppo_steps": 5,
@@ -36,5 +36,5 @@
   "use_clipper": 0,
   "use_entropy": 0,
   "use_gae": 0,
-  "use_ppo_obj": 0
+  "use_ppo_obj": 1
 }

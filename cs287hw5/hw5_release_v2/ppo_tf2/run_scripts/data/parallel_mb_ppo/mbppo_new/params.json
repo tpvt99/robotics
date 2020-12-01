@@ -1,0 +1,53 @@
+{
+  "algo": "meppo",
+  "baseline": {
+    "$class": "hw5_tf2.baselines.linear_baseline.LinearFeatureBaseline"
+  },
+  "clip_eps": 0.2,
+  "deterministic": true,
+  "discount": 0.99,
+  "dyanmics_hidden_nonlinearity": "relu",
+  "dyanmics_output_nonlinearity": null,
+  "dynamics_batch_size": 256,
+  "dynamics_buffer_size": 10000,
+  "dynamics_hidden_sizes": [
+    512,
+    512
+  ],
+  "dynamics_learning_rate": 0.001,
+  "dynamics_max_epochs": 50,
+  "ensemble": 1,
+  "env": {
+    "$class": "hw5_tf2.envs.mb_envs.half_cheetah.HalfCheetahEnv"
+  },
+  "exp_num": 0,
+  "exp_tag": "mb_ppo_all",
+  "gae_lambda": 1,
+  "imagined_num_rollouts": 20,
+  "learning_rate": 0.001,
+  "log_real_performance": true,
+  "max_path_length": 200,
+  "n_itr": 51,
+  "name": "mbppo_new",
+  "normalize_adv": true,
+  "num_models": 5,
+  "num_ppo_steps": 5,
+  "num_rollouts": 5,
+  "policy_hidden_nonlinearity": {
+    "function": "tanh"
+  },
+  "policy_hidden_sizes": [
+    64,
+    64
+  ],
+  "policy_learn_std": true,
+  "policy_output_nonlinearity": null,
+  "positive_adv": false,
+  "recurrent": false,
+  "scope": null,
+  "seed": 0,
+  "steps_per_iter": [
+    10,
+    10
+  ]
+}

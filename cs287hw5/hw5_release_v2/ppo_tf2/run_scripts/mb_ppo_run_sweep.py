@@ -15,7 +15,7 @@ from hw5_tf2.samplers.base import SampleProcessor
 from hw5_tf2.samplers.mb_sampler import MBSampler
 from hw5_tf2.policies.gaussian_mlp_policy import GaussianMLPPolicy
 from hw5_tf2.dynamics.mlp_dynamics import MLPDynamicsModel
-from hw5.dynamics.mlp_dynamics_ensemble import MLPDynamicsEnsemble
+from hw5_tf2.dynamics.mlp_dynamics_ensemble import MLPDynamicsEnsemble
 from hw5_tf2.logger import logger
 from hw5_tf2.samplers.mb_sample_processor import ModelSampleProcessor
 import argparse

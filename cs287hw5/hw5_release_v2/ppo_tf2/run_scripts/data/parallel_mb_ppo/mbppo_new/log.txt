@@ -1,0 +1,1 @@
+Logging to /home/tpvt96/ai_course/robotics/cs287hw5/hw5_release_v2/ppo_tf2/run_scripts/data/parallel_mb_ppo/mbppo_new/

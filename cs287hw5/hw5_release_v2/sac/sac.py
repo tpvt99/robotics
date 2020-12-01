@@ -33,8 +33,6 @@ class SAC:
         self._reparameterize = reparameterize
         self._tau = tau
 
-        self._training_ops = []
-
         self.optimizer = tf.keras.optimizers.Adam(learning_rate=self._learning_rate)
 
     def build(self, env, policy, q_function, q_function2, value_function,
@@ -77,7 +75,7 @@ class SAC:
         gradients = tape.gradient(policy_loss, self.policy.trainable_variables)
         self.optimizer.apply_gradients(zip(gradients, self.policy.trainable_variables))
 
-        self.target_update(self.target_value_function, self.value_function)
+        self.target_update(target = self.target_value_function, source = self.value_function)
 
 
     def _policy_loss_for(self, batch_data):
@@ -103,7 +101,7 @@ class SAC:
             
             target = self._alpha * log_pis - q_vals + baseline
             
-            target = tf.stop_gradient(target)
+            #target = tf.stop_gradient(target)
             result = tf.reduce_mean(log_pis * target)
             """ CODE ENDS """
             return result
@@ -142,7 +140,7 @@ class SAC:
             v_val = self.value_function(obs)
             next_act, log_pi = self.policy(obs)
             q_val = self.q_function([obs, next_act])
-            loss = v_val - q_val + self._alpha * log_pi
+            loss = tf.reduce_mean((v_val - q_val + self._alpha * log_pi)**2)
 
         else:
             """ YOUR CODE HERE FOR PROBLEM 3A.3"""
@@ -151,7 +149,7 @@ class SAC:
             q_val1 = self.q_function([obs, next_act])
             q_val2 = self.q_function2([obs, next_act])
 
-            loss = v_val - tf.math.minimum(q_val1, q_val2) + self._alpha * log_pi
+            loss = tf.reduce_mean((v_val - tf.math.minimum(q_val1, q_val2) + self._alpha * log_pi)**2)
         return loss
 
 
@@ -163,7 +161,9 @@ class SAC:
 
         q_val = q_function([obs, act])
         v_val = self.target_value_function(next_obs)
-        return tf.reduce_mean((q_val - (rewards + self._alpha * v_val))**2)
+        backup = rewards + self._discount * (1 - done) * v_val
+
+        return tf.reduce_mean((q_val - backup)**2)
 
     def target_update(self, source, target):
         """Create tensorflow operations for updating target value function."""

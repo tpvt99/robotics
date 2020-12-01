@@ -93,7 +93,7 @@ class GaussianPolicy(tf.keras.layers.Layer):
         if not self._reparameterize:
             """ YOUR CODE HERE FOR PROBLEM 3C --- provided """
             # hint: stop gradient for the raw actions
-            raw_actions = tf.stop_gradient(raw_actions)
+            #raw_actions = tf.stop_gradient(raw_actions)
             pass
             """ YOUR CODE ENDS """
         log_probs = distribution.log_prob(raw_actions)

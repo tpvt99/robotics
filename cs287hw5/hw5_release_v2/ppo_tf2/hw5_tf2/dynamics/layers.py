@@ -152,7 +152,7 @@ class MLP(Layer):
                                      output_nonlinearity=self.output_nonlinearity,
                                      input_dim=(None, self.input_dim,),
                                      #input_var=self.input_var,
-                                     batch_normalization=self.batch_normalization,
+                                     batch_normalization=True,
                                      )
 
             # save the policy's trainable variables in dicts

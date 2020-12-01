@@ -47,6 +47,7 @@ class MLP(tf.keras.models.Model):
                 input_dim=None,
                 w_init=tf.keras.initializers.GlorotUniform(),
                 b_init=tf.keras.initializers.Zeros(),
+                batch_normalization = False,
                ):
         super(MLP, self).__init__(name = name)
 
@@ -58,21 +59,25 @@ class MLP(tf.keras.models.Model):
         self.w_init = w_init
         self.b_init = b_init
 
-        self._layers = []
+
+        self._layers_list = []
 
         for idx, hidden_size in enumerate(hidden_sizes):
+            if batch_normalization:
+                self._layers_list.append(tf.keras.layers.BatchNormalization())
             layer = Linear(units = hidden_size, name = name + f"hidden_{idx}",
                            activation = self.hidden_nonlinearity, kernel_initializer=self.w_init,
                            bias_initializer=self.b_init)
             self._layers.append(layer)
+        self._layers_list.append
         output = Linear(units = output_dim, name=name + "output", activation = output_nonlinearity,
                         kernel_initializer=self.w_init, bias_initializer=self.b_init)
-        self._layers.append(output)
+        self._layers_list.append(output)
 
     def call(self, inputs, training = False):
         x = inputs
-        for layer in self._layers:
-            x = layer(x)
+        for layer in self._layers_list:
+            x = layer(x, training)
         return x
 
 def forward_mlp(output_dim,

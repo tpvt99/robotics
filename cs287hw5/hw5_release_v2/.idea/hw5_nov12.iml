@@ -5,7 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/sac" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ppo_tf2" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.7 (rlcourse)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (rlcourse)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

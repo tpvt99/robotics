@@ -59,8 +59,6 @@ class GaussianMLPPolicy(Policy):
                             output_nonlinearity=self.output_nonlinearity,
                             input_dim = None)
 
-            self.mean_var.build(input_shape = (None, self.obs_dim)) # Need to build to have trainable weights
-
             with tf.name_scope("log_std_network") as inner_scope:
                 self.log_std = tf.Variable(name = "log_std_var",
                                                shape=(1, self.action_dim,),
@@ -69,6 +67,8 @@ class GaussianMLPPolicy(Policy):
                                                trainable=self.learn_std)
 
         self._dist = DiagonalGaussian(self.action_dim)
+
+        self.mean_var.call(tf.random.normal(shape=(10, self.obs_dim)))  # Need to call to have trainable weights
 
         # Create an OrderedDict to include mean_var and log_std
         self.policy_params = OrderedDict([(remove_scope_from_name(var.name, self.name), var) for var in self.mean_var.trainable_variables])

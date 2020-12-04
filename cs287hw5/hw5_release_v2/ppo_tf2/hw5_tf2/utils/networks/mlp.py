@@ -17,7 +17,7 @@ class Linear(tf.keras.layers.Layer):
         self.b = self.add_weight(name ='b', shape = (self.units,),
                                  initializer= self.bias_initializer, trainable = True)
 
-    def call(self, input):
+    def call(self, input, training):
         z = tf.matmul(input, self.w) + self.b
         if self.activation is None:
             return z
@@ -68,8 +68,7 @@ class MLP(tf.keras.models.Model):
             layer = Linear(units = hidden_size, name = name + f"hidden_{idx}",
                            activation = self.hidden_nonlinearity, kernel_initializer=self.w_init,
                            bias_initializer=self.b_init)
-            self._layers.append(layer)
-        self._layers_list.append
+            self._layers_list.append(layer)
         output = Linear(units = output_dim, name=name + "output", activation = output_nonlinearity,
                         kernel_initializer=self.w_init, bias_initializer=self.b_init)
         self._layers_list.append(output)

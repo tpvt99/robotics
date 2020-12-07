@@ -84,7 +84,9 @@ def train_SAC(env_name, exp_name, seed, logdir, extra_params=None):
         **replay_pool_params)
 
     q_function = nn.QFunction(name='q_function', **q_function_params)
-    q_function.build(input_shape = [env.observation_space.shape, env.action_space.shape])
+    #q_function.build(input_shape = [env.observation_space.shape, env.action_space.shape])
+    q_function.call((tf.random.normal(shape = (1, env.observation_space.shape[0])),
+                    tf.random.normal(shape = (1, env.action_space.shape[0]))))
 
     if algorithm_params.get('two_qf', False):
         q_function2 = nn.QFunction(name='q_function2', **q_function_params)
@@ -97,11 +99,12 @@ def train_SAC(env_name, exp_name, seed, logdir, extra_params=None):
     # We initialize build() so the function has variables to be watch() in tape at first gradient.
     # (We want to control which variables to have gradients so in tape we set it watch_accessed_variables = False,
     # hence we need to have the trainable_variables in the first loop)
-    value_function.build(input_shape = env.observation_space.shape)
+    #value_function.build(input_shape = env.observation_space.shape)
+    value_function(tf.random.normal(shape = (1, env.observation_space.shape[0])))
 
     target_value_function = nn.ValueFunction(
         name='target_value_function', **value_function_params)
-    target_value_function.build(input_shape = env.observation_space.shape)
+    target_value_function(tf.random.normal(shape = (1, env.observation_space.shape[0])))
 
     policy = nn.GaussianPolicy(
         action_dim=env.action_space.shape[0],

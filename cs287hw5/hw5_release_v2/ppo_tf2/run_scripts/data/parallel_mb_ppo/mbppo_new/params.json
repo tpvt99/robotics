@@ -16,7 +16,7 @@
   ],
   "dynamics_learning_rate": 0.001,
   "dynamics_max_epochs": 50,
-  "ensemble": 1,
+  "ensemble": 0,
   "env": {
     "$class": "hw5_tf2.envs.mb_envs.half_cheetah.HalfCheetahEnv"
   },

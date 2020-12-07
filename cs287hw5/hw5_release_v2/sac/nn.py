@@ -11,21 +11,27 @@ class QFunction(tf.keras.layers.Layer):
         self._hidden_layer_sizes = hidden_layer_sizes
 
         self.concat = tf.keras.layers.Concatenate(axis=-1)
-
-    def build(self, input_shape):
         self.q_function = tf.keras.Sequential()
-        obs_shape, act_shape = input_shape
-
-        if isinstance(obs_shape, int):
-            self.q_function.add(tf.keras.Input(shape = (obs_shape + act_shape, )))
-        elif isinstance(obs_shape, tuple):
-            self.q_function.add(tf.keras.Input(shape = (obs_shape[0] + act_shape[0], )))
 
         for hidden_units in self._hidden_layer_sizes:
             self.q_function.add(tf.keras.layers.Dense(units=hidden_units, activation='relu'))
 
         self.q_function.add(tf.keras.layers.Dense(units=1, activation=None))
-        self.built = True
+
+    # def build(self, input_shape):
+    #     self.q_function = tf.keras.Sequential()
+    #     obs_shape, act_shape = input_shape
+    #
+    #     if isinstance(obs_shape, int):
+    #         self.q_function.add(tf.keras.Input(shape = (obs_shape + act_shape, )))
+    #     elif isinstance(obs_shape, tuple):
+    #         self.q_function.add(tf.keras.Input(shape = (obs_shape[0] + act_shape[0], )))
+    #
+    #     for hidden_units in self._hidden_layer_sizes:
+    #         self.q_function.add(tf.keras.layers.Dense(units=hidden_units, activation='relu'))
+    #
+    #     self.q_function.add(tf.keras.layers.Dense(units=1, activation=None))
+    #     self.built = True
 
     def call(self, inputs, **kwargs):
         obs_input, act_input = inputs
@@ -39,19 +45,27 @@ class ValueFunction(tf.keras.layers.Layer):
         super(ValueFunction, self).__init__(**kwargs)
         self._hidden_layer_sizes = hidden_layer_sizes
 
-    def build(self, input_shape):
-        self.v_function = tf.keras.Sequential()
 
-        if isinstance(input_shape, int):
-            self.v_function.add(tf.keras.layers.Input(shape=(input_shape,)))
-        elif isinstance(input_shape, tuple):
-            self.v_function.add(tf.keras.layers.Input(shape=input_shape))
+        self.v_function = tf.keras.Sequential()
 
         for hidden_units in self._hidden_layer_sizes:
             self.v_function.add(tf.keras.layers.Dense(units=hidden_units, activation='relu'))
 
         self.v_function.add(tf.keras.layers.Dense(units=1, activation=None))
-        self.built = True
+
+    # def build(self, input_shape):
+    #     self.v_function = tf.keras.Sequential()
+    #
+    #     if isinstance(input_shape, int):
+    #         self.v_function.add(tf.keras.layers.Input(shape=(input_shape,)))
+    #     elif isinstance(input_shape, tuple):
+    #         self.v_function.add(tf.keras.layers.Input(shape=input_shape))
+    #
+    #     for hidden_units in self._hidden_layer_sizes:
+    #         self.v_function.add(tf.keras.layers.Dense(units=hidden_units, activation='relu'))
+    #
+    #     self.v_function.add(tf.keras.layers.Dense(units=1, activation=None))
+    #     self.built = True
 
     def call(self, inputs, **kwargs):
         obs = inputs
@@ -93,8 +107,7 @@ class GaussianPolicy(tf.keras.layers.Layer):
         if not self._reparameterize:
             """ YOUR CODE HERE FOR PROBLEM 3C --- provided """
             # hint: stop gradient for the raw actions
-            #raw_actions = tf.stop_gradient(raw_actions)
-            pass
+            raw_actions = tf.stop_gradient(raw_actions)
             """ YOUR CODE ENDS """
         log_probs = distribution.log_prob(raw_actions)
         log_probs -= self._squash_correction(raw_actions)
@@ -102,9 +115,9 @@ class GaussianPolicy(tf.keras.layers.Layer):
         actions = None
         """YOUR CODE HERE FOR PROBLEM 3D --- provided """
         # hint: clip the action with tanh
-        actions = tf.tanh(raw_actions)
+        actions = tf.math.tanh(raw_actions)
         """ YOUR CODE ENDS """
-        return [actions, log_probs]
+        return actions, log_probs
 
     def call(self, inputs, **kwargs):
         obs = inputs

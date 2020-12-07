@@ -115,7 +115,7 @@ class Trainer(object):
             self.dynamics_model.fit(samples_data['observations'],
                                     samples_data['actions'],
                                     samples_data['next_observations'],
-                                    epochs=self.dynamics_model_max_epochs, verbose=False,
+                                    epochs=self.dynamics_model_max_epochs, verbose=True,
                                     log_tabular=True, prefix='Model-')
 
             buffer = None if not self.sample_from_buffer else samples_data

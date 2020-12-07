@@ -145,18 +145,20 @@ class MLP(Layer):
         """
         # with tf.variable_scope(self.name, reuse=tf.AUTO_REUSE):
             # build the actual policy network
-        self.output_var = MLPNetwork(name='mlp',
-                                     output_dim=self.output_dim,
-                                     hidden_sizes=self.hidden_sizes,
-                                     hidden_nonlinearity=self.hidden_nonlinearity,
-                                     output_nonlinearity=self.output_nonlinearity,
-                                     input_dim=(None, self.input_dim,),
-                                     #input_var=self.input_var,
-                                     batch_normalization=True,
-                                     )
+        with tf.name_scope(self.name) as scope:
+            self.output_var = MLPNetwork(name=scope + 'mlp/',
+                                         output_dim=self.output_dim,
+                                         hidden_sizes=self.hidden_sizes,
+                                         hidden_nonlinearity=self.hidden_nonlinearity,
+                                         output_nonlinearity=self.output_nonlinearity,
+                                         input_dim=(None, self.input_dim,),
+                                         batch_normalization=True,
+                                         )
 
             # save the policy's trainable variables in dicts
             # current_scope = tf.get_default_graph().get_name_scope()
+
+        self.output_var(tf.random.normal(shape = (1, self.input_dim)))
 
         # Create an OrderedDict to include mean_var and log_std
         self._params = OrderedDict([(remove_scope_from_name(var.name, self.name), var) for var in self.output_var.trainable_variables])

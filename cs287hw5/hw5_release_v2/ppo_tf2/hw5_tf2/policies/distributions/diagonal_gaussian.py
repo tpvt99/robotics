@@ -180,12 +180,12 @@ class DiagonalGaussian(Distribution):
            (obj): sample drawn from the corresponding instantiation
         """
         means = dist_info["mean"]
-        stds = tf.exp(dist_info["log_std"])
+        stds = tf.math.exp(dist_info["log_std"])
         rnd = tf.random.normal(shape=tf.shape(means))
         actions = means + rnd * stds
         if self._squashed:
             dist_info['pre_tanh'] = actions
-            return tf.tanh(means + rnd * stds), dist_info
+            return tf.math.tanh(means + rnd * stds), dist_info
         else:
             return means + rnd * stds, dist_info
 

@@ -8,5 +8,5 @@ do
     python mb_ppo_run_sweep.py --env_name HalfCheetah \
                                --exp_name mbppo_new \
                                --exp_num $i \
-                               --ensemble 1
+                               --ensemble 0
 done

@@ -64,12 +64,12 @@ class MLP(tf.keras.models.Model):
 
         for idx, hidden_size in enumerate(hidden_sizes):
             if batch_normalization:
-                self._layers_list.append(tf.keras.layers.BatchNormalization())
-            layer = Linear(units = hidden_size, name = name + f"hidden_{idx}",
+                self._layers_list.append(tf.keras.layers.BatchNormalization(name = f'batch_normalization_{idx}'))
+            layer = Linear(units = hidden_size, name = f"hidden_{idx}",
                            activation = self.hidden_nonlinearity, kernel_initializer=self.w_init,
                            bias_initializer=self.b_init)
             self._layers_list.append(layer)
-        output = Linear(units = output_dim, name=name + "output", activation = output_nonlinearity,
+        output = Linear(units = output_dim, name="output", activation = output_nonlinearity,
                         kernel_initializer=self.w_init, bias_initializer=self.b_init)
         self._layers_list.append(output)
 

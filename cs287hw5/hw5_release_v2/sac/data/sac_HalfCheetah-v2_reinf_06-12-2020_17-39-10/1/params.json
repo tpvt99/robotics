@@ -8,7 +8,7 @@
     "n_epochs": 500,
     "reparameterize": false,
     "tau": 0.01,
-    "two_qf": false
+    "two_qf": true
   },
   "env_name": "HalfCheetah-v2",
   "exp_name": "reinf",

@@ -75,7 +75,9 @@ class SAC:
         gradients = tape.gradient(policy_loss, self.policy.trainable_variables)
         self.optimizer.apply_gradients(zip(gradients, self.policy.trainable_variables))
 
-        self.target_update(target = self.target_value_function, source = self.value_function)
+
+
+        return value_function_loss, q_loss, policy_loss
 
 
     def _policy_loss_for(self, batch_data):
@@ -101,7 +103,7 @@ class SAC:
             
             target = self._alpha * log_pis - q_vals + baseline
             
-            #target = tf.stop_gradient(target)
+            target = tf.stop_gradient(target)
             result = tf.reduce_mean(log_pis * target)
             """ CODE ENDS """
             return result
@@ -115,7 +117,7 @@ class SAC:
                     self.q_function([obs, actions]),
                     self.q_function2([obs, actions])
                 )
-            q_vals = tf.squeeze(q_vals, axis=1)    
+            q_vals = tf.squeeze(q_vals, axis=1)
             
             result = tf.reduce_mean(
                 self._alpha * log_pis - q_vals
@@ -137,19 +139,19 @@ class SAC:
                             batch_data['next_observations'], batch_data['rewards'], batch_data['terminals']
 
         if self.q_function2 is None:
-            v_val = self.value_function(obs)
+            v_val = tf.squeeze(self.value_function(obs))
             next_act, log_pi = self.policy(obs)
-            q_val = self.q_function([obs, next_act])
-            loss = tf.reduce_mean((v_val - q_val + self._alpha * log_pi)**2)
+            q_val = tf.squeeze(self.q_function([obs, next_act]))
+            loss = 0.5 * tf.reduce_mean((v_val - tf.stop_gradient(q_val - self._alpha * log_pi))**2)
 
         else:
             """ YOUR CODE HERE FOR PROBLEM 3A.3"""
-            v_val = self.value_function(obs)
+            v_val = tf.squeeze(self.value_function(obs))
             next_act, log_pi = self.policy(obs)
-            q_val1 = self.q_function([obs, next_act])
-            q_val2 = self.q_function2([obs, next_act])
+            q_val1 = tf.squeeze(self.q_function([obs, next_act]))
+            q_val2 = tf.squeeze(self.q_function2([obs, next_act]))
 
-            loss = tf.reduce_mean((v_val - tf.math.minimum(q_val1, q_val2) + self._alpha * log_pi)**2)
+            loss = 0.5 * tf.reduce_mean((v_val - tf.math.minimum(q_val1, q_val2) + self._alpha * log_pi)**2)
         return loss
 
 
@@ -159,17 +161,19 @@ class SAC:
         obs, act, next_obs, rewards, done = batch_data['observations'], batch_data['actions'], \
                         batch_data['next_observations'], batch_data['rewards'], batch_data['terminals']
 
-        q_val = q_function([obs, act])
-        v_val = self.target_value_function(next_obs)
-        backup = rewards + self._discount * (1 - done) * v_val
+        q_val = tf.squeeze(q_function([obs, act]))
+        v_val = tf.squeeze(self.target_value_function(next_obs))
+        backup = tf.stop_gradient(rewards + self._discount * (1 - done) * v_val)
 
-        return tf.reduce_mean((q_val - backup)**2)
+        return 0.5 * tf.reduce_mean((q_val - backup)**2)
 
     def target_update(self, source, target):
         """Create tensorflow operations for updating target value function."""
 
-        for target, source in zip(target.trainable_variables, source.trainable_variables):
-            target.assign((1 - self._tau) * target + self._tau * source)
+        for target_value, source_value in zip(target.trainable_variables, source.trainable_variables):
+            target_value.assign((1 - self._tau) * target_value + self._tau * source_value)
+
+        pass
 
     def train(self, sampler, n_epochs=1000):
         """Return a generator that performs RL training.
@@ -187,7 +191,9 @@ class SAC:
                 sampler.sample()
 
                 batch = sampler.random_batch(self._batch_size)
-                self.run(batch)
+                vloss, qloss, policyloss = self.run(batch)
+                #print(f'Vloss {vloss:.5f}. Qloss: {qloss:.5f}. Policy Loss: {policyloss:.5f}')
+                self.target_update(target=self.target_value_function, source=self.value_function)
 
             yield epoch
 

@@ -68,7 +68,7 @@ class GaussianMLPPolicy(Policy):
 
         self._dist = DiagonalGaussian(self.action_dim)
 
-        self.mean_var.call(tf.random.normal(shape=(10, self.obs_dim)))  # Need to call to have trainable weights
+        self.mean_var(tf.random.normal(shape=(10, self.obs_dim)))  # Need to call to have trainable weights
 
         # Create an OrderedDict to include mean_var and log_std
         self.policy_params = OrderedDict([(remove_scope_from_name(var.name, self.name), var) for var in self.mean_var.trainable_variables])
